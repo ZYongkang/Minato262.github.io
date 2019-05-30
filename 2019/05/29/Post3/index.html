@@ -1,109 +1,89 @@
 <!DOCTYPE html>
 <html lang>
-  <head><meta name="generator" content="Hexo 3.8.0">
-    
-<meta charset="UTF-8">
+  <head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
 
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-
-  <meta name="description" content="MySQL百万级数据分页查询及优化">
-
-
-
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="水门的博客">
-
-
-
-
-
-
+<meta name="description" content="MySQL百万级数据分页查询及优化"><link rel="alternate" href="/default" title="水门的博客"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
 <link rel="canonical" href="http://yoursite.com/2019/05/29/Post3/">
 
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
 
-<meta name="description" content="方法1: 直接使用数据库提供的SQL语句 语句样式: MySQL中,可用如下方法: SELECT * FROM 表名称 LIMIT M,N 适应场景: 适用于数据量较少的情况(元组百/千级) 原因/缺点: 全表扫描,速度会很慢 且 有的数据库结果集返回不稳定(如某次返回1,2,3,另外的一次返回2,1,3). Limit限制的是从结果集的M位置处取出N条输出,其余抛弃. 方法2: 建立主键或唯一索">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MySQL百万级数据分页查询及优化">
-<meta property="og:url" content="http://yoursite.com/2019/05/29/Post3/index.html">
-<meta property="og:site_name" content="水门的博客">
-<meta property="og:description" content="方法1: 直接使用数据库提供的SQL语句 语句样式: MySQL中,可用如下方法: SELECT * FROM 表名称 LIMIT M,N 适应场景: 适用于数据量较少的情况(元组百/千级) 原因/缺点: 全表扫描,速度会很慢 且 有的数据库结果集返回不稳定(如某次返回1,2,3,另外的一次返回2,1,3). Limit限制的是从结果集的M位置处取出N条输出,其余抛弃. 方法2: 建立主键或唯一索">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-29T14:22:04.552Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL百万级数据分页查询及优化">
-<meta name="twitter:description" content="方法1: 直接使用数据库提供的SQL语句 语句样式: MySQL中,可用如下方法: SELECT * FROM 表名称 LIMIT M,N 适应场景: 适用于数据量较少的情况(元组百/千级) 原因/缺点: 全表扫描,速度会很慢 且 有的数据库结果集返回不稳定(如某次返回1,2,3,另外的一次返回2,1,3). Limit限制的是从结果集的M位置处取出N条输出,其余抛弃. 方法2: 建立主键或唯一索">
-
-
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-
-
-
-
-
-<script type="text/javascript">
-  var themeConfig = {
-    fancybox: {
-      enable: 
-    },
-  };
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":false};
 </script>
 
-
-
-
-  
-
-
-
-    <title> MySQL百万级数据分页查询及优化 - 水门的博客 </title>
+    <title>MySQL百万级数据分页查询及优化 - 水门的博客</title>
   </head>
 
-  <body>
-    <div id="page">
-      <header id="masthead"><div class="site-header-inner">
-    <h1 class="site-title">
-        <a href="/." class="logo">水门的博客</a>
-    </h1>
-
-    <nav id="nav-top">
-        
-  </nav>
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">水门的博客</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </div>
 
-      </header>
-      <div id="content">
-        
-    <div id="primary">
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          MySQL百万级数据分页查询及优化
-        
-      </h1>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">首页
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">水门的博客</a>
+</div>
 
-      <time class="post-time">
-          May 29 2019
-      </time>
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            首页
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">MySQL百万级数据分页查询及优化
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-05-29
+        </span></div>
     </header>
 
-
-
-    
-            <div class="post-content">
-            <p>方法1: 直接使用数据库提供的SQL语句</p>
+    <div class="post-content"><p>方法1: 直接使用数据库提供的SQL语句</p>
 <p>语句样式: MySQL中,可用如下方法: SELECT * FROM 表名称 LIMIT M,N</p>
 <p>适应场景: 适用于数据量较少的情况(元组百/千级)</p>
 <p>原因/缺点: 全表扫描,速度会很慢 且 有的数据库结果集返回不稳定(如某次返回1,2,3,另外的一次返回2,1,3). Limit限制的是从结果集的M位置处取出N条输出,其余抛弃.</p>
@@ -208,73 +188,60 @@
 <p>综上：如果对于有where 条件，又想走索引用limit的，必须设计一个索引，将where 放第一位，limit用到的主键放第2位，而且只能select 主键！</p>
 <p>完美解决了分页问题了。可以快速返回id就有希望优化limit ， 按这样的逻辑，百万级的limit 应该在0.0x秒就可以分完。看来mysql 语句的优化和索引时非常重要的！ </p>
 
-            </div>
-          
-
-    
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://yoursite.com">kay wu</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://yoursite.com/2019/05/29/Post3/">http://yoursite.com/2019/05/29/Post3/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
       <footer class="post-footer">
-		
-
         
-        
-  <nav class="post-nav">
-    
-    
-      <a class="next" href="/2019/05/29/Post2/">
+        <nav class="post-nav"><a class="next" href="/2019/05/29/Post2/">
         <span class="next-text nav-default">Spring Ioc 原理</span>
-        <span class="prev-text nav-mobile">Next</span>
+        <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
-    
-  </nav>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
 
-        
-  <div class="comments" id="comments">
-    
-  </div>
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
 
-
-      </footer>
-    
-  </article>
-
-    </div>
-
-      </div>
-
-      <footer id="colophon"><span class="copyright-year">
-    
-        &copy;
-    
-    2019
-    <span class="footer-author">kay wu.</span>
-    <span class="power-by">
-        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+  <span class="copyright-year">&copy;2015 - 2019<span class="heart">
+      <i class="iconfont icon-heart"></i>
     </span>
-</span>
-
-      </footer>
+    <span class="author">kay wu</span>
+  </span>
+</div>
+</footer>
 
       <div class="back-to-top" id="back-to-top">
         <i class="iconfont icon-up"></i>
       </div>
-    </div>
-    
-
-
-    
-
-
-
-
-  
-    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
-  
-
-  
-
-    <script type="text/javascript" src="/js/src/theme.js?v="></script>
-<script type="text/javascript" src="/js/src/bootstrap.js?v="></script>
-
-  </body>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
 </html>
