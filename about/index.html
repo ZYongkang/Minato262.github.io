@@ -94,13 +94,17 @@
 
 
 
+<meta name="description" content="&amp;emsp;记得有这样一句话：你遇见的每一个人成就了你。每个人的思想，就是她所看见世界的整合。 我从来不想去否定任何一个人的观点，就算在我看来是多么幼稚也不想，因为我知道，我没有经历过她的人生。就像5年前我还在想 log 可能我一生都用不上，但我还可以活的好好的。现在才明白，凡事都有它独特的价值，5年后的我，看到的太多，变化的太大。 唯一没变的可能是《我有一个梦想》中的一段话: 尽管眼下困难重重，">
 <meta property="og:type" content="website">
-<meta property="og:title" content="水门的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:title" content="成功与失败并无绝对">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
 <meta property="og:site_name" content="水门的博客">
+<meta property="og:description" content="&amp;emsp;记得有这样一句话：你遇见的每一个人成就了你。每个人的思想，就是她所看见世界的整合。 我从来不想去否定任何一个人的观点，就算在我看来是多么幼稚也不想，因为我知道，我没有经历过她的人生。就像5年前我还在想 log 可能我一生都用不上，但我还可以活的好好的。现在才明白，凡事都有它独特的价值，5年后的我，看到的太多，变化的太大。 唯一没变的可能是《我有一个梦想》中的一段话: 尽管眼下困难重重，">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-30T16:38:38.641Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="水门的博客">
+<meta name="twitter:title" content="成功与失败并无绝对">
+<meta name="twitter:description" content="&amp;emsp;记得有这样一句话：你遇见的每一个人成就了你。每个人的思想，就是她所看见世界的整合。 我从来不想去否定任何一个人的观点，就算在我看来是多么幼稚也不想，因为我知道，我没有经历过她的人生。就像5年前我还在想 log 可能我一生都用不上，但我还可以活的好好的。现在才明白，凡事都有它独特的价值，5年后的我，看到的太多，变化的太大。 唯一没变的可能是《我有一个梦想》中的一段话: 尽管眼下困难重重，">
 
 
 
@@ -129,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/about/">
 
 
 
 
 
-  <title>水门的博客</title>
+  <title>成功与失败并无绝对 | 水门的博客</title>
   
 
 
@@ -160,9 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -255,393 +257,41 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/29/Post3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kay wu">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="水门的博客">
-    </span>
-
     
+    
+    <div class="post-block page">
       <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/29/Post3/" itemprop="url">MySQL百万级数据分页查询及优化</a></h1>
-        
+	<h1 class="post-title" itemprop="name headline">成功与失败并无绝对</h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-29T22:21:11+08:00">
-                2019-05-29
-              </time>
-            
 
-            
 
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
       
-
       
+      <div class="post-body">
         
-          
-          方法1: 直接使用数据库提供的SQL语句
-语句样式: MySQL中,可用如下方法: SELECT * FROM 表名称 LIMIT M,N
-适应场景: 适用于数据量较少的情况(元组百/千级)
-原因/缺点: 全表扫描,速度会很慢 且 有的数据库结果集返回不稳定(如某次返回1,2,3,另外的一次返回2,
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/29/Post3/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
+          <p>&emsp;<br>记得有这样一句话：你遇见的每一个人成就了你。每个人的思想，就是她所看见世界的整合。</p>
+<p>我从来不想去否定任何一个人的观点，就算在我看来是多么幼稚也不想，因为我知道，我没有经历过她的人生。就像5年前我还在想 log 可能我一生都用不上，但我还可以活的好好的。现在才明白，凡事都有它独特的价值，5年后的我，看到的太多，变化的太大。</p>
+<p>唯一没变的可能是《我有一个梦想》中的一段话: 尽管眼下困难重重，但我依然怀有梦想。或许我的一生都会碌碌无为，但我希望将来的自己仍然心怀梦想，照自己的心意走下去。</p>
+<p>成功与失败并无绝对，就像《追忆逝水年华》的作者普鲁斯特，他一度自认为是个彻底的失败者，一生没工作情事不断还是个同性恋，花20年写了一本没几个人看的小说，但当晚年回首人生，他发现那些难熬的日子才是一生中最美好的时光。因为那些日子造就了他，在这成功与失败之间，我们最需谨记的是还有无数条通向各人所理解的成功。</p>
+<p align="right">——给未来的自己（即将年满二十二岁的自己）</p>
+        
+      </div>
+      
+      
       
     </div>
     
     
     
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/29/Post2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kay wu">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="水门的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/29/Post2/" itemprop="url">Spring Ioc 原理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-29T21:59:15+08:00">
-                2019-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          This is a test.
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/29/Post2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/29/Post1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kay wu">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="水门的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/29/Post1/" itemprop="url">Spring 简介</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-29T21:34:51+08:00">
-                2019-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          一切都是从Bean开始的在1996年，Java还只是一个新兴的、初出茅庐的编程语言。人们之所以关注她仅仅是因为，可以使用Java的Applet来开发Web应用。但这些开发者很快就发现这个新兴的语言还能做更多的事情。与之前的所有语言不同，Java让模块化构建复杂的系统成为可能（当时的软件行业虽然在业务
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/29/Post1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -649,6 +299,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
