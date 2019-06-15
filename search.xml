@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[源码库]]></title>
     <url>%2F2019%2F06%2F15%2Fcode%2Fcode%2F</url>
-    <content type="text"><![CDATA[框架源码spring 源码地址1https://github.com/spring-projects/spring-framework.git mybatis 源码地址1https://github.com/mybatis/mybatis-3.git 中间件源码es 源码地址1https://github.com/elastic/elasticsearch.git dubbo 源码地址1https://github.com/apache/dubbo.git 算法源码lucene 源码地址1https://github.com/apache/lucene-solr.git]]></content>
+    <content type="text"><![CDATA[一，框架源码1，spring 源码地址1https://github.com/spring-projects/spring-framework.git 2，mybatis 源码地址1https://github.com/mybatis/mybatis-3.git 二，中间件源码1，es 源码地址1https://github.com/elastic/elasticsearch.git 2，dubbo 源码地址1https://github.com/apache/dubbo.git 三，算法源码1，lucene 源码地址1https://github.com/apache/lucene-solr.git]]></content>
       <tags>
         <tag>java</tag>
       </tags>
