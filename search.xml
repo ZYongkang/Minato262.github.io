@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[书单]]></title>
+    <url>%2F2019%2F06%2F15%2Fbook%2F</url>
+    <content type="text"><![CDATA[一，基础1，代码1.1 代码大全1.2 代码简洁之路1.3 算法设计与分析1.4 设计模式1.5 七周七并发1.6 多核程序设计艺术 2，Java2.1 Java 编程思想2.2 Java 并发编程的艺术2.3 Java 多线程编程核心技术 3，数据库3.1 高性能 mysql 4，运维4.1 Linux 日志 二，进阶1，基础1.1 深入理解计算机系统1.2 多处理器编程的艺术1.3 图解性能优化1.4 计算机程序设计的艺术1.5 系统架构 2，代码2.1 重构2.2 设计模式解析 3，Java3.1 Effective Java3.2 多线程编程实战3.3 深入理解 JVM 虚拟机3.4 NIO 与 Socket 编程技术指南3.5 spring 源码分析 4，数据库4.1 Mysql 技术内幕 InnoDB 存储引擎4.2 数据库事务处理的艺术 5，中间件5.1 Redis 原理分析5.2 Mq 原理分析 6，分布式6.1 从 Paxos 到 ZooKeeper6.2 分布式理论 7，论文7.1 JSR1337.2 JSP1077.3 The java.util.concurrent Synchronizer Framework7.4 A Java Fork/Join Framework 三，高级]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[源码库]]></title>
-    <url>%2F2019%2F06%2F15%2Fcode%2Fcode%2F</url>
-    <content type="text"><![CDATA[一，框架源码1，spring 源码地址1https://github.com/spring-projects/spring-framework.git 2，mybatis 源码地址1https://github.com/mybatis/mybatis-3.git 二，中间件源码1，es 源码地址1https://github.com/elastic/elasticsearch.git 2，dubbo 源码地址1https://github.com/apache/dubbo.git 三，算法源码1，lucene 源码地址1https://github.com/apache/lucene-solr.git]]></content>
+    <url>%2F2019%2F06%2F15%2Fcode%2F</url>
+    <content type="text"><![CDATA[一，框架源码1，spring 源码地址1https://github.com/spring-projects/spring-framework.git 2，mybatis 源码地址1https://github.com/mybatis/mybatis-3.git 二，中间件源码1，es 源码地址1https://github.com/elastic/elasticsearch.git 2，dubbo 源码地址1https://github.com/apache/dubbo.git 3, netty 源码地址1https://github.com/netty/netty.git 三，算法源码1，lucene 源码地址1https://github.com/apache/lucene-solr.git]]></content>
       <tags>
         <tag>java</tag>
       </tags>
