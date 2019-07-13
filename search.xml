@@ -1,19 +1,866 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[5.3.2 RxJava]]></title>
-    <url>%2F2019%2F07%2F13%2Fconcurrent%2Fconcurrent532%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[1.2 并发的源头]]></title>
-    <url>%2F2019%2F07%2F13%2Fconcurrent%2Fconcurrent12%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
     <title><![CDATA[Java 并发分析]]></title>
     <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent%2F</url>
     <content type="text"><![CDATA[1 前言&emsp;1.1 简介&emsp;1.2 并发的源头 2 原理2.1 线程&emsp;2.1.1 线程定义&emsp;2.1.2 线程的层次&emsp;2.1.3 线程创建后的相关行为&emsp;2.1.4 应用程序设计模型与多线程技术&emsp;2.1.5 虚拟环境：虚拟机与虚拟平台 2.2 锁与同步代码块&emsp;2.2.1 并发底层实现原理&emsp;2.2.2 Java 对象头&emsp;2.2.3 锁以及锁升级&emsp;2.2.4 原子操作的实现原理&emsp;2.2.5 综述 2.3 JMM&emsp;2.3.1 简介&emsp;2.3.2 基础&emsp;2.3.3 重排序&emsp;2.3.4 顺序一致性&emsp;2.3.5 volatile 内存模型&emsp;2.3.6 锁 内存模型&emsp;2.3.7 final 内存模型&emsp;2.3.8 happens-before&emsp;2.3.9 综述 2.4 线程安全&emsp;2.4.1 原子性&emsp;2.4.2 锁机制&emsp;2.4.3 可见性&emsp;2.4.4 线程封闭&emsp;2.4.5 不变性&emsp;2.4.6 组合&emsp;2.4.7 综述 3 设计3.1 多线程设计基础&emsp;3.1.1 任务分解&emsp;3.1.2 数据分解&emsp;3.1.3 数据流分解&emsp;3.1.4 各种分解方式比较&emsp;3.1.5 综述 3.2 并行程序设计结构&emsp;3.2.1 同步&emsp;3.2.2 临界段&emsp;3.2.3 死锁&emsp;3.2.4 同步原语&emsp;&emsp;1）信号量&emsp;&emsp;2）锁&emsp;&emsp;3）条件变量&emsp;3.2.5 消息&emsp;3.2.6 流控&emsp;&emsp;1）栅栏&emsp;&emsp;2）栅障&emsp;3.2.7 其他特征&emsp;3.2.8 综述 3.3 并行程序设计模式&emsp;3.3.1 单线程模式（Single Threaded Execution Pattern）&emsp;3.3.2 不变模式（Immutable Pattern）&emsp;3.3.3 保护性暂挂模式（Guarded Suspension Pattern）&emsp;3.3.4 回避模式（Balking Pattern）&emsp;3.3.5 生产消费模式（Producer-Consumer Pattern）&emsp;3.3.6 读写锁模式（Read-Write Lock Pattern）&emsp;3.3.7 单线程消息模式（Thread-Per-Message Pattern）&emsp;3.3.8 线程池模式（Worker Thread Pattern） 4 常见并发问题及解决方案4.1 线程过多4.2 数据竞争、死锁和活锁&emsp;4.2.1 死锁 4.3 锁竞争&emsp;4.3.1 优先级倒置&emsp;4.3.2 锁竞争激烈的解决方案 4.4 非阻塞算法&emsp;4.4.1 ABA 问题&emsp;4.4.2 cache 行乒乓现象&emsp;4.4.3 存储空间回收问题&emsp;4.4.4 一些建议 4.5 线程安全函数和库4.6 存储问题&emsp;4.6.1 带宽&emsp;4.6.2 cache 的利用&emsp;4.6.3 存储竞争 4.7 cache 相关&emsp;4.7.1 伪共享&emsp;4.7.2 存储一致性&emsp;4.7.3 硬件芯片体系结构 4.8 面向高性能数据组织5 应用5.1 并发编程基础&emsp;5.1.1 线程简介&emsp;5.1.2 线程应用&emsp;5.1.3 线程通信&emsp;5.1.4 综述 5.2 并发包&emsp;5.2.1 简介&emsp;5.2.2 锁机制&emsp;5.2.3 原子变量&emsp;5.2.4 并发集合&emsp;5.2.5 非阻塞队列&emsp;5.2.6 阻塞队列&emsp;5.2.7 同步辅助工具&emsp;5.2.8 线程池&emsp;5.2.9 Fork-Join 框架&emsp;5.2.10 Executor 框架&emsp;5.2.11 综述 5.3 并发开源库&emsp;5.3.1 Akka&emsp;5.3.2 RxJava 6 性能与测试6.1 避免活跃性危险6.2 性能测试6.3 性能与可伸缩性6.4 综述7 总结]]></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[1. 简介]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent11%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[1.2 并发的源头]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent12%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[2.1.1 线程定义]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent211%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.1.2 线程的层次]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent212%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.1.3 线程创建后的相关行为]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent213%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.1.4 应用程序设计模型与多线程技术]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent214%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.1.5 虚拟环境：虚拟机与虚拟平台]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent215%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.2.1 并发底层实现原理]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent221%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.2.2 Java 对象头]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent222%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.2.3 锁以及锁升级]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent223%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.2.4 原子操作的实现原理]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent224%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.2.5 综述]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent225%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.3.1 简介]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent231%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.3.2 基础]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent232%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.3.3 重排序]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent233%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.3.4 顺序一致性]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent234%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.3.5 volatile 内存模型]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent235%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.3.6 锁 内存模型]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent236%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.3.7 final 内存模型]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent237%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.3.8 happens-before]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent238%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.3.9 综述]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent239%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.4.1 原子性]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent241%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.4.2 锁机制]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent242%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.4.3 可见性]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent243%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.4.4 线程封闭]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent244%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.4.5 不变性]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent245%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.4.6 组合]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent246%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2.4.7 综述]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent247%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.1.1 任务分解]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent311%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.1.2 数据分解]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent312%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.1.4 各种分解方式比较]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent314%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.1.3 数据流分解]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent313%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.1.5 综述]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent315%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.2.1 同步]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent321%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.2.2 临界段]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent322%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.2.3 死锁]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent323%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.2.4 同步原语]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent324%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.2.5 消息]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent325%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.2.6 流控]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent326%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.2.7 其他特征]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent327%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.2.8 综述]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent328%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.3.1 单线程模式（Single Threaded Execution Pattern）]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent331%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.3.2 不变模式（Immutable Pattern）]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent332%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.3.3 保护性暂挂模式（Guarded Suspension Pattern）]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent333%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.3.4 回避模式（Balking Pattern）]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent334%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.3.5 生产消费模式（Producer-Consumer Pattern）]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent335%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.3.6 读写锁模式（Read-Write Lock Pattern）]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent336%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.3.7 单线程消息模式（Thread-Per-Message Pattern）]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent337%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3.3.8 线程池模式（Worker Thread Pattern）]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent338%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[4.2 数据竞争、死锁和活锁]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent42%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[4.1 线程过多]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent41%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[4.3 锁竞争]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent43%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[4.4 非阻塞算法]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent44%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[4.5 线程安全函数和库]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent45%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[4.7 cache 相关]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent47%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[4.6 存储问题]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent46%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[4.8 面向高性能数据组织]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent48%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[5.1.1 线程简介]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent511%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[5.1.2 线程应用]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent512%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[5.1.3 线程通信]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent513%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[5.1.4 综述]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent514%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[5.2.1 简介]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent521%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[5.2.10 Executor 框架]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent5210%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[5.2.11 综述]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent5211%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[5.2.2 锁机制]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent522%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[5.2.3 原子变量]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent523%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[5.2.4 并发集合]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent524%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[5.2.5 非阻塞队列]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent525%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[5.2.6 阻塞队列]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent526%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[5.2.8 线程池]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent528%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[concurrent527]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent527%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[5.2.9 Fork-Join 框架]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent529%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[5.3.1 Akka]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent531%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[6.1 避免活跃性危险]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent61%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[6.2 性能测试]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent62%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[5.3.2 RxJava]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent532%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[6.3 性能与可伸缩性]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent63%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[6.4 综述]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent64%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>并发</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[7. 总结]]></title>
+    <url>%2F2019%2F07%2F01%2Fconcurrent%2Fconcurrent7%2F</url>
+    <content type="text"></content>
       <categories>
         <category>并发</category>
       </categories>
@@ -30,853 +877,6 @@
     <title><![CDATA[源码库]]></title>
     <url>%2F2019%2F06%2F15%2Fcode%2F</url>
     <content type="text"><![CDATA[一，框架源码1，spring 源码地址1https://github.com/spring-projects/spring-framework.git 2，mybatis 源码地址1https://github.com/mybatis/mybatis-3.git 二，中间件源码1，es 源码地址1https://github.com/elastic/elasticsearch.git 2，dubbo 源码地址1https://github.com/apache/dubbo.git 3, netty 源码地址1https://github.com/netty/netty.git 三，算法源码1，lucene 源码地址1https://github.com/apache/lucene-solr.git]]></content>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[7. 总结]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent7%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[6.4 综述]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent64%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[6.3 性能与可伸缩性]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent63%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[6.2 性能测试]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent62%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[6.1 避免活跃性危险]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent61%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[5.3.1 Akka]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent531%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[5.2.11 综述]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent5211%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[5.2.10 Executor 框架]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent5210%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[5.2.9 Fork-Join 框架]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent529%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[5.2.8 线程池]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent528%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[concurrent527]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent527%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[5.2.6 阻塞队列]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent526%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[5.2.5 非阻塞队列]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent525%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[5.2.4 并发集合]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent524%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[5.2.3 原子变量]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent523%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[5.2.2 锁机制]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent522%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[5.2.1 简介]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent521%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[5.1.4 综述]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent514%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[5.1.3 线程通信]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent513%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[5.1.2 线程应用]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent512%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[5.1.1 线程简介]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent511%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[4.8 面向高性能数据组织]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent48%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[4.7 cache 相关]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent47%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[4.6 存储问题]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent46%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[4.5 线程安全函数和库]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent45%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[4.4 非阻塞算法]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent44%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[4.3 锁竞争]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent43%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[4.2 数据竞争、死锁和活锁]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent42%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[4.1 线程过多]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent41%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.3.8 线程池模式（Worker Thread Pattern）]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent338%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.3.7 单线程消息模式（Thread-Per-Message Pattern）]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent337%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.3.6 读写锁模式（Read-Write Lock Pattern）]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent336%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.3.5 生产消费模式（Producer-Consumer Pattern）]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent335%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.3.4 回避模式（Balking Pattern）]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent334%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.3.3 保护性暂挂模式（Guarded Suspension Pattern）]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent333%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.3.2 不变模式（Immutable Pattern）]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent332%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.3.1 单线程模式（Single Threaded Execution Pattern）]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent331%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.2.8 综述]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent328%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.2.7 其他特征]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent327%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.2.6 流控]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent326%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.2.5 消息]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent325%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.2.4 同步原语]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent324%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.2.3 死锁]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent323%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.2.2 临界段]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent322%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.2.1 同步]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent321%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.1.5 综述]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent315%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.1.4 各种分解方式比较]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent314%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.1.3 数据流分解]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent313%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.1.2 数据分解]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent312%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[3.1.1 任务分解]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent311%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.4.7 综述]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent247%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.4.6 组合]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent246%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.4.5 不变性]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent245%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.4.4 线程封闭]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent244%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.4.3 可见性]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent243%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.4.2 锁机制]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent242%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.4.1 原子性]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent241%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.3.9 综述]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent239%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.3.8 happens-before]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent238%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.3.7 final 内存模型]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent237%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.3.6 锁 内存模型]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent236%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.3.5 volatile 内存模型]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent235%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.3.4 顺序一致性]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent234%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.3.3 重排序]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent233%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.3.2 基础]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent232%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.3.1 简介]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent231%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.2.5 综述]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent225%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.2.4 原子操作的实现原理]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent224%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.2.3 锁以及锁升级]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent223%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.2.2 Java 对象头]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent222%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.2.1 并发底层实现原理]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent221%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.1.5 虚拟环境：虚拟机与虚拟平台]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent215%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.1.4 应用程序设计模型与多线程技术]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent214%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.1.3 线程创建后的相关行为]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent213%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.1.2 线程的层次]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent212%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2.1.1 线程定义]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent211%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[1. 简介]]></title>
-    <url>%2F2019%2F06%2F01%2Fconcurrent%2Fconcurrent11%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>并发</category>
-      </categories>
       <tags>
         <tag>java</tag>
       </tags>
