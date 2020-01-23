@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="给时间以生命，而不是给生命以时间">
+<meta name="description" content="并发计算，简单来说，就是将一个计算任务，分割成几个小的部分，让它们同时被计算，之后再汇整计算结果，以完成任务。它跟并行计算（Parallel computing）与分布式计算，有重叠之处，在概念上不同，但常会让人混淆。 并发计算是一种程序运算的特性，可以被视为是并行运算的进一步抽象，它包涵了时间片这种可以被用来实现虚拟并行运算（pseudoparallelism）的技术，因此在实际的物理运作中，计">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1. 简介">
+<meta property="og:title" content="1. 概述">
 <meta property="og:url" content="http://yoursite.com/2019/07/01/concurrent/concurrent11/index.html">
 <meta property="og:site_name" content="水门的博客">
-<meta property="og:description" content="给时间以生命，而不是给生命以时间">
+<meta property="og:description" content="并发计算，简单来说，就是将一个计算任务，分割成几个小的部分，让它们同时被计算，之后再汇整计算结果，以完成任务。它跟并行计算（Parallel computing）与分布式计算，有重叠之处，在概念上不同，但常会让人混淆。 并发计算是一种程序运算的特性，可以被视为是并行运算的进一步抽象，它包涵了时间片这种可以被用来实现虚拟并行运算（pseudoparallelism）的技术，因此在实际的物理运作中，计">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-23T18:02:41.038Z">
+<meta property="og:updated_time" content="2020-01-23T18:15:07.693Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1. 简介">
-<meta name="twitter:description" content="给时间以生命，而不是给生命以时间">
+<meta name="twitter:title" content="1. 概述">
+<meta name="twitter:description" content="并发计算，简单来说，就是将一个计算任务，分割成几个小的部分，让它们同时被计算，之后再汇整计算结果，以完成任务。它跟并行计算（Parallel computing）与分布式计算，有重叠之处，在概念上不同，但常会让人混淆。 并发计算是一种程序运算的特性，可以被视为是并行运算的进一步抽象，它包涵了时间片这种可以被用来实现虚拟并行运算（pseudoparallelism）的技术，因此在实际的物理运作中，计">
 
 
 
@@ -140,7 +140,7 @@
 
 
 
-  <title>1. 简介 | 水门的博客</title>
+  <title>1. 概述 | 水门的博客</title>
   
 
 
@@ -332,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">1. 简介</h1>
+          <h1 class="post-title" itemprop="name headline">1. 概述</h1>
         
 
         <div class="post-meta">
@@ -398,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  520
                 </span>
               
 
@@ -423,7 +423,13 @@
       
 
       
-        
+        <p>并发计算，简单来说，就是将一个计算任务，分割成几个小的部分，让它们同时被计算，之后再汇整计算结果，以完成任务。它跟并行计算（Parallel computing）与分布式计算，有重叠之处，在概念上不同，但常会让人混淆。</p>
+<p>并发计算是一种程序运算的特性，可以被视为是并行运算的进一步抽象，它包涵了时间片这种可以被用来实现虚拟并行运算（pseudoparallelism）的技术，因此在实际的物理运作中，计算过程可能是并行，或非并行的。</p>
+<p>并行计算是指，当并发计算的程序，在机器平台上同时被运行的状况，因此，并行计算是一种机器运算的形式之一。分布式计算（Distributed computing）则是并行计算的一个特例，它采用计算机网络来进行同步。</p>
+<p>实现并发程序有许多方式，依编程语言与操作系统的支持，可以用行程，或是线程来实现。它可以运行在单一处理器上，将不同的运行步骤分散在不同时间片中运行，以非并行方式循序运算；它也可以用并行计算来实现，将每个行程指定给处理器组中的某个处理器，以单片机多处理器平台，或是透过网络链接的分散平台来实做。</p>
+<p>依照硬件与操作系统的支持，并发计算可以在同一个行程中完成，在同一个行程中以多线程来完成，以多个行程来达成，甚至可以分成数个程序来运行。可以用单处理器的循序计算来实现，也可以采并行计算或分布式计算方式实做。</p>
+<p>但以并行方式来运作并发程序，并不必然会增进运行效率。因为运行结果可能会因为平台特性而改变，也增加它在设计上的难度。</p>
+
       
     </div>
     
