@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="1 前言&amp;emsp;1.1 概述&amp;emsp;1.2 并发的源头 2 原理2.1 线程&amp;emsp;2.1.1 线程定义&amp;emsp;2.1.2 线程的层次&amp;emsp;2.1.3 线程创建后的相关行为&amp;emsp;2.1.4 应用程序设计模型与多线程技术&amp;emsp;2.1.5 虚拟环境：虚拟机与虚拟平台 2.2 锁与同步代码块&amp;emsp;2.2.1 并发底层实现原理&amp;emsp;2.2.2 Java 对象头">
+<meta name="description" content="1 前言&amp;emsp;1.1 概述&amp;emsp;1.2 并发的源头 2 原理2.1 线程&amp;emsp;2.1.1 线程的定义&amp;emsp;2.1.2 线程的层次&amp;emsp;2.1.3 线程创建后的相关行为&amp;emsp;2.1.4 应用程序设计模型与多线程技术&amp;emsp;2.1.5 虚拟环境：虚拟机与虚拟平台 2.2 锁与同步代码块&amp;emsp;2.2.1 并发底层实现原理&amp;emsp;2.2.2 Java 对象">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 并发原理">
 <meta property="og:url" content="http://yoursite.com/2019/07/01/concurrent/concurrent/index.html">
 <meta property="og:site_name" content="水门的博客">
-<meta property="og:description" content="1 前言&amp;emsp;1.1 概述&amp;emsp;1.2 并发的源头 2 原理2.1 线程&amp;emsp;2.1.1 线程定义&amp;emsp;2.1.2 线程的层次&amp;emsp;2.1.3 线程创建后的相关行为&amp;emsp;2.1.4 应用程序设计模型与多线程技术&amp;emsp;2.1.5 虚拟环境：虚拟机与虚拟平台 2.2 锁与同步代码块&amp;emsp;2.2.1 并发底层实现原理&amp;emsp;2.2.2 Java 对象头">
+<meta property="og:description" content="1 前言&amp;emsp;1.1 概述&amp;emsp;1.2 并发的源头 2 原理2.1 线程&amp;emsp;2.1.1 线程的定义&amp;emsp;2.1.2 线程的层次&amp;emsp;2.1.3 线程创建后的相关行为&amp;emsp;2.1.4 应用程序设计模型与多线程技术&amp;emsp;2.1.5 虚拟环境：虚拟机与虚拟平台 2.2 锁与同步代码块&amp;emsp;2.2.1 并发底层实现原理&amp;emsp;2.2.2 Java 对象">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-24T04:54:02.725Z">
+<meta property="og:updated_time" content="2020-02-03T20:13:20.035Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 并发原理">
-<meta name="twitter:description" content="1 前言&amp;emsp;1.1 概述&amp;emsp;1.2 并发的源头 2 原理2.1 线程&amp;emsp;2.1.1 线程定义&amp;emsp;2.1.2 线程的层次&amp;emsp;2.1.3 线程创建后的相关行为&amp;emsp;2.1.4 应用程序设计模型与多线程技术&amp;emsp;2.1.5 虚拟环境：虚拟机与虚拟平台 2.2 锁与同步代码块&amp;emsp;2.2.1 并发底层实现原理&amp;emsp;2.2.2 Java 对象头">
+<meta name="twitter:description" content="1 前言&amp;emsp;1.1 概述&amp;emsp;1.2 并发的源头 2 原理2.1 线程&amp;emsp;2.1.1 线程的定义&amp;emsp;2.1.2 线程的层次&amp;emsp;2.1.3 线程创建后的相关行为&amp;emsp;2.1.4 应用程序设计模型与多线程技术&amp;emsp;2.1.5 虚拟环境：虚拟机与虚拟平台 2.2 锁与同步代码块&amp;emsp;2.2.1 并发底层实现原理&amp;emsp;2.2.2 Java 对象">
 
 
 
@@ -398,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  936
+                  937
                 </span>
               
 
@@ -424,11 +424,11 @@
 
       
         <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h2><p>&emsp;<a href="../concurrent11">1.1 概述</a><br>&emsp;<a href="../concurrent12">1.2 并发的源头</a></p>
-<h2 id="2-原理"><a href="#2-原理" class="headerlink" title="2 原理"></a>2 原理</h2><h3 id="2-1-线程"><a href="#2-1-线程" class="headerlink" title="2.1 线程"></a>2.1 线程</h3><p>&emsp;<a href="../concurrent211">2.1.1 线程定义</a><br>&emsp;<a href="../concurrent212">2.1.2 线程的层次</a><br>&emsp;<a href="../concurrent213">2.1.3 线程创建后的相关行为</a><br>&emsp;<a href="../concurrent214">2.1.4 应用程序设计模型与多线程技术</a><br>&emsp;<a href="../concurrent215">2.1.5 虚拟环境：虚拟机与虚拟平台</a></p>
+<h2 id="2-原理"><a href="#2-原理" class="headerlink" title="2 原理"></a>2 原理</h2><h3 id="2-1-线程"><a href="#2-1-线程" class="headerlink" title="2.1 线程"></a>2.1 线程</h3><p>&emsp;<a href="../concurrent211">2.1.1 线程的定义</a><br>&emsp;<a href="../concurrent212">2.1.2 线程的层次</a><br>&emsp;<a href="../concurrent213">2.1.3 线程创建后的相关行为</a><br>&emsp;<a href="../concurrent214">2.1.4 应用程序设计模型与多线程技术</a><br>&emsp;<a href="../concurrent215">2.1.5 虚拟环境：虚拟机与虚拟平台</a></p>
 <h3 id="2-2-锁与同步代码块"><a href="#2-2-锁与同步代码块" class="headerlink" title="2.2 锁与同步代码块"></a>2.2 锁与同步代码块</h3><p>&emsp;<a href="../concurrent221">2.2.1 并发底层实现原理</a><br>&emsp;<a href="../concurrent222">2.2.2 Java 对象头</a><br>&emsp;<a href="../concurrent223">2.2.3 锁以及锁升级</a><br>&emsp;<a href="../concurrent224">2.2.4 原子操作的实现原理</a><br>&emsp;<a href="../concurrent225">2.2.5 综述</a></p>
 <h3 id="2-3-JMM"><a href="#2-3-JMM" class="headerlink" title="2.3 JMM"></a>2.3 JMM</h3><p>&emsp;<a href="../concurrent231">2.3.1 简介</a><br>&emsp;<a href="../concurrent232">2.3.2 基础</a><br>&emsp;<a href="../concurrent233">2.3.3 重排序</a><br>&emsp;<a href="../concurrent234">2.3.4 顺序一致性</a><br>&emsp;<a href="../concurrent235">2.3.5 volatile 内存模型</a><br>&emsp;<a href="../concurrent236">2.3.6 锁 内存模型</a><br>&emsp;<a href="../concurrent237">2.3.7 final 内存模型</a><br>&emsp;<a href="../concurrent238">2.3.8 happens-before</a><br>&emsp;<a href="../concurrent239">2.3.9 综述</a></p>
 <h3 id="2-4-线程安全"><a href="#2-4-线程安全" class="headerlink" title="2.4 线程安全"></a>2.4 线程安全</h3><p>&emsp;<a href="../concurrent241">2.4.1 原子性</a><br>&emsp;<a href="../concurrent242">2.4.2 锁机制</a><br>&emsp;<a href="../concurrent243">2.4.3 可见性</a><br>&emsp;<a href="../concurrent244">2.4.4 线程封闭</a><br>&emsp;<a href="../concurrent245">2.4.5 不变性</a><br>&emsp;<a href="../concurrent246">2.4.6 组合</a><br>&emsp;<a href="../concurrent247">2.4.7 综述</a></p>
-<h3 id="2-5-常见并发问题及解决方案"><a href="#2-5-常见并发问题及解决方案" class="headerlink" title="2.5 常见并发问题及解决方案"></a>2.5 常见并发问题及解决方案</h3><p>&emsp;<a href="../concurrent41">2.5.1 线程过多</a><br>&emsp;<a href="../concurrent42">2.5.2 数据竞争、死锁和活锁</a><br>&emsp;<a href="../concurrent43">2.5.3 锁竞争</a><br>&emsp;<a href="../concurrent44">2.5.4 非阻塞算法</a><br>&emsp;<a href="../concurrent45">2.5.5 线程安全函数和库</a><br>&emsp;<a href="../concurrent46">2.5.6 存储问题</a><br>&emsp;<a href="../concurrent47">2.5.7 cache 相关</a><br>&emsp;<a href="../concurrent48">2.5.8 面向高性能数据组织</a></p>
+<h3 id="2-5-常见并发问题及解决方案"><a href="#2-5-常见并发问题及解决方案" class="headerlink" title="2.5 常见并发问题及解决方案"></a>2.5 常见并发问题及解决方案</h3><p>&emsp;<a href="../concurrent251">2.5.1 线程过多</a><br>&emsp;<a href="../concurrent252">2.5.2 数据竞争、死锁和活锁</a><br>&emsp;<a href="../concurrent253">2.5.3 锁竞争</a><br>&emsp;<a href="../concurrent254">2.5.4 非阻塞算法</a><br>&emsp;<a href="../concurrent255">2.5.5 线程安全函数和库</a><br>&emsp;<a href="../concurrent256">2.5.6 存储问题</a><br>&emsp;<a href="../concurrent257">2.5.7 cache 相关</a><br>&emsp;<a href="../concurrent258">2.5.8 面向高性能数据组织</a></p>
 <h2 id="3-并行程序设计"><a href="#3-并行程序设计" class="headerlink" title="3 并行程序设计"></a>3 并行程序设计</h2><h3 id="3-1-多线程基础"><a href="#3-1-多线程基础" class="headerlink" title="3.1 多线程基础"></a>3.1 多线程基础</h3><p>&emsp;<a href="../concurrent311">3.1.1 任务分解</a><br>&emsp;<a href="../concurrent312">3.1.2 数据分解</a><br>&emsp;<a href="../concurrent313">3.1.3 数据流分解</a><br>&emsp;<a href="../concurrent314">3.1.4 各种分解方式比较</a><br>&emsp;<a href="../concurrent315">3.1.5 综述</a></p>
 <h3 id="3-2-并行程序结构设计"><a href="#3-2-并行程序结构设计" class="headerlink" title="3.2 并行程序结构设计"></a>3.2 并行程序结构设计</h3><p>&emsp;<a href="../concurrent321">3.2.1 同步</a><br>&emsp;<a href="../concurrent322">3.2.2 临界段</a><br>&emsp;<a href="../concurrent323">3.2.3 死锁</a><br>&emsp;<a href="../concurrent324">3.2.4 同步原语</a><br>&emsp;&emsp;1）信号量<br>&emsp;&emsp;2）闭锁<br>&emsp;&emsp;3）条件变量<br>&emsp;<a href="../concurrent325">3.2.5 消息</a><br>&emsp;<a href="../concurrent326">3.2.6 流控</a><br>&emsp;&emsp;1）栅栏<br>&emsp;&emsp;2）栅障<br>&emsp;<a href="../concurrent327">3.2.7 其他特征</a><br>&emsp;<a href="../concurrent328">3.2.8 综述</a></p>
 <h3 id="3-3-并行程序模式"><a href="#3-3-并行程序模式" class="headerlink" title="3.3 并行程序模式"></a>3.3 并行程序模式</h3><p>&emsp;<a href="../concurrent331">3.3.1 单线程模式（Single Threaded Execution Pattern）</a><br>&emsp;<a href="../concurrent332">3.3.2 不变模式（Immutable Pattern）</a><br>&emsp;<a href="../concurrent333">3.3.3 保护性暂挂模式（Guarded Suspension Pattern）</a><br>&emsp;<a href="../concurrent334">3.3.4 回避模式（Balking Pattern）</a><br>&emsp;<a href="../concurrent335">3.3.5 生产消费模式（Producer-Consumer Pattern）</a><br>&emsp;<a href="../concurrent336">3.3.6 读写锁模式（Read-Write Lock Pattern）</a><br>&emsp;<a href="../concurrent337">3.3.7 单线程消息模式（Thread-Per-Message Pattern）</a><br>&emsp;<a href="../concurrent338">3.3.8 线程池模式（Worker Thread Pattern）</a></p>
