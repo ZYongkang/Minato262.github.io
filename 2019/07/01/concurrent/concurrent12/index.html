@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="在过去单CPU时代，单任务在一个时间点只能执行单一程序。之后发展到多任务阶段，计算机能在同一时间点并行执行多任务或多进程。虽然并不是真正意义上的“同一时间点”，而是多个任务或进程共享一个CPU，并交由操作系统来完成多任务间对CPU的运行切换，以使得每个任务都有机会获得一定的时间片运行。 随着多任务对软件开发者带来的新挑战，程序不在能假设独占所有的CPU时间、所有的内存和其他计算机资源。一个好的程序">
+<meta name="description" content="线程与锁线程与锁模型有做所周知的不足，但仍是其他模型技术的基础，也是很多软件开发的首选。 函数式编程函数式编程日益重要的原因之一，是其对并发编程和并行编程提供了良好的支持。函数式编程消除了可变状态，所以从根本上是线程安全的，而且易于并行执行。 Clojure 之道分离标示与状态：编程语言 Clojure 是一种指令式编程和函数式编程的混搭方案，在两种编程方式上取得了微妙的平衡来发挥两者的优势。 a">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1.2 并发的源头">
+<meta property="og:title" content="1.2 常用的并发模型">
 <meta property="og:url" content="http://yoursite.com/2019/07/01/concurrent/concurrent12/index.html">
 <meta property="og:site_name" content="水门的博客">
-<meta property="og:description" content="在过去单CPU时代，单任务在一个时间点只能执行单一程序。之后发展到多任务阶段，计算机能在同一时间点并行执行多任务或多进程。虽然并不是真正意义上的“同一时间点”，而是多个任务或进程共享一个CPU，并交由操作系统来完成多任务间对CPU的运行切换，以使得每个任务都有机会获得一定的时间片运行。 随着多任务对软件开发者带来的新挑战，程序不在能假设独占所有的CPU时间、所有的内存和其他计算机资源。一个好的程序">
+<meta property="og:description" content="线程与锁线程与锁模型有做所周知的不足，但仍是其他模型技术的基础，也是很多软件开发的首选。 函数式编程函数式编程日益重要的原因之一，是其对并发编程和并行编程提供了良好的支持。函数式编程消除了可变状态，所以从根本上是线程安全的，而且易于并行执行。 Clojure 之道分离标示与状态：编程语言 Clojure 是一种指令式编程和函数式编程的混搭方案，在两种编程方式上取得了微妙的平衡来发挥两者的优势。 a">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-24T05:39:23.406Z">
+<meta property="og:updated_time" content="2020-02-04T11:49:03.333Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1.2 并发的源头">
-<meta name="twitter:description" content="在过去单CPU时代，单任务在一个时间点只能执行单一程序。之后发展到多任务阶段，计算机能在同一时间点并行执行多任务或多进程。虽然并不是真正意义上的“同一时间点”，而是多个任务或进程共享一个CPU，并交由操作系统来完成多任务间对CPU的运行切换，以使得每个任务都有机会获得一定的时间片运行。 随着多任务对软件开发者带来的新挑战，程序不在能假设独占所有的CPU时间、所有的内存和其他计算机资源。一个好的程序">
+<meta name="twitter:title" content="1.2 常用的并发模型">
+<meta name="twitter:description" content="线程与锁线程与锁模型有做所周知的不足，但仍是其他模型技术的基础，也是很多软件开发的首选。 函数式编程函数式编程日益重要的原因之一，是其对并发编程和并行编程提供了良好的支持。函数式编程消除了可变状态，所以从根本上是线程安全的，而且易于并行执行。 Clojure 之道分离标示与状态：编程语言 Clojure 是一种指令式编程和函数式编程的混搭方案，在两种编程方式上取得了微妙的平衡来发挥两者的优势。 a">
 
 
 
@@ -140,7 +140,7 @@
 
 
 
-  <title>1.2 并发的源头 | 水门的博客</title>
+  <title>1.2 常用的并发模型 | 水门的博客</title>
   
 
 
@@ -332,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">1.2 并发的源头</h1>
+          <h1 class="post-title" itemprop="name headline">1.2 常用的并发模型</h1>
         
 
         <div class="post-meta">
@@ -398,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  662
+                  453
                 </span>
               
 
@@ -423,12 +423,13 @@
       
 
       
-        <p>在过去单CPU时代，单任务在一个时间点只能执行单一程序。之后发展到多任务阶段，计算机能在同一时间点并行执行多任务或多进程。虽然并不是真正意义上的“同一时间点”，而是多个任务或进程共享一个CPU，并交由操作系统来完成多任务间对CPU的运行切换，以使得每个任务都有机会获得一定的时间片运行。</p>
-<p>随着多任务对软件开发者带来的新挑战，程序不在能假设独占所有的CPU时间、所有的内存和其他计算机资源。一个好的程序榜样是在其不再使用这些资源时对其进行释放，以使得其他程序能有机会使用这些资源。</p>
-<p>再后来发展到多线程技术，使得在一个程序内部能拥有多个线程并行执行。一个线程的执行可以被认为是一个CPU在执行该程序。当一个程序运行在多线程下，就好像有多个CPU在同时执行该程序。</p>
-<p>多线程比多任务更加有挑战。多线程是在同一个程序内部并行执行，因此会对相同的内存空间进行并发读写操作。这可能是在单线程程序中从来不会遇到的问题。其中的一些错误也未必会在单CPU机器上出现，因为两个线程从来不会得到真正的并行执行。然而，更现代的计算机伴随着多核CPU的出现，也就意味着不同的线程能被不同的CPU核得到真正意义的并行执行。</p>
-<p>如果一个线程在读一个内存时，另一个线程正向该内存进行写操作，那进行读操作的那个线程将获得什么结果呢？是写操作之前旧的值？还是写操作成功之后的新值？或是一半新一半旧的值？或者，如果是两个线程同时写同一个内存，在操作完成后将会是什么结果呢？是第一个线程写入的值？还是第二个线程写入的值？还是两个线程写入的一个混合值？因此如没有合适的预防措施，任何结果都是可能的。而且这种行为的发生甚至不能预测，所以结果也是不确定性的。</p>
-<h3 id="Java的多线程和并发性"><a href="#Java的多线程和并发性" class="headerlink" title="Java的多线程和并发性"></a>Java的多线程和并发性</h3><p>Java是最先支持多线程的开发的语言之一，</p>
+        <h3 id="线程与锁"><a href="#线程与锁" class="headerlink" title="线程与锁"></a>线程与锁</h3><p>线程与锁模型有做所周知的不足，但仍是其他模型技术的基础，也是很多软件开发的首选。</p>
+<h3 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h3><p>函数式编程日益重要的原因之一，是其对并发编程和并行编程提供了良好的支持。函数式编程消除了可变状态，所以从根本上是线程安全的，而且易于并行执行。</p>
+<h3 id="Clojure-之道"><a href="#Clojure-之道" class="headerlink" title="Clojure 之道"></a>Clojure 之道</h3><p>分离标示与状态：编程语言 Clojure 是一种指令式编程和函数式编程的混搭方案，在两种编程方式上取得了微妙的平衡来发挥两者的优势。</p>
+<h3 id="actor-模型"><a href="#actor-模型" class="headerlink" title="actor 模型"></a>actor 模型</h3><p>actor 模型是一种适应性很广的并发编程模型，适用于共享内存模型和分布式内存模型，也适合解决地理分布型问题，能提供强大的容错性。</p>
+<h3 id="通信顺序进程"><a href="#通信顺序进程" class="headerlink" title="通信顺序进程"></a>通信顺序进程</h3><p>表面上看，CSP 模型与 actor 模型很相似，两者都给予消息传递。不过 CSP 模型侧重于传递信息的通道，而 actor 模型侧重于通道两端的实体，使用 CSP 模型的代码会带来明显不同的风格。</p>
+<h3 id="数据级并行"><a href="#数据级并行" class="headerlink" title="数据级并行"></a>数据级并行</h3><p>GPU 利用了数据级并行，不仅可以快速进行图片处理，也可以用于更广阔的领域。如果要进行有限元分析、流体力学计算或其他的大量数字计算，GPU的性能将是不二选择</p>
+<h3 id="Lambda-架构"><a href="#Lambda-架构" class="headerlink" title="Lambda 架构"></a>Lambda 架构</h3><p>大数据时代的到来离不开并行————现在我们只需要增加计算资源，就能具体处理 TB 级别数据的能力。Lambda 架构综合了 MapReduce 和 流式处理的特点，是一种可以处理多种大数据问题的架构</p>
 
       
     </div>
@@ -469,8 +470,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/01/concurrent/concurrent211/" rel="prev" title="2.1.1 线程定义">
-                2.1.1 线程定义 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/01/concurrent/concurrent13/" rel="prev" title="1.3 锁与线程模型">
+                1.3 锁与线程模型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -546,7 +547,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">87</span>
+                <span class="site-state-item-count">88</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -616,7 +617,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java的多线程和并发性"><span class="nav-number">1.</span> <span class="nav-text">Java的多线程和并发性</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#线程与锁"><span class="nav-number">1.</span> <span class="nav-text">线程与锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数式编程"><span class="nav-number">2.</span> <span class="nav-text">函数式编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Clojure-之道"><span class="nav-number">3.</span> <span class="nav-text">Clojure 之道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#actor-模型"><span class="nav-number">4.</span> <span class="nav-text">actor 模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通信顺序进程"><span class="nav-number">5.</span> <span class="nav-text">通信顺序进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据级并行"><span class="nav-number">6.</span> <span class="nav-text">数据级并行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lambda-架构"><span class="nav-number">7.</span> <span class="nav-text">Lambda 架构</span></a></li></ol></div>
             
 
           </div>
