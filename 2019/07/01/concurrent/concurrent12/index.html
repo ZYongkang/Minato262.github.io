@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="并行架构&amp;emsp;位级并行&amp;emsp;指令级并行&amp;emsp;数据级并行&amp;emsp;任务级并行常用的并行与并发模型&amp;emsp;线程与锁&amp;emsp;&amp;emsp;线程与锁模型有做所周知的不足，但仍是其他模型技术的基础，也是很多软件开发的首选。 &amp;emsp;函数式编程&amp;emsp;&amp;emsp;函数式编程日益重要的原因之一，是其对并发编程和并行编程提供了良好的支持。函数式编程消除了可变状态，所以从根本上是线">
+<meta name="description" content="并行架构&amp;emsp;位级并行&amp;emsp;&amp;emsp;计算机的发展经历了 8位、16位、32位，现在正处于 64位时代。然而由位升级带来的性能改善存在瓶颈的，这也是短期内我们无法步入 128位时代的原因。 &amp;emsp;指令级并行&amp;emsp;&amp;emsp;现代 CPU 的并行度很高，其中使用的技术包括 流水线、乱序执行 和 猜测执行等。 &amp;emsp;&amp;emsp;程序员通常可以不关心处理器内部并行的细节，">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1.2 并发模型">
 <meta property="og:url" content="http://yoursite.com/2019/07/01/concurrent/concurrent12/index.html">
 <meta property="og:site_name" content="水门的博客">
-<meta property="og:description" content="并行架构&amp;emsp;位级并行&amp;emsp;指令级并行&amp;emsp;数据级并行&amp;emsp;任务级并行常用的并行与并发模型&amp;emsp;线程与锁&amp;emsp;&amp;emsp;线程与锁模型有做所周知的不足，但仍是其他模型技术的基础，也是很多软件开发的首选。 &amp;emsp;函数式编程&amp;emsp;&amp;emsp;函数式编程日益重要的原因之一，是其对并发编程和并行编程提供了良好的支持。函数式编程消除了可变状态，所以从根本上是线">
+<meta property="og:description" content="并行架构&amp;emsp;位级并行&amp;emsp;&amp;emsp;计算机的发展经历了 8位、16位、32位，现在正处于 64位时代。然而由位升级带来的性能改善存在瓶颈的，这也是短期内我们无法步入 128位时代的原因。 &amp;emsp;指令级并行&amp;emsp;&amp;emsp;现代 CPU 的并行度很高，其中使用的技术包括 流水线、乱序执行 和 猜测执行等。 &amp;emsp;&amp;emsp;程序员通常可以不关心处理器内部并行的细节，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-06T16:38:42.946Z">
+<meta property="og:updated_time" content="2020-02-06T17:09:45.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="1.2 并发模型">
-<meta name="twitter:description" content="并行架构&amp;emsp;位级并行&amp;emsp;指令级并行&amp;emsp;数据级并行&amp;emsp;任务级并行常用的并行与并发模型&amp;emsp;线程与锁&amp;emsp;&amp;emsp;线程与锁模型有做所周知的不足，但仍是其他模型技术的基础，也是很多软件开发的首选。 &amp;emsp;函数式编程&amp;emsp;&amp;emsp;函数式编程日益重要的原因之一，是其对并发编程和并行编程提供了良好的支持。函数式编程消除了可变状态，所以从根本上是线">
+<meta name="twitter:description" content="并行架构&amp;emsp;位级并行&amp;emsp;&amp;emsp;计算机的发展经历了 8位、16位、32位，现在正处于 64位时代。然而由位升级带来的性能改善存在瓶颈的，这也是短期内我们无法步入 128位时代的原因。 &amp;emsp;指令级并行&amp;emsp;&amp;emsp;现代 CPU 的并行度很高，其中使用的技术包括 流水线、乱序执行 和 猜测执行等。 &amp;emsp;&amp;emsp;程序员通常可以不关心处理器内部并行的细节，">
 
 
 
@@ -398,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  511
+                  911
                 </span>
               
 
@@ -423,7 +423,15 @@
       
 
       
-        <h3 id="并行架构"><a href="#并行架构" class="headerlink" title="并行架构"></a>并行架构</h3><h5 id="emsp-位级并行"><a href="#emsp-位级并行" class="headerlink" title="&emsp;位级并行"></a>&emsp;位级并行</h5><h5 id="emsp-指令级并行"><a href="#emsp-指令级并行" class="headerlink" title="&emsp;指令级并行"></a>&emsp;指令级并行</h5><h5 id="emsp-数据级并行"><a href="#emsp-数据级并行" class="headerlink" title="&emsp;数据级并行"></a>&emsp;数据级并行</h5><h5 id="emsp-任务级并行"><a href="#emsp-任务级并行" class="headerlink" title="&emsp;任务级并行"></a>&emsp;任务级并行</h5><h3 id="常用的并行与并发模型"><a href="#常用的并行与并发模型" class="headerlink" title="常用的并行与并发模型"></a>常用的并行与并发模型</h3><h5 id="emsp-线程与锁"><a href="#emsp-线程与锁" class="headerlink" title="&emsp;线程与锁"></a>&emsp;线程与锁</h5><p>&emsp;&emsp;线程与锁模型有做所周知的不足，但仍是其他模型技术的基础，也是很多软件开发的首选。</p>
+        <h3 id="并行架构"><a href="#并行架构" class="headerlink" title="并行架构"></a>并行架构</h3><h5 id="emsp-位级并行"><a href="#emsp-位级并行" class="headerlink" title="&emsp;位级并行"></a>&emsp;位级并行</h5><p>&emsp;&emsp;计算机的发展经历了 8位、16位、32位，现在正处于 64位时代。然而由位升级带来的性能改善存在瓶颈的，这也是短期内我们无法步入 128位时代的原因。</p>
+<h5 id="emsp-指令级并行"><a href="#emsp-指令级并行" class="headerlink" title="&emsp;指令级并行"></a>&emsp;指令级并行</h5><p>&emsp;&emsp;现代 CPU 的并行度很高，其中使用的技术包括 流水线、乱序执行 和 猜测执行等。</p>
+<p>&emsp;&emsp;程序员通常可以不关心处理器内部并行的细节，因为尽管处理器内部的并行度很高，但是经过精心设计，从外部看上去所有处理都像是串行的。</p>
+<p>&emsp;&emsp;而这种“看上去像串行”的设计逐渐变得不适用。处理器的设计者们为单核提升速度变得越来越困难。进入多核时代，我们必须面对的情况是：无论是表面上还是实质上，指令都不再串行执行了。</p>
+<h5 id="emsp-数据级并行"><a href="#emsp-数据级并行" class="headerlink" title="&emsp;数据级并行"></a>&emsp;数据级并行</h5><p>&emsp;&emsp;数据级并行架构，可以并行地在大量数据上施加同一操作，这并不适合解决所有问题。</p>
+<p>&emsp;&emsp;图像处理就是一种适合进行数据级并行的场景，比如，为了增加图片亮度就需要增加像素亮度。现代 GPU 也因图像处理的特点而演化成了极其强大的数据并行处理器</p>
+<h5 id="emsp-任务级并行"><a href="#emsp-任务级并行" class="headerlink" title="&emsp;任务级并行"></a>&emsp;任务级并行</h5><p>&emsp;&emsp;作为大家最熟悉的并行架构。从程序员角度看，多处理器系统最明显的分类特征是其内存模型（共享内存模型或分布式内存模型）</p>
+<p>&emsp;</p>
+<h3 id="常用的并行与并发模型"><a href="#常用的并行与并发模型" class="headerlink" title="常用的并行与并发模型"></a>常用的并行与并发模型</h3><h5 id="emsp-线程与锁"><a href="#emsp-线程与锁" class="headerlink" title="&emsp;线程与锁"></a>&emsp;线程与锁</h5><p>&emsp;&emsp;线程与锁模型有做所周知的不足，但仍是其他模型技术的基础，也是很多软件开发的首选。</p>
 <h5 id="emsp-函数式编程"><a href="#emsp-函数式编程" class="headerlink" title="&emsp;函数式编程"></a>&emsp;函数式编程</h5><p>&emsp;&emsp;函数式编程日益重要的原因之一，是其对并发编程和并行编程提供了良好的支持。函数式编程消除了可变状态，所以从根本上是线程安全的，而且易于并行执行。</p>
 <h5 id="emsp-Clojure-之道"><a href="#emsp-Clojure-之道" class="headerlink" title="&emsp;Clojure 之道"></a>&emsp;Clojure 之道</h5><p>&emsp;&emsp;分离标示与状态：编程语言 Clojure 是一种指令式编程和函数式编程的混搭方案，在两种编程方式上取得了微妙的平衡来发挥两者的优势。</p>
 <h5 id="emsp-actor-模型"><a href="#emsp-actor-模型" class="headerlink" title="&emsp;actor 模型"></a>&emsp;actor 模型</h5><p>&emsp;&emsp;actor 模型是一种适应性很广的并发编程模型，适用于共享内存模型和分布式内存模型，也适合解决地理分布型问题，能提供强大的容错性。</p>
@@ -460,8 +468,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/01/concurrent/concurrent13/" rel="next" title="1.3 锁与线程模型">
-                <i class="fa fa-chevron-left"></i> 1.3 锁与线程模型
+              <a href="/2019/07/01/concurrent/concurrent11/" rel="next" title="1.1 概述">
+                <i class="fa fa-chevron-left"></i> 1.1 概述
               </a>
             
           </div>
@@ -470,8 +478,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/01/concurrent/concurrent211/" rel="prev" title="2.1.1 线程定义">
-                2.1.1 线程定义 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/01/concurrent/concurrent13/" rel="prev" title="1.3 锁与线程模型">
+                1.3 锁与线程模型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
