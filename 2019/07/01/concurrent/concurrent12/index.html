@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="1，并行架构位级并行指令性并行数据级并行任务级并行2，并行模型线程与锁线程与锁模型有做所周知的不足，但仍是其他模型技术的基础，也是很多软件开发的首选。 函数式编程函数式编程日益重要的原因之一，是其对并发编程和并行编程提供了良好的支持。函数式编程消除了可变状态，所以从根本上是线程安全的，而且易于并行执行。 Clojure 之道分离标示与状态：编程语言 Clojure 是一种指令式编程和函数式编程的混">
+<meta name="description" content="并行架构&amp;emsp;位级并行&amp;emsp;指令级并行&amp;emsp;数据级并行&amp;emsp;任务级并行常用的并行与并发模型&amp;emsp;线程与锁&amp;emsp;&amp;emsp;线程与锁模型有做所周知的不足，但仍是其他模型技术的基础，也是很多软件开发的首选。 &amp;emsp;函数式编程&amp;emsp;&amp;emsp;函数式编程日益重要的原因之一，是其对并发编程和并行编程提供了良好的支持。函数式编程消除了可变状态，所以从根本上是线">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1.2 常用的并发模型">
+<meta property="og:title" content="1.2 并发模型">
 <meta property="og:url" content="http://yoursite.com/2019/07/01/concurrent/concurrent12/index.html">
 <meta property="og:site_name" content="水门的博客">
-<meta property="og:description" content="1，并行架构位级并行指令性并行数据级并行任务级并行2，并行模型线程与锁线程与锁模型有做所周知的不足，但仍是其他模型技术的基础，也是很多软件开发的首选。 函数式编程函数式编程日益重要的原因之一，是其对并发编程和并行编程提供了良好的支持。函数式编程消除了可变状态，所以从根本上是线程安全的，而且易于并行执行。 Clojure 之道分离标示与状态：编程语言 Clojure 是一种指令式编程和函数式编程的混">
+<meta property="og:description" content="并行架构&amp;emsp;位级并行&amp;emsp;指令级并行&amp;emsp;数据级并行&amp;emsp;任务级并行常用的并行与并发模型&amp;emsp;线程与锁&amp;emsp;&amp;emsp;线程与锁模型有做所周知的不足，但仍是其他模型技术的基础，也是很多软件开发的首选。 &amp;emsp;函数式编程&amp;emsp;&amp;emsp;函数式编程日益重要的原因之一，是其对并发编程和并行编程提供了良好的支持。函数式编程消除了可变状态，所以从根本上是线">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-06T16:23:02.017Z">
+<meta property="og:updated_time" content="2020-02-06T16:36:51.335Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1.2 常用的并发模型">
-<meta name="twitter:description" content="1，并行架构位级并行指令性并行数据级并行任务级并行2，并行模型线程与锁线程与锁模型有做所周知的不足，但仍是其他模型技术的基础，也是很多软件开发的首选。 函数式编程函数式编程日益重要的原因之一，是其对并发编程和并行编程提供了良好的支持。函数式编程消除了可变状态，所以从根本上是线程安全的，而且易于并行执行。 Clojure 之道分离标示与状态：编程语言 Clojure 是一种指令式编程和函数式编程的混">
+<meta name="twitter:title" content="1.2 并发模型">
+<meta name="twitter:description" content="并行架构&amp;emsp;位级并行&amp;emsp;指令级并行&amp;emsp;数据级并行&amp;emsp;任务级并行常用的并行与并发模型&amp;emsp;线程与锁&amp;emsp;&amp;emsp;线程与锁模型有做所周知的不足，但仍是其他模型技术的基础，也是很多软件开发的首选。 &amp;emsp;函数式编程&amp;emsp;&amp;emsp;函数式编程日益重要的原因之一，是其对并发编程和并行编程提供了良好的支持。函数式编程消除了可变状态，所以从根本上是线">
 
 
 
@@ -140,7 +140,7 @@
 
 
 
-  <title>1.2 常用的并发模型 | 水门的博客</title>
+  <title>1.2 并发模型 | 水门的博客</title>
   
 
 
@@ -332,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">1.2 常用的并发模型</h1>
+          <h1 class="post-title" itemprop="name headline">1.2 并发模型</h1>
         
 
         <div class="post-meta">
@@ -398,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  482
+                  511
                 </span>
               
 
@@ -423,13 +423,13 @@
       
 
       
-        <h3 id="1，并行架构"><a href="#1，并行架构" class="headerlink" title="1，并行架构"></a>1，并行架构</h3><h5 id="位级并行"><a href="#位级并行" class="headerlink" title="位级并行"></a>位级并行</h5><h5 id="指令性并行"><a href="#指令性并行" class="headerlink" title="指令性并行"></a>指令性并行</h5><h5 id="数据级并行"><a href="#数据级并行" class="headerlink" title="数据级并行"></a>数据级并行</h5><h5 id="任务级并行"><a href="#任务级并行" class="headerlink" title="任务级并行"></a>任务级并行</h5><h3 id="2，并行模型"><a href="#2，并行模型" class="headerlink" title="2，并行模型"></a>2，并行模型</h3><h5 id="线程与锁"><a href="#线程与锁" class="headerlink" title="线程与锁"></a>线程与锁</h5><p>线程与锁模型有做所周知的不足，但仍是其他模型技术的基础，也是很多软件开发的首选。</p>
-<h5 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h5><p>函数式编程日益重要的原因之一，是其对并发编程和并行编程提供了良好的支持。函数式编程消除了可变状态，所以从根本上是线程安全的，而且易于并行执行。</p>
-<h5 id="Clojure-之道"><a href="#Clojure-之道" class="headerlink" title="Clojure 之道"></a>Clojure 之道</h5><p>分离标示与状态：编程语言 Clojure 是一种指令式编程和函数式编程的混搭方案，在两种编程方式上取得了微妙的平衡来发挥两者的优势。</p>
-<h5 id="actor-模型"><a href="#actor-模型" class="headerlink" title="actor 模型"></a>actor 模型</h5><p>actor 模型是一种适应性很广的并发编程模型，适用于共享内存模型和分布式内存模型，也适合解决地理分布型问题，能提供强大的容错性。</p>
-<h5 id="通信顺序进程"><a href="#通信顺序进程" class="headerlink" title="通信顺序进程"></a>通信顺序进程</h5><p>表面上看，CSP 模型与 actor 模型很相似，两者都给予消息传递。不过 CSP 模型侧重于传递信息的通道，而 actor 模型侧重于通道两端的实体，使用 CSP 模型的代码会带来明显不同的风格。</p>
-<h5 id="数据级并行-1"><a href="#数据级并行-1" class="headerlink" title="数据级并行"></a>数据级并行</h5><p>GPU 利用了数据级并行，不仅可以快速进行图片处理，也可以用于更广阔的领域。如果要进行有限元分析、流体力学计算或其他的大量数字计算，GPU的性能将是不二选择</p>
-<h5 id="Lambda-架构"><a href="#Lambda-架构" class="headerlink" title="Lambda 架构"></a>Lambda 架构</h5><p>大数据时代的到来离不开并行————现在我们只需要增加计算资源，就能具体处理 TB 级别数据的能力。Lambda 架构综合了 MapReduce 和 流式处理的特点，是一种可以处理多种大数据问题的架构</p>
+        <h3 id="并行架构"><a href="#并行架构" class="headerlink" title="并行架构"></a>并行架构</h3><h5 id="emsp-位级并行"><a href="#emsp-位级并行" class="headerlink" title="&emsp;位级并行"></a>&emsp;位级并行</h5><h5 id="emsp-指令级并行"><a href="#emsp-指令级并行" class="headerlink" title="&emsp;指令级并行"></a>&emsp;指令级并行</h5><h5 id="emsp-数据级并行"><a href="#emsp-数据级并行" class="headerlink" title="&emsp;数据级并行"></a>&emsp;数据级并行</h5><h5 id="emsp-任务级并行"><a href="#emsp-任务级并行" class="headerlink" title="&emsp;任务级并行"></a>&emsp;任务级并行</h5><h3 id="常用的并行与并发模型"><a href="#常用的并行与并发模型" class="headerlink" title="常用的并行与并发模型"></a>常用的并行与并发模型</h3><h5 id="emsp-线程与锁"><a href="#emsp-线程与锁" class="headerlink" title="&emsp;线程与锁"></a>&emsp;线程与锁</h5><p>&emsp;&emsp;线程与锁模型有做所周知的不足，但仍是其他模型技术的基础，也是很多软件开发的首选。</p>
+<h5 id="emsp-函数式编程"><a href="#emsp-函数式编程" class="headerlink" title="&emsp;函数式编程"></a>&emsp;函数式编程</h5><p>&emsp;&emsp;函数式编程日益重要的原因之一，是其对并发编程和并行编程提供了良好的支持。函数式编程消除了可变状态，所以从根本上是线程安全的，而且易于并行执行。</p>
+<h5 id="emsp-Clojure-之道"><a href="#emsp-Clojure-之道" class="headerlink" title="&emsp;Clojure 之道"></a>&emsp;Clojure 之道</h5><p>&emsp;&emsp;分离标示与状态：编程语言 Clojure 是一种指令式编程和函数式编程的混搭方案，在两种编程方式上取得了微妙的平衡来发挥两者的优势。</p>
+<h5 id="emsp-actor-模型"><a href="#emsp-actor-模型" class="headerlink" title="&emsp;actor 模型"></a>&emsp;actor 模型</h5><p>&emsp;&emsp;actor 模型是一种适应性很广的并发编程模型，适用于共享内存模型和分布式内存模型，也适合解决地理分布型问题，能提供强大的容错性。</p>
+<h5 id="emsp-通信顺序进程"><a href="#emsp-通信顺序进程" class="headerlink" title="&emsp;通信顺序进程"></a>&emsp;通信顺序进程</h5><p>&emsp;&emsp;表面上看，CSP 模型与 actor 模型很相似，两者都给予消息传递。不过 CSP 模型侧重于传递信息的通道，而 actor 模型侧重于通道两端的实体，使用 CSP 模型的代码会带来明显不同的风格。</p>
+<h5 id="emsp-数据级并行-1"><a href="#emsp-数据级并行-1" class="headerlink" title="&emsp;数据级并行"></a>&emsp;数据级并行</h5><p>&emsp;&emsp;GPU 利用了数据级并行，不仅可以快速进行图片处理，也可以用于更广阔的领域。如果要进行有限元分析、流体力学计算或其他的大量数字计算，GPU的性能将是不二选择</p>
+<h5 id="emsp-Lambda-架构"><a href="#emsp-Lambda-架构" class="headerlink" title="&emsp;Lambda 架构"></a>&emsp;Lambda 架构</h5><p>&emsp;&emsp;大数据时代的到来离不开并行————现在我们只需要增加计算资源，就能具体处理 TB 级别数据的能力。Lambda 架构综合了 MapReduce 和 流式处理的特点，是一种可以处理多种大数据问题的架构</p>
 
       
     </div>
@@ -617,7 +617,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1，并行架构"><span class="nav-number">1.</span> <span class="nav-text">1，并行架构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#位级并行"><span class="nav-number">1.0.1.</span> <span class="nav-text">位级并行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#指令性并行"><span class="nav-number">1.0.2.</span> <span class="nav-text">指令性并行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据级并行"><span class="nav-number">1.0.3.</span> <span class="nav-text">数据级并行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#任务级并行"><span class="nav-number">1.0.4.</span> <span class="nav-text">任务级并行</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#2，并行模型"><span class="nav-number">2.</span> <span class="nav-text">2，并行模型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#线程与锁"><span class="nav-number">2.0.1.</span> <span class="nav-text">线程与锁</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#函数式编程"><span class="nav-number">2.0.2.</span> <span class="nav-text">函数式编程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Clojure-之道"><span class="nav-number">2.0.3.</span> <span class="nav-text">Clojure 之道</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#actor-模型"><span class="nav-number">2.0.4.</span> <span class="nav-text">actor 模型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通信顺序进程"><span class="nav-number">2.0.5.</span> <span class="nav-text">通信顺序进程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据级并行-1"><span class="nav-number">2.0.6.</span> <span class="nav-text">数据级并行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Lambda-架构"><span class="nav-number">2.0.7.</span> <span class="nav-text">Lambda 架构</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#并行架构"><span class="nav-number">1.</span> <span class="nav-text">并行架构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-位级并行"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 位级并行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-指令级并行"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 指令级并行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-数据级并行"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 数据级并行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-任务级并行"><span class="nav-number">1.0.4.</span> <span class="nav-text"> 任务级并行</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的并行与并发模型"><span class="nav-number">2.</span> <span class="nav-text">常用的并行与并发模型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-线程与锁"><span class="nav-number">2.0.1.</span> <span class="nav-text"> 线程与锁</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-函数式编程"><span class="nav-number">2.0.2.</span> <span class="nav-text"> 函数式编程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-Clojure-之道"><span class="nav-number">2.0.3.</span> <span class="nav-text"> Clojure 之道</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-actor-模型"><span class="nav-number">2.0.4.</span> <span class="nav-text"> actor 模型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-通信顺序进程"><span class="nav-number">2.0.5.</span> <span class="nav-text"> 通信顺序进程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-数据级并行-1"><span class="nav-number">2.0.6.</span> <span class="nav-text"> 数据级并行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-Lambda-架构"><span class="nav-number">2.0.7.</span> <span class="nav-text"> Lambda 架构</span></a></li></ol></li></div>
             
 
           </div>
