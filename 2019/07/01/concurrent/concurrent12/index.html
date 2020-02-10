@@ -94,18 +94,20 @@
 
 
 
-<meta name="description" content="并行架构&amp;emsp;位级并行&amp;emsp;&amp;emsp;计算机的发展经历了 8位、16位、32位，现在正处于 64位时代。然而由位升级带来的性能改善存在瓶颈的，这也是短期内我们无法步入 128位时代的原因。 &amp;emsp;指令级并行&amp;emsp;&amp;emsp;现代 CPU 的并行度很高，其中使用的技术包括 流水线、乱序执行 和 猜测执行等。 &amp;emsp;&amp;emsp;程序员通常可以不关心处理器内部并行的细节，">
+<meta name="description" content="并行编程模型分类&amp;emsp;&amp;emsp;并行编程模型的分类可以宽泛的在两个领域主题下进行：进程交互和问题分解 进程交互&amp;emsp;&amp;emsp;进程交互有关于并行进程能够籍此相互通信的机制。最常见的交互形式是共享内存和消息传递。 &amp;emsp;共享内存&amp;emsp;&amp;emsp;共享内存是在进程间传递数据的高效方式。在共享内存模型中，并行进程共享它们可以异步读与写的全局地址空间。异步并发访问可能导致竞争条">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1.2 并发模型">
+<meta property="og:title" content="1.2 并行编程模型">
 <meta property="og:url" content="http://yoursite.com/2019/07/01/concurrent/concurrent12/index.html">
 <meta property="og:site_name" content="水门的博客">
-<meta property="og:description" content="并行架构&amp;emsp;位级并行&amp;emsp;&amp;emsp;计算机的发展经历了 8位、16位、32位，现在正处于 64位时代。然而由位升级带来的性能改善存在瓶颈的，这也是短期内我们无法步入 128位时代的原因。 &amp;emsp;指令级并行&amp;emsp;&amp;emsp;现代 CPU 的并行度很高，其中使用的技术包括 流水线、乱序执行 和 猜测执行等。 &amp;emsp;&amp;emsp;程序员通常可以不关心处理器内部并行的细节，">
+<meta property="og:description" content="并行编程模型分类&amp;emsp;&amp;emsp;并行编程模型的分类可以宽泛的在两个领域主题下进行：进程交互和问题分解 进程交互&amp;emsp;&amp;emsp;进程交互有关于并行进程能够籍此相互通信的机制。最常见的交互形式是共享内存和消息传递。 &amp;emsp;共享内存&amp;emsp;&amp;emsp;共享内存是在进程间传递数据的高效方式。在共享内存模型中，并行进程共享它们可以异步读与写的全局地址空间。异步并发访问可能导致竞争条">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-06T17:09:45.948Z">
+<meta property="og:image" content="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/02/11/15813608712887c1e3ec3298d4b69b3328d1e18eed516.png">
+<meta property="og:updated_time" content="2020-02-10T19:08:55.508Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1.2 并发模型">
-<meta name="twitter:description" content="并行架构&amp;emsp;位级并行&amp;emsp;&amp;emsp;计算机的发展经历了 8位、16位、32位，现在正处于 64位时代。然而由位升级带来的性能改善存在瓶颈的，这也是短期内我们无法步入 128位时代的原因。 &amp;emsp;指令级并行&amp;emsp;&amp;emsp;现代 CPU 的并行度很高，其中使用的技术包括 流水线、乱序执行 和 猜测执行等。 &amp;emsp;&amp;emsp;程序员通常可以不关心处理器内部并行的细节，">
+<meta name="twitter:title" content="1.2 并行编程模型">
+<meta name="twitter:description" content="并行编程模型分类&amp;emsp;&amp;emsp;并行编程模型的分类可以宽泛的在两个领域主题下进行：进程交互和问题分解 进程交互&amp;emsp;&amp;emsp;进程交互有关于并行进程能够籍此相互通信的机制。最常见的交互形式是共享内存和消息传递。 &amp;emsp;共享内存&amp;emsp;&amp;emsp;共享内存是在进程间传递数据的高效方式。在共享内存模型中，并行进程共享它们可以异步读与写的全局地址空间。异步并发访问可能导致竞争条">
+<meta name="twitter:image" content="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/02/11/15813608712887c1e3ec3298d4b69b3328d1e18eed516.png">
 
 
 
@@ -140,7 +142,7 @@
 
 
 
-  <title>1.2 并发模型 | 水门的博客</title>
+  <title>1.2 并行编程模型 | 水门的博客</title>
   
 
 
@@ -332,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">1.2 并发模型</h1>
+          <h1 class="post-title" itemprop="name headline">1.2 并行编程模型</h1>
         
 
         <div class="post-meta">
@@ -398,7 +400,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  911
+                  1.1k
                 </span>
               
 
@@ -423,21 +425,17 @@
       
 
       
-        <h3 id="并行架构"><a href="#并行架构" class="headerlink" title="并行架构"></a>并行架构</h3><h5 id="emsp-位级并行"><a href="#emsp-位级并行" class="headerlink" title="&emsp;位级并行"></a>&emsp;位级并行</h5><p>&emsp;&emsp;计算机的发展经历了 8位、16位、32位，现在正处于 64位时代。然而由位升级带来的性能改善存在瓶颈的，这也是短期内我们无法步入 128位时代的原因。</p>
-<h5 id="emsp-指令级并行"><a href="#emsp-指令级并行" class="headerlink" title="&emsp;指令级并行"></a>&emsp;指令级并行</h5><p>&emsp;&emsp;现代 CPU 的并行度很高，其中使用的技术包括 流水线、乱序执行 和 猜测执行等。</p>
-<p>&emsp;&emsp;程序员通常可以不关心处理器内部并行的细节，因为尽管处理器内部的并行度很高，但是经过精心设计，从外部看上去所有处理都像是串行的。</p>
-<p>&emsp;&emsp;而这种“看上去像串行”的设计逐渐变得不适用。处理器的设计者们为单核提升速度变得越来越困难。进入多核时代，我们必须面对的情况是：无论是表面上还是实质上，指令都不再串行执行了。</p>
-<h5 id="emsp-数据级并行"><a href="#emsp-数据级并行" class="headerlink" title="&emsp;数据级并行"></a>&emsp;数据级并行</h5><p>&emsp;&emsp;数据级并行架构，可以并行地在大量数据上施加同一操作，这并不适合解决所有问题。</p>
-<p>&emsp;&emsp;图像处理就是一种适合进行数据级并行的场景，比如，为了增加图片亮度就需要增加像素亮度。现代 GPU 也因图像处理的特点而演化成了极其强大的数据并行处理器</p>
-<h5 id="emsp-任务级并行"><a href="#emsp-任务级并行" class="headerlink" title="&emsp;任务级并行"></a>&emsp;任务级并行</h5><p>&emsp;&emsp;作为大家最熟悉的并行架构。从程序员角度看，多处理器系统最明显的分类特征是其内存模型（共享内存模型或分布式内存模型）</p>
-<p>&emsp;</p>
-<h3 id="常用的并行与并发模型"><a href="#常用的并行与并发模型" class="headerlink" title="常用的并行与并发模型"></a>常用的并行与并发模型</h3><h5 id="emsp-线程与锁"><a href="#emsp-线程与锁" class="headerlink" title="&emsp;线程与锁"></a>&emsp;线程与锁</h5><p>&emsp;&emsp;线程与锁模型有做所周知的不足，但仍是其他模型技术的基础，也是很多软件开发的首选。</p>
-<h5 id="emsp-函数式编程"><a href="#emsp-函数式编程" class="headerlink" title="&emsp;函数式编程"></a>&emsp;函数式编程</h5><p>&emsp;&emsp;函数式编程日益重要的原因之一，是其对并发编程和并行编程提供了良好的支持。函数式编程消除了可变状态，所以从根本上是线程安全的，而且易于并行执行。</p>
-<h5 id="emsp-Clojure-之道"><a href="#emsp-Clojure-之道" class="headerlink" title="&emsp;Clojure 之道"></a>&emsp;Clojure 之道</h5><p>&emsp;&emsp;分离标示与状态：编程语言 Clojure 是一种指令式编程和函数式编程的混搭方案，在两种编程方式上取得了微妙的平衡来发挥两者的优势。</p>
-<h5 id="emsp-actor-模型"><a href="#emsp-actor-模型" class="headerlink" title="&emsp;actor 模型"></a>&emsp;actor 模型</h5><p>&emsp;&emsp;actor 模型是一种适应性很广的并发编程模型，适用于共享内存模型和分布式内存模型，也适合解决地理分布型问题，能提供强大的容错性。</p>
-<h5 id="emsp-通信顺序进程"><a href="#emsp-通信顺序进程" class="headerlink" title="&emsp;通信顺序进程"></a>&emsp;通信顺序进程</h5><p>&emsp;&emsp;表面上看，CSP 模型与 actor 模型很相似，两者都给予消息传递。不过 CSP 模型侧重于传递信息的通道，而 actor 模型侧重于通道两端的实体，使用 CSP 模型的代码会带来明显不同的风格。</p>
-<h5 id="emsp-数据级并行-1"><a href="#emsp-数据级并行-1" class="headerlink" title="&emsp;数据级并行"></a>&emsp;数据级并行</h5><p>&emsp;&emsp;GPU 利用了数据级并行，不仅可以快速进行图片处理，也可以用于更广阔的领域。如果要进行有限元分析、流体力学计算或其他的大量数字计算，GPU的性能将是不二选择</p>
-<h5 id="emsp-Lambda-架构"><a href="#emsp-Lambda-架构" class="headerlink" title="&emsp;Lambda 架构"></a>&emsp;Lambda 架构</h5><p>&emsp;&emsp;大数据时代的到来离不开并行————现在我们只需要增加计算资源，就能具体处理 TB 级别数据的能力。Lambda 架构综合了 MapReduce 和 流式处理的特点，是一种可以处理多种大数据问题的架构</p>
+        <h2 id="并行编程模型分类"><a href="#并行编程模型分类" class="headerlink" title="并行编程模型分类"></a>并行编程模型分类</h2><p>&emsp;&emsp;并行编程模型的分类可以宽泛的在两个领域主题下进行：进程交互和问题分解</p>
+<h3 id="进程交互"><a href="#进程交互" class="headerlink" title="进程交互"></a>进程交互</h3><p>&emsp;&emsp;进程交互有关于并行进程能够籍此相互通信的机制。最常见的交互形式是共享内存和消息传递。</p>
+<h5 id="emsp-共享内存"><a href="#emsp-共享内存" class="headerlink" title="&emsp;共享内存"></a>&emsp;共享内存</h5><p>&emsp;&emsp;共享内存是在进程间传递数据的高效方式。在共享内存模型中，并行进程共享它们可以异步读与写的全局地址空间。异步并发访问可能导致竞争条件，和用来避免它们的机制如：锁、信号量和监视器。常规的多核处理器直接支持共享内存，很多并行编程语言和库在设计上利用了它，比如采用Fork-join模型的：Cilk、OpenMP和线程建造块。</p>
+<h5 id="emsp-消息传递"><a href="#emsp-消息传递" class="headerlink" title="&emsp;消息传递"></a>&emsp;消息传递</h5><p>&emsp;&emsp;在消息传递模型中，并行进程通过消息传递相互交换数据。这种通信可以时异步的，就是说消息可以在接收者准备好之前发出，或时同步的，就是说消息发出前接收者必须准备好。通信顺序进程（CSP）形式化了使用同步通信通道来连接进程的消息传递，并引出了重要的语言如：Occam、Limbo和Go。与之相对，演员模型使用异步消息传递，并被采用于如下语言的设计中：D、Scala和SALSA。</p>
+<h5 id="emsp-分布式内存"><a href="#emsp-分布式内存" class="headerlink" title="&emsp;分布式内存"></a>&emsp;分布式内存</h5><p>&emsp;&emsp;分布式内存指称一类多处理器计算机系统，其中每个处理器都有自己私有的内存，计算任务只能在本地数据上运算，如果需要远程数据，计算任务必须与一个或多个远程处理器通信。在分布式内存系统编程中的关键要点是如何把数据分布到各个内存上；依赖于所解决的问题，数据可以静态分布，也可以在节点间移动；数据可以在需要时移动，也可以事先推入新的节点。</p>
+<p>&emsp;&emsp;MPI规定了用于分布式内存系统的通信协议，支持点到点通信和集体通信（collective communication）二者。MPI还是消息传递API，带有对其特征在任何实现中必须如何表现的协议和语义规定。MPI的目标是高性能、可伸缩性和可移植性，当前仍是高性能计算领域中统治性的模型。此外还有支持单边通信（one-sided communication）的分区全局地址空间模型。</p>
+<h3 id="问题分解"><a href="#问题分解" class="headerlink" title="问题分解"></a>问题分解</h3><p>&emsp;&emsp;并行程序由同时执行的进程构成。问题分解有关于规划（formulate）成员进程的方式。</p>
+<h5 id="emsp-数据并行"><a href="#emsp-数据并行" class="headerlink" title="&emsp;数据并行"></a>&emsp;数据并行</h5><p>&emsp;&emsp;数据并行模型关注进行运算所在的数据集，典型的是正规结构的数组。一组任务将在这些数据上运算，但是单独的处于在不相交的分区中。数据并行通常对应SPMD编程模型，相应执行模型对应费林分类法中的SIMD（例如AVX扩展）或MIMD（例如Xeon Phi），还有GPGPU采用的SIMT（例如NVIDIA Tesla）。</p>
+<h5 id="emsp-任务并行"><a href="#emsp-任务并行" class="headerlink" title="&emsp;任务并行"></a>&emsp;任务并行</h5><p>&emsp;&emsp;任务并行模型关注进程或线程的执行。这些进程通常表现出独特性，并强调对通信的需求。任务并行是表达消息传递通信的自然方式。任务并行通常对应MPMD编程模型，与SPMD的区别在于适合解决的问题而非执行模型。</p>
+<h2 id="并行编程模型"><a href="#并行编程模型" class="headerlink" title="并行编程模型"></a>并行编程模型</h2><p>&emsp;&emsp;这里列出的编程模型是可称为桥接模型的计算机的抽象模型[2]，它提供了在一个机器的物理实现和编程者可获得的这个机器的抽象概念之间的桥梁；换句话说，它意图在硬件和软件工程师之间提供共同的理解层面。成功的编程模型可以在现实中有效的实现并被编程者有效的作为目标；特别是应当有可能用典型的高级语言编译器生成良好的代码。从编程者的角度来看，这种并行编程模型典型的位于OpenMP、OpenACC等之下而在Pthreads、IPC、MPI等之上。</p>
+<p><img src="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/02/11/15813608712887c1e3ec3298d4b69b3328d1e18eed516.png" alt="1581360871288_7C1E3EC3-298D-4B69-B332-8D1E18EED516"></p>
 
       
     </div>
@@ -625,7 +623,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#并行架构"><span class="nav-number">1.</span> <span class="nav-text">并行架构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-位级并行"><span class="nav-number">1.0.1.</span> <span class="nav-text"> 位级并行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-指令级并行"><span class="nav-number">1.0.2.</span> <span class="nav-text"> 指令级并行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-数据级并行"><span class="nav-number">1.0.3.</span> <span class="nav-text"> 数据级并行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-任务级并行"><span class="nav-number">1.0.4.</span> <span class="nav-text"> 任务级并行</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的并行与并发模型"><span class="nav-number">2.</span> <span class="nav-text">常用的并行与并发模型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-线程与锁"><span class="nav-number">2.0.1.</span> <span class="nav-text"> 线程与锁</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-函数式编程"><span class="nav-number">2.0.2.</span> <span class="nav-text"> 函数式编程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-Clojure-之道"><span class="nav-number">2.0.3.</span> <span class="nav-text"> Clojure 之道</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-actor-模型"><span class="nav-number">2.0.4.</span> <span class="nav-text"> actor 模型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-通信顺序进程"><span class="nav-number">2.0.5.</span> <span class="nav-text"> 通信顺序进程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-数据级并行-1"><span class="nav-number">2.0.6.</span> <span class="nav-text"> 数据级并行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-Lambda-架构"><span class="nav-number">2.0.7.</span> <span class="nav-text"> Lambda 架构</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#并行编程模型分类"><span class="nav-number">1.</span> <span class="nav-text">并行编程模型分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程交互"><span class="nav-number">1.1.</span> <span class="nav-text">进程交互</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-共享内存"><span class="nav-number">1.1.0.1.</span> <span class="nav-text"> 共享内存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-消息传递"><span class="nav-number">1.1.0.2.</span> <span class="nav-text"> 消息传递</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-分布式内存"><span class="nav-number">1.1.0.3.</span> <span class="nav-text"> 分布式内存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题分解"><span class="nav-number">1.2.</span> <span class="nav-text">问题分解</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-数据并行"><span class="nav-number">1.2.0.1.</span> <span class="nav-text"> 数据并行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#emsp-任务并行"><span class="nav-number">1.2.0.2.</span> <span class="nav-text"> 任务并行</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#并行编程模型"><span class="nav-number">2.</span> <span class="nav-text">并行编程模型</span></a></li></div>
             
 
           </div>
