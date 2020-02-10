@@ -103,7 +103,7 @@
 <meta property="og:description" content="1 并行编程模型分类在计算领域，并行编程模型是并行计算机体系架构的一种抽象，它便于编程人员在程序中编写算法及其组合。一个编程模型的价值可以通过其通用性（generality）来判断，如不同体系架构的一系列不同的问题能否在该模型中很好地表示以及其性能如何，编译后的程序执行效率有多高等。并行编程模型的实现有两种方式，作为已有的语言的一种扩展，通过库的形式来调用，或者作为一种全新的语言。 围绕一个实际的">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/02/11/15813608712887c1e3ec3298d4b69b3328d1e18eed516.png">
-<meta property="og:updated_time" content="2020-02-10T21:06:14.698Z">
+<meta property="og:updated_time" content="2020-02-10T21:20:33.980Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="1.2 并行编程模型">
 <meta name="twitter:description" content="1 并行编程模型分类在计算领域，并行编程模型是并行计算机体系架构的一种抽象，它便于编程人员在程序中编写算法及其组合。一个编程模型的价值可以通过其通用性（generality）来判断，如不同体系架构的一系列不同的问题能否在该模型中很好地表示以及其性能如何，编译后的程序执行效率有多高等。并行编程模型的实现有两种方式，作为已有的语言的一种扩展，通过库的形式来调用，或者作为一种全新的语言。 围绕一个实际的">
@@ -431,14 +431,14 @@
 <ol>
 <li>进程通信（process interaction）</li>
 <li>问题分解（problem decomposition）</li>
-<li>隐式并行</li>
+<li>隐式并行（parallel Processing）</li>
 </ol>
 <p>下面我们简要介绍这三类模型有哪些形式。</p>
 <h3 id="1-1-进程通信"><a href="#1-1-进程通信" class="headerlink" title="1.1 进程通信"></a>1.1 进程通信</h3><p>进程通信涉及并行进程互相通信的机制。最常用的通信形式：</p>
 <ol>
 <li>共享内存（shared memory）</li>
 <li>消息传递（message passing）</li>
-<li>分布式内存(distributed shared memory)</li>
+<li>分布式内存（distributed shared memory）</li>
 </ol>
 <h4 id="1-共享内存"><a href="#1-共享内存" class="headerlink" title="1) 共享内存"></a>1) 共享内存</h4><p>共享内存是在进程间传递数据的高效方式。在共享内存模型中，并行进程共享它们可以异步读与写的全局地址空间。异步并发访问可能导致竞争条件，和用来避免它们的机制如：锁、信号量和监视器。常规的多核处理器直接支持共享内存，很多并行编程语言和库在设计上利用了它，比如采用Fork-join模型的：Cilk、OpenMP和线程建造块。</p>
 <h4 id="2-消息传递"><a href="#2-消息传递" class="headerlink" title="2) 消息传递"></a>2) 消息传递</h4><p>在消息传递模型中，并行进程通过消息传递相互交换数据。这种通信可以时异步的，就是说消息可以在接收者准备好之前发出，或时同步的，就是说消息发出前接收者必须准备好。通信顺序进程（CSP）形式化了使用同步通信通道来连接进程的消息传递，并引出了重要的语言如：Occam、Limbo和Go。与之相对，演员模型使用异步消息传递，并被采用于如下语言的设计中：D、Scala和SALSA。</p>
@@ -447,7 +447,7 @@
 <h3 id="1-2-问题分解"><a href="#1-2-问题分解" class="headerlink" title="1.2 问题分解"></a>1.2 问题分解</h3><p>并行程序是由同时运行的进程组成。问题分解涉及所有进程如何被组织起来的方式。问题分解包括二种并行模型：</p>
 <ol>
 <li>任务并行模型（task parallelism）</li>
-<li>数据并行模型（Data parallelism）</li>
+<li>数据并行模型（data parallelism）</li>
 </ol>
 <h4 id="1-任务并行"><a href="#1-任务并行" class="headerlink" title="1) 任务并行"></a>1) 任务并行</h4><p>任务并行模型关注进程或线程的执行。这些进程通常表现出独特性，并强调对通信的需求。任务并行是表达消息传递通信的自然方式。任务并行通常对应MPMD编程模型，与SPMD的区别在于适合解决的问题而非执行模型。</p>
 <h4 id="2-数据并行"><a href="#2-数据并行" class="headerlink" title="2) 数据并行"></a>2) 数据并行</h4><p>数据并行模型关注进行运算所在的数据集，典型的是正规结构的数组。一组任务将在这些数据上运算，但是单独的处于在不相交的分区中。数据并行通常对应SPMD编程模型，相应执行模型对应费林分类法中的SIMD（例如AVX扩展）或MIMD（例如Xeon Phi），还有GPGPU采用的SIMT（例如NVIDIA Tesla）。</p>
