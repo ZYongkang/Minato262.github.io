@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="java,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -94,18 +94,17 @@
 
 
 
-<meta name="description" content="给时间以生命，而不是给生命以时间">
-<meta name="keywords" content="java">
+<meta name="description" content="&amp;emsp;软件是必然变化的，变化是常态；有变化就需要维护，随着时间的推移，维护成本必然会远远超过开发成本，占据整个软件成本的⼤半，因此，在软件开发中，降低维护成本是重中之重的事情，而维护成本正⽐于系统的复杂程度，因此想要降低维护成本，系统就应当追求简单而清晰的设计。&amp;emsp;而简洁，是我们所追求的。代码越简洁，未来做改动的难度就越低，测试也会越准确，对于软件性能也就会越有把握。但简洁并不等于少">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2.3.4 顺序一致性">
-<meta property="og:url" content="http://yoursite.com/2019/07/01/concurrent/concurrent234/index.html">
+<meta property="og:title" content="随笔————追求简约的设计">
+<meta property="og:url" content="http://yoursite.com/2020/02/01/technology/technology4/index.html">
 <meta property="og:site_name" content="水门的博客">
-<meta property="og:description" content="给时间以生命，而不是给生命以时间">
+<meta property="og:description" content="&amp;emsp;软件是必然变化的，变化是常态；有变化就需要维护，随着时间的推移，维护成本必然会远远超过开发成本，占据整个软件成本的⼤半，因此，在软件开发中，降低维护成本是重中之重的事情，而维护成本正⽐于系统的复杂程度，因此想要降低维护成本，系统就应当追求简单而清晰的设计。&amp;emsp;而简洁，是我们所追求的。代码越简洁，未来做改动的难度就越低，测试也会越准确，对于软件性能也就会越有把握。但简洁并不等于少">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-23T18:01:12.183Z">
+<meta property="og:updated_time" content="2020-02-26T22:09:24.097Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2.3.4 顺序一致性">
-<meta name="twitter:description" content="给时间以生命，而不是给生命以时间">
+<meta name="twitter:title" content="随笔————追求简约的设计">
+<meta name="twitter:description" content="&amp;emsp;软件是必然变化的，变化是常态；有变化就需要维护，随着时间的推移，维护成本必然会远远超过开发成本，占据整个软件成本的⼤半，因此，在软件开发中，降低维护成本是重中之重的事情，而维护成本正⽐于系统的复杂程度，因此想要降低维护成本，系统就应当追求简单而清晰的设计。&amp;emsp;而简洁，是我们所追求的。代码越简洁，未来做改动的难度就越低，测试也会越准确，对于软件性能也就会越有把握。但简洁并不等于少">
 
 
 
@@ -134,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/01/concurrent/concurrent234/">
+  <link rel="canonical" href="http://yoursite.com/2020/02/01/technology/technology4/">
 
 
 
 
 
-  <title>2.3.4 顺序一致性 | 水门的博客</title>
+  <title>随笔————追求简约的设计 | 水门的博客</title>
   
 
 
@@ -315,7 +314,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/concurrent/concurrent234/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/01/technology/technology4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -332,7 +331,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">2.3.4 顺序一致性</h1>
+          <h1 class="post-title" itemprop="name headline">随笔————追求简约的设计</h1>
         
 
         <div class="post-meta">
@@ -344,8 +343,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T02:03:04+08:00">
-                2019-07-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-01T00:00:04+08:00">
+                2020-02-01
               </time>
             
 
@@ -354,28 +353,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/并发/" itemprop="url" rel="index">
-                    <span itemprop="name">并发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -398,7 +375,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  470
                 </span>
               
 
@@ -423,7 +400,8 @@
       
 
       
-        
+        <p>&emsp;<br>软件是必然变化的，变化是常态；有变化就需要维护，随着时间的推移，维护成本必然会远远超过开发成本，占据整个软件成本的⼤半，因此，在软件开发中，降低维护成本是重中之重的事情，而维护成本正⽐于系统的复杂程度，因此想要降低维护成本，系统就应当追求简单而清晰的设计。<br>&emsp;<br>而简洁，是我们所追求的。代码越简洁，未来做改动的难度就越低，测试也会越准确，对于软件性能也就会越有把握。但简洁并不等于少，⽽是没有多余的东⻄，同时，简洁也是相对的，因为变化从来都是不可能避免的，⼀味杜绝是错误思路，唯⼀可⾏的⽅式是将变化的范围限定在⼀个尽可能⼩的范围内，换句话说就是好的设计能尽可能适应外部尽可能多的变化，同时软件⾃身的变化尽可能的少。<br>&emsp;<br>说到设计，其实程序员也是设计师，与其他⾏业⼀样，软件设计本身也是有科学的，尽管，科学并不等于全知全能。但依然是有章可循的，它们可以被认识，可以被理解。永恒不变的，也是最基本的事实，⽽且确实可⾏。只是很可惜，当今的软件开发⾮常复杂，整个软件⾏业的整体状态是⽅法众多，⽽且存在着彼此的⽭盾却各有道理的观点，这就说明整个软件管理的基本规律尚未被认识，也就是说真正的科学是缺失的。所以，现实中，技术决策的好坏，更多的是来源于主要决策者的智⼒、胆识与经验。<br>&emsp;<br>&emsp;</p>
+<p align="right">——水门写于杭州（2017-09-03）</p>
       
     </div>
     
@@ -438,12 +416,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/java/" rel="tag"># java</a>
-          
-        </div>
-      
 
       
       
@@ -453,8 +425,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/01/concurrent/concurrent233/" rel="next" title="2.3.3 重排序">
-                <i class="fa fa-chevron-left"></i> 2.3.3 重排序
+              <a href="/2020/02/01/technology/technology3/" rel="next" title="k8s 集群搭建小结">
+                <i class="fa fa-chevron-left"></i> k8s 集群搭建小结
               </a>
             
           </div>
@@ -463,8 +435,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/01/concurrent/concurrent235/" rel="prev" title="2.3.5 volatile 内存模型">
-                2.3.5 volatile 内存模型 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/02/01/technology/technology/" rel="prev" title="个人技术积累">
+                个人技术积累 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
