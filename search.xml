@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[个人技术积累]]></title>
+    <url>%2F2020%2F02%2F01%2Ftechnology%2Ftechnology%2F</url>
+    <content type="text"><![CDATA[Java 中的那些锁事Linux 搭建 socks 服务器（翻墙）k8s 集群搭建小结]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[k8s 集群搭建小结]]></title>
     <url>%2F2020%2F02%2F01%2Ftechnology%2Ftechnology3%2F</url>
     <content type="text"></content>
@@ -25,11 +30,6 @@
       <tags>
         <tag>java</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[个人技术积累]]></title>
-    <url>%2F2019%2F07%2F01%2Ftechnology%2Ftechnology%2F</url>
-    <content type="text"><![CDATA[Java 中的那些锁事Linux 搭建 socks 服务器（翻墙）k8s 集群搭建小结]]></content>
   </entry>
   <entry>
     <title><![CDATA[6.1.6 尝试Java加锁新思路：原子变量和非阻塞同步算法]]></title>
