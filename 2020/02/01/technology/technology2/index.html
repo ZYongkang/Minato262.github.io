@@ -103,7 +103,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/02/27/1582675388149c0af82fc404840b983749eac060c166b.png">
 <meta property="og:image" content="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/02/26/15826759052800afbed76ac9f4675bb9305b2c6149e9a.png">
-<meta property="og:updated_time" content="2020-02-27T01:02:24.044Z">
+<meta property="og:updated_time" content="2020-02-27T01:12:31.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 搭建 socks 服务器（翻墙）">
 <meta name="twitter:description" content="下面笔者将用SS5在亚马逊云服务器上的Linux搭建一台Socks5 Proxy Server（用海外阿里云 也可以）具体过程如下： 一，服务端1、首先，编译安装SS5需要先安装一些依赖组件1yum -y install gcc gcc-c++ automake make pam-devel openldap-devel cyrus-sasl-devel openssl-devel 2、下载SS5">
@@ -412,7 +412,6 @@
 <h3 id="6、设置-ss5-端口"><a href="#6、设置-ss5-端口" class="headerlink" title="6、设置 ss5 端口"></a>6、设置 ss5 端口</h3><p>默认使用1080端口，并允许任何人使用，如果要修改默认端口，请修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/ss5</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/02/27/1582675388149c0af82fc404840b983749eac060c166b.png" alt="1582675388149-c0af82fc-4048-40b9-8374-9eac060c166b"></p>
 <p>在/etc/sysconfig/ss5这个文件中，添加下面这一行命令，-b后面的参数代表监听的ip地址和端口号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Add startup option here</span><br><span class="line">SS5_OPTS=&quot; -u root -b 0.0.0.0:10808&quot;</span><br></pre></td></tr></table></figure></p>
-<p>　　</p>
 <h3 id="7、ss5-操作"><a href="#7、ss5-操作" class="headerlink" title="7、ss5 操作"></a>7、ss5 操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service ss5 start（启动ss5）</span><br><span class="line">service ss5 status（查看ss5状态）</span><br><span class="line">service ss5 stop（停止ss5）</span><br></pre></td></tr></table></figure>
 <h3 id="8、检查服务是否启动成功"><a href="#8、检查服务是否启动成功" class="headerlink" title="8、检查服务是否启动成功"></a>8、检查服务是否启动成功</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -an | grep 10808</span><br></pre></td></tr></table></figure>
 <h2 id="二，客户端"><a href="#二，客户端" class="headerlink" title="二，客户端"></a>二，客户端</h2><h3 id="1、Mac-端"><a href="#1、Mac-端" class="headerlink" title="1、Mac 端"></a>1、Mac 端</h3><p><img src="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/02/26/15826759052800afbed76ac9f4675bb9305b2c6149e9a.png" alt="1582675905280-0afbed76-ac9f-4675-bb93-05b2c6149e9a"></p>
