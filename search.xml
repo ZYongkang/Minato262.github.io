@@ -42,6 +42,19 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[编程]]></title>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fcoding%2F</url>
+    <content type="text"><![CDATA[&emsp;&emsp;jvm 原理&emsp;&emsp;Java 并发&emsp;&emsp;技术积累]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[计算机原理]]></title>
+    <url>%2F2019%2F07%2F01%2Fcomputer%2Fcomputer%2F</url>
+    <content type="text"><![CDATA[&emsp;&emsp;分布式系统]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[数学]]></title>
     <url>%2F2019%2F07%2F01%2Fmath%2Fmath%2F</url>
     <content type="text"><![CDATA[1 前言&emsp;1.1 简介 2 基本数学2.1 基本思想&emsp; 2.1.1 二进制&emsp; 2.1.2 取余&emsp; 2.1.3 迭代法&emsp; 2.1.4 数学归纳法&emsp; 2.1.5 递归&emsp; 2.1.6 排序&emsp; 2.1.7 组合&emsp; 2.1.8 动态规划&emsp; 2.1.9 树&emsp; 2.1.10 图&emsp; 2.1.11 总结 2.2 数据结构与算法&emsp; 2.2.1 时间和空间复杂度 2.3 常用数据结构&emsp; 2.3.1 数组&emsp; 2.3.2 链表（LRU 算法）&emsp; 2.3.3 栈&emsp; 2.3.4 队列&emsp; 2.3.5 离散表&emsp; 2.3.6 二叉树&emsp;&emsp; 1) 二叉树&emsp;&emsp; 2) B- 树&emsp;&emsp; 3) B+ 树&emsp;&emsp; 4) 红黑树&emsp; 2.3.7 堆&emsp; 2.3.8 跳表&emsp; 2.3.9 图&emsp; 2.3.10 Trie 树&emsp; 2.4.11 总结 2.4 常用算法&emsp; 2.4.1 递归&emsp; 2.4.2 排序&emsp; 2.4.3 二分查找&emsp; 2.4.4 搜索&emsp; 2.4.5 哈希算法&emsp; 2.4.6 贪心算法&emsp; 2.4.7 分治算法&emsp; 2.4.8 回溯算法&emsp; 2.4.9 动态规划&emsp; 2.4.10 匹配算法&emsp; 2.4.11 总结 3 高等数学3.1 线性代数&emsp; 3.1.1 线性代数应用&emsp; 3.1.2 向量空间（可用于大数据检索）&emsp; 3.1.3 文本检索（可用于自然语言）&emsp; 3.1.4 矩阵（可用于推荐算法）&emsp; 3.1.5 线性回归（可用于机器学习）&emsp; 3.1.6 PAC 主成分分析（可用于机器学习）&emsp; 3.1.7 奇异值分解&emsp; 3.1.8 总结 3.2 统计数学&emsp; 3.2.1 概率与统计&emsp; 3.2.2 概率基础&emsp; 3.2.3 朴素贝叶斯（可用于过滤垃圾短信）&emsp; 3.2.4 文本分类（可用于潜在语义分析）&emsp; 3.2.5 文本聚类（可用于潜在语义分析）&emsp; 3.2.6 语言模型（可用于机器学习）&emsp; 3.2.7 马贝尔科夫链（可用于机器学习）&emsp; 3.2.8 信息熵（可用于自然语言）&emsp; 3.2.9 决策树&emsp; 3.2.10 熵、信息增益和卡方（可用于自然语言）&emsp; 3.2.11 规划和标准化（可用于机器学习）&emsp; 3.2.12 特征选择和降维（可用于机器学习）&emsp; 3.2.13 总结 3.3 离散数学3.4 组合数学3.5 高阶数据结构与算法&emsp; 3.5.1 拓扑排序&emsp; 3.5.2 最短路径算法（可用于地图规划）&emsp; 3.5.3 位图（可用于爬虫）&emsp; 3.5.4 统计问题&emsp; 3.5.5 向量空间（可用于推荐和检索）&emsp; 3.5.6 索引（可用于实现各种索引）&emsp; 3.5.7 并行算法&emsp; 3.5.8 总结 4 应用&emsp; 4.1 缓存系统&emsp; 4.2 搜索引擎&emsp; 4.3 推荐系统&emsp; 4.4 总结]]></content>
@@ -53,41 +66,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[计算机原理]]></title>
-    <url>%2F2019%2F07%2F01%2Fcomputer%2Fcomputer%2F</url>
-    <content type="text"><![CDATA[&emsp;&emsp;分布式系统]]></content>
+    <title><![CDATA[Java 并发]]></title>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent%2F</url>
+    <content type="text"><![CDATA[1 前言&emsp;1.1 概述&emsp;1.2 并行编程模型&emsp;1.3 Java 中的锁与线程模型 2 原理2.1 线程&emsp;2.1.1 线程的定义&emsp;2.1.2 线程的层次&emsp;2.1.3 线程创建后的相关行为&emsp;2.1.4 应用程序设计模型与多线程技术&emsp;2.1.5 虚拟环境：虚拟机与虚拟平台 2.2 锁与同步代码块&emsp;2.2.1 并发底层实现原理&emsp;2.2.2 Java 对象头&emsp;2.2.3 锁以及锁升级&emsp;2.2.4 原子操作的实现原理&emsp;2.2.5 综述 2.3 JMM&emsp;2.3.1 简介&emsp;2.3.2 基础&emsp;2.3.3 重排序&emsp;2.3.4 顺序一致性&emsp;2.3.5 volatile 内存模型&emsp;2.3.6 锁 内存模型&emsp;2.3.7 final 内存模型&emsp;2.3.8 happens-before&emsp;2.3.9 综述 2.4 线程安全&emsp;2.4.1 原子性&emsp;2.4.2 锁机制&emsp;2.4.3 可见性&emsp;2.4.4 线程封闭&emsp;2.4.5 不变性&emsp;2.4.6 组合&emsp;2.4.7 综述 2.5 常见并发问题及解决方案&emsp;2.5.1 线程过多&emsp;2.5.2 数据竞争、死锁和活锁&emsp;2.5.3 锁竞争&emsp;2.5.4 非阻塞算法&emsp;2.5.5 线程安全函数和库&emsp;2.5.6 存储问题&emsp;2.5.7 cache 相关&emsp;2.5.8 面向高性能数据组织 3 并行程序设计3.1 多线程基础&emsp;3.1.1 任务分解&emsp;3.1.2 数据分解&emsp;3.1.3 数据流分解&emsp;3.1.4 各种分解方式比较&emsp;3.1.5 综述 3.2 并行程序结构设计&emsp;3.2.1 同步&emsp;3.2.2 临界段&emsp;3.2.3 死锁&emsp;3.2.4 同步原语&emsp;&emsp;1）信号量&emsp;&emsp;2）闭锁&emsp;&emsp;3）条件变量&emsp;3.2.5 消息&emsp;3.2.6 流控&emsp;&emsp;1）栅栏&emsp;&emsp;2）栅障&emsp;3.2.7 其他特征&emsp;3.2.8 综述 3.3 并行程序模式&emsp;3.3.1 单线程模式（Single Threaded Execution Pattern）&emsp;3.3.2 不变模式（Immutable Pattern）&emsp;3.3.3 保护性暂挂模式（Guarded Suspension Pattern）&emsp;3.3.4 回避模式（Balking Pattern）&emsp;3.3.5 生产消费模式（Producer-Consumer Pattern）&emsp;3.3.6 读写锁模式（Read-Write Lock Pattern）&emsp;3.3.7 单线程消息模式（Thread-Per-Message Pattern）&emsp;3.3.8 线程池模式（Worker Thread Pattern） 3.4 并行模型&emsp;3.4.1 Actor 模型 4 应用4.1 并发编程基础&emsp;4.1.1 线程简介&emsp;4.1.2 线程应用&emsp;4.1.3 线程同步&emsp;4.1.4 线程通信&emsp;4.1.5 综述 4.2 并发包&emsp;4.2.1 简介&emsp;4.2.2 锁机制&emsp;4.2.3 原子变量&emsp;4.2.4 并发集合&emsp;4.2.5 非阻塞队列&emsp;4.2.6 阻塞队列&emsp;4.2.7 同步辅助工具&emsp;4.2.8 线程池&emsp;4.2.9 Fork-Join 框架&emsp;4.2.10 Executor 框架&emsp;4.2.11 综述 4.3 并发开源库&emsp;4.3.1 Akka&emsp;4.3.2 RxJava 5 性能与测试&emsp;5.1 避免活跃性危险&emsp;5.2 性能测试&emsp;5.3 性能与可伸缩性&emsp;5.4 综述 6 总结6.1 并发思考&emsp;6.1.1 多线程的安全性问题&emsp;6.1.2 对象共享&emsp;6.1.3 从 Java 内存模型角度理解安全初始化&emsp;6.1.4 从任务到线程：Java 结构化并发应用程序&emsp;6.1.5 驾驭 Java 线程池：定制与扩展&emsp;6.1.6 尝试Java加锁新思路：原子变量和非阻塞同步算法 6.2 未来展望6.3 随笔]]></content>
       <categories>
-        <category>java</category>
+        <category>并发</category>
       </categories>
-  </entry>
-  <entry>
-    <title><![CDATA[编程]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fcoding%2F</url>
-    <content type="text"><![CDATA[&emsp;&emsp;java&emsp;&emsp;技术积累]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[c]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fc%2Fc%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>c</category>
-      </categories>
-  </entry>
-  <entry>
-    <title><![CDATA[Java]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fjava%2F</url>
-    <content type="text"><![CDATA[&emsp;&emsp;jvm 原理&emsp;&emsp;Java 并发]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-  </entry>
-  <entry>
-    <title><![CDATA[python]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fpython%2Fpython%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>python</category>
-      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[分布式系统]]></title>
@@ -101,19 +88,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Java 并发]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent%2F</url>
-    <content type="text"><![CDATA[1 前言&emsp;1.1 概述&emsp;1.2 并行编程模型&emsp;1.3 Java 中的锁与线程模型 2 原理2.1 线程&emsp;2.1.1 线程的定义&emsp;2.1.2 线程的层次&emsp;2.1.3 线程创建后的相关行为&emsp;2.1.4 应用程序设计模型与多线程技术&emsp;2.1.5 虚拟环境：虚拟机与虚拟平台 2.2 锁与同步代码块&emsp;2.2.1 并发底层实现原理&emsp;2.2.2 Java 对象头&emsp;2.2.3 锁以及锁升级&emsp;2.2.4 原子操作的实现原理&emsp;2.2.5 综述 2.3 JMM&emsp;2.3.1 简介&emsp;2.3.2 基础&emsp;2.3.3 重排序&emsp;2.3.4 顺序一致性&emsp;2.3.5 volatile 内存模型&emsp;2.3.6 锁 内存模型&emsp;2.3.7 final 内存模型&emsp;2.3.8 happens-before&emsp;2.3.9 综述 2.4 线程安全&emsp;2.4.1 原子性&emsp;2.4.2 锁机制&emsp;2.4.3 可见性&emsp;2.4.4 线程封闭&emsp;2.4.5 不变性&emsp;2.4.6 组合&emsp;2.4.7 综述 2.5 常见并发问题及解决方案&emsp;2.5.1 线程过多&emsp;2.5.2 数据竞争、死锁和活锁&emsp;2.5.3 锁竞争&emsp;2.5.4 非阻塞算法&emsp;2.5.5 线程安全函数和库&emsp;2.5.6 存储问题&emsp;2.5.7 cache 相关&emsp;2.5.8 面向高性能数据组织 3 并行程序设计3.1 多线程基础&emsp;3.1.1 任务分解&emsp;3.1.2 数据分解&emsp;3.1.3 数据流分解&emsp;3.1.4 各种分解方式比较&emsp;3.1.5 综述 3.2 并行程序结构设计&emsp;3.2.1 同步&emsp;3.2.2 临界段&emsp;3.2.3 死锁&emsp;3.2.4 同步原语&emsp;&emsp;1）信号量&emsp;&emsp;2）闭锁&emsp;&emsp;3）条件变量&emsp;3.2.5 消息&emsp;3.2.6 流控&emsp;&emsp;1）栅栏&emsp;&emsp;2）栅障&emsp;3.2.7 其他特征&emsp;3.2.8 综述 3.3 并行程序模式&emsp;3.3.1 单线程模式（Single Threaded Execution Pattern）&emsp;3.3.2 不变模式（Immutable Pattern）&emsp;3.3.3 保护性暂挂模式（Guarded Suspension Pattern）&emsp;3.3.4 回避模式（Balking Pattern）&emsp;3.3.5 生产消费模式（Producer-Consumer Pattern）&emsp;3.3.6 读写锁模式（Read-Write Lock Pattern）&emsp;3.3.7 单线程消息模式（Thread-Per-Message Pattern）&emsp;3.3.8 线程池模式（Worker Thread Pattern） 3.4 并行模型&emsp;3.4.1 Actor 模型 4 应用4.1 并发编程基础&emsp;4.1.1 线程简介&emsp;4.1.2 线程应用&emsp;4.1.3 线程同步&emsp;4.1.4 线程通信&emsp;4.1.5 综述 4.2 并发包&emsp;4.2.1 简介&emsp;4.2.2 锁机制&emsp;4.2.3 原子变量&emsp;4.2.4 并发集合&emsp;4.2.5 非阻塞队列&emsp;4.2.6 阻塞队列&emsp;4.2.7 同步辅助工具&emsp;4.2.8 线程池&emsp;4.2.9 Fork-Join 框架&emsp;4.2.10 Executor 框架&emsp;4.2.11 综述 4.3 并发开源库&emsp;4.3.1 Akka&emsp;4.3.2 RxJava 5 性能与测试&emsp;5.1 避免活跃性危险&emsp;5.2 性能测试&emsp;5.3 性能与可伸缩性&emsp;5.4 综述 6 总结6.1 并发思考&emsp;6.1.1 多线程的安全性问题&emsp;6.1.2 对象共享&emsp;6.1.3 从 Java 内存模型角度理解安全初始化&emsp;6.1.4 从任务到线程：Java 结构化并发应用程序&emsp;6.1.5 驾驭 Java 线程池：定制与扩展&emsp;6.1.6 尝试Java加锁新思路：原子变量和非阻塞同步算法 6.2 未来展望6.3 随笔]]></content>
-      <categories>
-        <category>并发</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[6.1.6 尝试Java加锁新思路：原子变量和非阻塞同步算法]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent616%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent616%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -124,7 +100,7 @@
   </entry>
   <entry>
     <title><![CDATA[6.1.5 驾驭 Java 线程池：定制与扩展]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent615%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent615%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -135,7 +111,7 @@
   </entry>
   <entry>
     <title><![CDATA[6.1.4 从任务到线程：Java 结构化并发应用程序]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent614%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent614%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -146,7 +122,7 @@
   </entry>
   <entry>
     <title><![CDATA[6.1.3 从 Java 内存模型角度理解安全初始化]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent613%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent613%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -157,7 +133,7 @@
   </entry>
   <entry>
     <title><![CDATA[6.1.2 对象共享]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent612%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent612%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -168,7 +144,7 @@
   </entry>
   <entry>
     <title><![CDATA[6.1.1 多线程的安全性问题]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent611%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent611%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -179,7 +155,7 @@
   </entry>
   <entry>
     <title><![CDATA[5.4 综述]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent54%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent54%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -190,7 +166,7 @@
   </entry>
   <entry>
     <title><![CDATA[5.3 性能与可伸缩性]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent53%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent53%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -201,7 +177,7 @@
   </entry>
   <entry>
     <title><![CDATA[5.2 性能测试]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent52%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent52%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -212,7 +188,7 @@
   </entry>
   <entry>
     <title><![CDATA[5.1 避免活跃性危险]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent51%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent51%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -223,7 +199,7 @@
   </entry>
   <entry>
     <title><![CDATA[4.3.2 RxJava]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent432%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent432%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -234,7 +210,7 @@
   </entry>
   <entry>
     <title><![CDATA[4.3.1 Akka]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent431%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent431%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -245,7 +221,7 @@
   </entry>
   <entry>
     <title><![CDATA[4.2.11 综述]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent4211%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent4211%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -256,7 +232,7 @@
   </entry>
   <entry>
     <title><![CDATA[4.2.10 Executor 框架]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent4210%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent4210%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -267,7 +243,7 @@
   </entry>
   <entry>
     <title><![CDATA[4.2.9 Fork-Join 框架]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent429%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent429%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -278,7 +254,7 @@
   </entry>
   <entry>
     <title><![CDATA[4.2.8 线程池]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent428%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent428%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -289,7 +265,7 @@
   </entry>
   <entry>
     <title><![CDATA[4.2.7 同步辅助工具]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent427%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent427%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -300,7 +276,7 @@
   </entry>
   <entry>
     <title><![CDATA[4.2.6 阻塞队列]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent426%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent426%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -311,7 +287,7 @@
   </entry>
   <entry>
     <title><![CDATA[4.2.5 非阻塞队列]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent425%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent425%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -322,7 +298,7 @@
   </entry>
   <entry>
     <title><![CDATA[4.2.4 并发集合]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent424%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent424%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -333,7 +309,7 @@
   </entry>
   <entry>
     <title><![CDATA[4.2.3 原子变量]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent423%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent423%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -344,7 +320,7 @@
   </entry>
   <entry>
     <title><![CDATA[4.2.2 锁机制]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent422%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent422%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -355,7 +331,7 @@
   </entry>
   <entry>
     <title><![CDATA[4.2.1 简介]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent421%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent421%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -366,7 +342,7 @@
   </entry>
   <entry>
     <title><![CDATA[4.1.4 综述]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent414%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent414%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -377,7 +353,7 @@
   </entry>
   <entry>
     <title><![CDATA[4.1.3 线程通信]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent413%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent413%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -388,7 +364,7 @@
   </entry>
   <entry>
     <title><![CDATA[4.1.2 线程应用]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent412%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent412%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -399,7 +375,7 @@
   </entry>
   <entry>
     <title><![CDATA[4.1.1 线程简介]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent411%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent411%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -410,7 +386,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.3.8 线程池模式（Worker Thread Pattern）]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent338%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent338%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -421,7 +397,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.3.7 单线程消息模式（Thread-Per-Message Pattern）]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent337%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent337%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -432,7 +408,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.3.6 读写锁模式（Read-Write Lock Pattern）]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent336%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent336%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -443,7 +419,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.3.5 生产消费模式（Producer-Consumer Pattern）]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent335%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent335%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -454,7 +430,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.3.4 回避模式（Balking Pattern）]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent334%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent334%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -465,7 +441,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.3.3 保护性暂挂模式（Guarded Suspension Pattern）]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent333%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent333%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -476,7 +452,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.3.2 不变模式（Immutable Pattern）]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent332%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent332%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -487,7 +463,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.3.1 单线程模式（Single Threaded Execution Pattern）]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent331%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent331%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -498,7 +474,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.2.8 综述]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent328%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent328%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -509,7 +485,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.2.7 其他特征]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent327%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent327%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -520,7 +496,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.2.6 流控]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent326%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent326%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -531,7 +507,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.2.5 消息]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent325%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent325%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -542,7 +518,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.2.4 同步原语]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent324%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent324%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -553,7 +529,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.2.3 死锁]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent323%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent323%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -564,7 +540,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.2.2 临界段]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent322%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent322%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -575,7 +551,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.2.1 同步]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent321%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent321%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -586,7 +562,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.1.5 综述]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent315%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent315%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -597,7 +573,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.1.4 各种分解方式比较]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent314%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent314%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -608,7 +584,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.1.3 数据流分解]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent313%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent313%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -619,7 +595,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.1.2 数据分解]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent312%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent312%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -630,7 +606,7 @@
   </entry>
   <entry>
     <title><![CDATA[3.1.1 任务分解]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent311%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent311%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -641,7 +617,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.5.8 面向高性能数据组织]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent258%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent258%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -652,7 +628,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.5.7 cache 相关]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent257%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent257%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -663,7 +639,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.5.6 存储问题]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent256%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent256%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -674,7 +650,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.5.5 线程安全函数和库]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent255%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent255%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -685,7 +661,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.5.4 非阻塞算法]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent254%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent254%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -696,7 +672,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.5.3 锁竞争]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent253%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent253%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -707,7 +683,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.5.2 数据竞争、死锁和活锁]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent252%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent252%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -718,7 +694,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.5.1 线程过多]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent251%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent251%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -729,7 +705,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.4.7 综述]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent247%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent247%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -740,7 +716,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.4.6 组合]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent246%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent246%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -751,7 +727,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.4.5 不变性]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent245%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent245%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -762,7 +738,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.4.4 线程封闭]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent244%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent244%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -773,7 +749,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.4.3 可见性]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent243%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent243%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -784,7 +760,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.4.2 锁机制]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent242%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent242%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -795,7 +771,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.4.1 原子性]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent241%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent241%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -806,7 +782,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.3.9 综述]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent239%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent239%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -817,7 +793,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.3.8 happens-before]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent238%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent238%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -828,7 +804,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.3.7 final 内存模型]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent237%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent237%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -839,7 +815,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.3.6 锁 内存模型]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent236%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent236%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -850,7 +826,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.3.5 volatile 内存模型]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent235%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent235%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -861,7 +837,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.3.4 顺序一致性]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent234%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent234%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -872,7 +848,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.3.3 重排序]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent233%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent233%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -883,7 +859,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.3.2 基础]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent232%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent232%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -894,7 +870,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.3.1 简介]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent231%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent231%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -905,7 +881,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.2.5 综述]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent225%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent225%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -916,7 +892,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.2.4 原子操作的实现原理]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent224%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent224%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -927,7 +903,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.2.3 锁以及锁升级]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent223%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent223%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -938,7 +914,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.2.2 Java 对象头]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent222%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent222%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -949,7 +925,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.2.1 并发底层实现原理]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent221%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent221%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -960,7 +936,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.1.5 虚拟环境：虚拟机与虚拟平台]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent215%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent215%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -971,7 +947,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.1.4 应用程序设计模型与多线程技术]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent214%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent214%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -982,7 +958,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.1.3 线程创建后的相关行为]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent213%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent213%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -993,7 +969,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.1.2 线程的层次]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent212%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent212%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -1004,7 +980,7 @@
   </entry>
   <entry>
     <title><![CDATA[2.1.1 线程定义]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent211%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent211%2F</url>
     <content type="text"></content>
       <categories>
         <category>并发</category>
@@ -1015,7 +991,7 @@
   </entry>
   <entry>
     <title><![CDATA[1.3 Java 中的锁与线程模型]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent13%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent13%2F</url>
     <content type="text"><![CDATA[概述 并发：同一时间应对(dealing with)多件事情的能力 并行：同一时间动手做(doing)多件事情的能力 并发程序的执行通常是不确定的，其结果依赖于事件时序．对于真正的并发程序，不确定性是其与生俱来且伴随始终的属性．而并行程序可能是确定的． 并行架构 位级并行：32位，64位 指令级并行：流水线，乱序，猜测执行 数据级并行: SIMD 任务级并行: 多处理器模型 锁与线程模型D1 线程和锁模型其实是对底层硬件运行过程的形式化，这既是这种模型的最大优点，也是这种模型的最大缺点． 线程和锁模型的三个危害： 竞态条件：代码行为取决于各操作的时序(常用同步来消除竞态条件) 内存可见性: 何时一个线程对内存的修改对另一个线程可见．(锁和volatile来保证可见性) 死锁: 多把锁加锁顺序不当导致各个线程都阻塞而不能继续执行的情况．(避免在持有锁的同时调用自己一无所知的方法,即外星方法．因为这就可能导致在加锁顺序一无所知的情况下使用两把锁而导致发生死锁) Java内存模型如何保证对象初始化是线程安全的?是否必须通过加锁才能在线程之间安全的公开对象? JVM在类的初始化阶段（即在Class被加载后，且被线程使用之前），会执行类的初始化。在执行类的初始化期间，JVM会去获取一个锁。这个锁可以同步多个线程对同一个类的初始化. 新的 JMM 还寻求提供一种新的初始化安全性保证——只要对象是正确构造的（意即不会在构造函数完成之前发布对这个对象的引用，换句话说，不要让其他线程在其他地方能够看见一个构造期间的对象引用），然后所有线程都会看到在构造函数中设置的final字段的值，不管是否使用同步在线程之间传递这个引用。而且，所有可以通过正确构造的对象的final字段可及的变量，如用一个final字段引用的对象的final字段，也保证对其他线程是可见的。这意味着如果final字段包含，比如说对一个 LinkedList 的引用，除了引用的正确的值对于其他线程是可见的外，这个LinkedList在构造时的内容在不同步的情况下，对于其他线程也是可见的。 在讲了如上的这段之后，如果在一个线程构造了一个不可变对象之后（对象仅包含final字段），你希望保证这个对象被其他线程正确的查看，你仍然需要使用同步才行。 “双重检查锁模式”（double-checked locking）以及为什么称之为反模式??? 关键在于：指令重排序导致在多线程情况下，其他线程可能访问到未初始化的对象。 解决方案有二：用volatile修饰instance对象；采用Initialization On Demand Holder idiom方案，即基于类的初始化方案（关键是JVM在初始化类的时候需要获取一把锁）。 选择方法：如果确实需要对实例字段使用线程安全的延迟初始化，请使用上面介绍的基于volatile的延迟初始化的方案；如果确实需要对静态字段使用线程安全的延迟初始化，请使用上面介绍的基于类初始化的方案。 D2 ReentranLock 和 Atomic原子类 可以在线程持有锁的时候中断锁 可以设置线程获取锁的超时事件 按任意顺序来获取和释放锁 条件等待 atomic实现lock-free无锁操作． ReentrantLock创建时可以设置一个描述公平性的变量。什么是“公平”的锁？何时适合使用公平锁？使用非公平的锁会怎样？ 如果在绝对时间上，先对锁进行获取的请求一定被先满足，那么这个锁是公平的，也就是说等待时间最长的线程最有机会获取锁，也可以说锁的获取是有序的；反之，则是非公平锁。 公平锁的性能不如非公平锁——公平的获取锁没有考虑到操作系统对线程的调度因素，这样造成JVM对于等待中的线程调度次序和操作系统对线程的调度之间的不匹配；另一方面，公平锁可以防止“饥饿”情况的产生，在以TPS为唯一指标的场景下，可以考虑使用公平锁。 什么是ReentrantReadWriteLock？它与ReentrantLock有什么区别？适用于什么场景？ ReentrantReadWriteLock的中文名称是读写锁，在多线程场景中，如果没有写线程在操作模板对象，读写锁允许多个读线程同时读。当对于某个数据结构的操作主要是读操作而只有少量的写操作时，就非常适合使用ReentrantReadWriteLock。 什么是“虚假唤醒”（spurious wakeup）？什么时候会发生虚假唤醒？为什么符合规范的代码不用担心虚假唤醒？（1）线程有可能在没有调用过notify()和notifyAll()的情况下醒来；（2）查看如下代码，doWait方法中发生了虚假唤醒——等待线程即使没有收到正确的信号，也能够执行后续的操作。 123456789101112131415161718192021222324public class MyWaitNotify2&#123; MonitorObject myMonitorObject = new MonitorObject(); boolean wasSignalled = false; public void doWait()&#123; synchronized(myMonitorObject)&#123; if(!wasSignalled)&#123; try&#123; myMonitorObject.wait(); &#125; catch(InterruptedException e)&#123;...&#125; &#125; //clear signal and continue running. wasSignalled = false; &#125; &#125; public void doNotify()&#123; synchronized(myMonitorObject)&#123; wasSignalled = true; myMonitorObject.notify(); &#125; &#125;&#125; （3）为了防止假唤醒，保存信号的成员变量将在一个while循环里接受检查，而不是在if表达式里。这样的一个while循环叫做自旋锁（校注：这种做法要慎重，目前的JVM实现自旋会消耗CPU，如果长时间不调用doNotify方法，doWait方法会一直自旋，CPU会消耗太大）。被唤醒的线程会自旋直到自旋锁(while循环)里的条件变为false。以下MyWaitNotify2的修改版本展示了这点： 123456789101112131415161718192021222324public class MyWaitNotify3&#123; MonitorObject myMonitorObject = new MonitorObject(); boolean wasSignalled = false; public void doWait()&#123; synchronized(myMonitorObject)&#123; while(!wasSignalled)&#123; try&#123; myMonitorObject.wait(); &#125; catch(InterruptedException e)&#123;...&#125; &#125; //clear signal and continue running. wasSignalled = false; &#125; &#125; public void doNotify()&#123; synchronized(myMonitorObject)&#123; wasSignalled = true; myMonitorObject.notify(); &#125; &#125;&#125; 什么是AtomicIntegerFieldUpdater？它与AtomicInteger有什么区别？适用于什么场景？（1）AtomicIntegerFieldUpdater用于保证已经new出来的实例的原子性，AtomicInteger用于构造具备原子性的Integer实例。（2）使用第三方库的时候，如果需要给第三方库提供的对象增加原子性，则使用AtomicIntegerFieldUpdater。 D3总结 使用线程池而不是直接创建线程 使用CopyOnWriteArrayList 避免使用外星方法导致的死锁问题 使用ArrayBlockingQueue来使得生产者和消费者高效协作 ConcurrentHashMap提供了更好的并发访问 问题 Fork/Join和线程池的区别，以及分别适用的场景 ForkJoinPool 相比于ThreadPoolExecutor，还有一个非常重要的特点（优点）在于，ForkJoinPool具有 Work-Stealing （工作窃取）的能力。所谓 Work-Stealing，在 ForkJoinPool 中的实现为：线程池中每个线程都有一个互不影响的任务队列（双端队列），线程每次都从自己的任务队列的队头中取出一个任务来运行；如果某个线程对应的队列已空并且处于空闲状态，而其他线程的队列中还有任务需要处理但是该线程处于工作状态，那么空闲的线程可以从其他线程的队列的队尾取一个任务来帮忙运行 —— 感觉就像是空闲的线程去偷人家的任务来运行一样，所以叫 “工作窃取”。 Work-Stealing 的适用场景是不同的任务的耗时相差比较大，即某些任务需要运行较长时间，而某些任务会很快的运行完成，这种情况下用 Work-Stealing 很合适；但是如果任务的耗时很平均，则此时 Work-Stealing 并不适合，因为窃取任务时也是需要抢占锁的，这会造成额外的时间消耗，而且每个线程维护双端队列也会造成更大的内存消耗。所以ForkJoinPool并不是ThreadPoolExecutor的替代品，而是作为对 ThreadPoolExecutor 的补充。 ThreadPoolExecutor 只能执行 Runnable 和 Callable 任务，而 ForkJoinPool 不仅可以执行 Runnable 和 Callable 任务，还可以执行 Fork/Join 型任务 ForkJoinTask 从而满足并行地实现分治算法的需要； ThreadPoolExecutor 中任务的执行顺序是按照其在共享队列中的顺序来执行的，所以后面的任务需要等待前面任务执行完毕后才能执行，而 ForkJoinPool 每个线程有自己的任务队列，并在此基础上实现了 Work-Stealing 的功能，使得在某些情况下 ForkJoinPool 能更大程度的提高并发效率。 CountDownLatch 和 CyclicBarrier 的区别?? CountDownLatch: A synchronization aid that allows one or more threads to wait until a set of operations being performed in other threads completes. CyclicBarrier : A synchronization aid that allows a set of threads to all wait for each other to reach a common barrier point. 从javadoc的描述可以得出： CountDownLatch：一个或者多个线程，等待其他多个线程完成某件事情之后才能执行； CyclicBarrier：多个线程互相等待，直到到达同一个同步点，再继续一起执行。 对于CountDownLatch来说，重点是“一个线程（多个线程）等待”，而其他的N个线程在完成“某件事情”之后，可以终止，也可以等待。而对于CyclicBarrier，重点是多个线程，在任意一个线程没有完成，所有的线程都必须等待。 CountDownLatch是计数器，线程完成一个记录一个，只不过计数不是递增而是递减，而CyclicBarrier更像是一个阀门，需要所有线程都到达，阀门才能打开，然后继续执行。 线程和锁模型优缺点优点 线程和锁模型更接近于本质– 近似于对硬件工作方式的形式化，正确使用时候，效率很高．而且也能解决从小到大不同粒度的问题． 大多数语言支持． 缺点 没有为并行提供直接的支持，不支持分布式内存 难于测试，很多时候我们并不知道自己在坑中，bug难以重现． 可维护性较差 基本规则 访问共享变量需要同步 获取多把锁时候需要按照全局固定的顺序 持有锁的时候避免调用外星方法]]></content>
       <categories>
         <category>并发</category>
@@ -1026,7 +1002,7 @@
   </entry>
   <entry>
     <title><![CDATA[1.2 并行编程模型]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent12%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent12%2F</url>
     <content type="text"><![CDATA[1 并行编程模型分类在计算领域，并行编程模型是并行计算机体系架构的一种抽象，它便于编程人员在程序中编写算法及其组合。一个编程模型的价值可以通过其通用性（generality）来判断，如不同体系架构的一系列不同的问题能否在该模型中很好地表示以及其性能如何，编译后的程序执行效率有多高等。并行编程模型的实现有两种方式，作为已有的语言的一种扩展，通过库的形式来调用，或者作为一种全新的语言。 围绕一个实际的编程模型的共识是重要的，因为它会导致构建出支持该模型的不同的并行计算机，从而提高软件的兼容性。在这种意义上说，编程模型是硬件和软件之间的桥梁。 并行编程模型宽泛的可以分为三类： 进程通信（process interaction） 问题分解（problem decomposition） 隐式并行（parallel Processing） 下面我们简要介绍这三类模型有哪些形式。 1.1 进程通信进程通信涉及并行进程互相通信的机制。最常用的通信形式： 共享内存（shared memory） 消息传递（message passing） 分布式内存（distributed shared memory） 1) 共享内存共享内存是在进程间传递数据的高效方式。在共享内存模型中，并行进程共享它们可以异步读与写的全局地址空间。异步并发访问可能导致竞争条件，和用来避免它们的机制如：锁、信号量和监视器。常规的多核处理器直接支持共享内存，很多并行编程语言和库在设计上利用了它，比如采用Fork-join模型的：Cilk、OpenMP和线程建造块。 2) 消息传递在消息传递模型中，并行进程通过消息传递相互交换数据。这种通信可以时异步的，就是说消息可以在接收者准备好之前发出，或时同步的，就是说消息发出前接收者必须准备好。通信顺序进程（CSP）形式化了使用同步通信通道来连接进程的消息传递，并引出了重要的语言如：Occam、Limbo和Go。与之相对，演员模型使用异步消息传递，并被采用于如下语言的设计中：D、Scala和SALSA。 3) 分布式内存分布式内存指称一类多处理器计算机系统，其中每个处理器都有自己私有的内存，计算任务只能在本地数据上运算，如果需要远程数据，计算任务必须与一个或多个远程处理器通信。在分布式内存系统编程中的关键要点是如何把数据分布到各个内存上；依赖于所解决的问题，数据可以静态分布，也可以在节点间移动；数据可以在需要时移动，也可以事先推入新的节点。 MPI规定了用于分布式内存系统的通信协议，支持点到点通信和集体通信（collective communication）二者。MPI还是消息传递API，带有对其特征在任何实现中必须如何表现的协议和语义规定。MPI的目标是高性能、可伸缩性和可移植性，当前仍是高性能计算领域中统治性的模型。此外还有支持单边通信（one-sided communication）的分区全局地址空间模型。 1.2 问题分解并行程序是由同时运行的进程组成。问题分解涉及所有进程如何被组织起来的方式。问题分解包括二种并行模型： 任务并行模型（task parallelism） 数据并行模型（data parallelism） 1) 任务并行任务并行模型关注进程或线程的执行。这些进程通常表现出独特性，并强调对通信的需求。任务并行是表达消息传递通信的自然方式。任务并行通常对应MPMD编程模型，与SPMD的区别在于适合解决的问题而非执行模型。 2) 数据并行数据并行模型关注进行运算所在的数据集，典型的是正规结构的数组。一组任务将在这些数据上运算，但是单独的处于在不相交的分区中。数据并行通常对应SPMD编程模型，相应执行模型对应费林分类法中的SIMD（例如AVX扩展）或MIMD（例如Xeon Phi），还有GPGPU采用的SIMT（例如NVIDIA Tesla）。 1.3 隐式并行在隐式通信中，进程通信对程序员来说是不可见的，主要由编译器、运行时或硬件负责实现。进程通信是由编译器或者运行时来处理和实现。并发被预置在高级操作子中的领域特定语言（domain-specific language）和函数式编程语言是隐式并行的典型例子，因为无副作用（side-effect）允许非依赖的函数可以并发执行。但是这种并行模式是很难管理的。函数式语言如Concurrent Haskell和Concurrent ML提供了显示管理并行化的功能。 2 并行编程模型的例子这里列出的编程模型是可称为桥接模型的计算机的抽象模型，它提供了在一个机器的物理实现和编程者可获得的这个机器的抽象概念之间的桥梁；换句话说，它意图在硬件和软件工程师之间提供共同的理解层面。成功的编程模型可以在现实中有效的实现并被编程者有效的作为目标；特别是应当有可能用典型的高级语言编译器生成良好的代码。从编程者的角度来看，这种并行编程模型典型的位于OpenMP、OpenACC等之下而在Pthreads、IPC、MPI等之上。]]></content>
       <categories>
         <category>并发</category>
@@ -1037,7 +1013,7 @@
   </entry>
   <entry>
     <title><![CDATA[1.1 概述]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fconcurrent%2Fconcurrent11%2F</url>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fconcurrent%2Fconcurrent11%2F</url>
     <content type="text"><![CDATA[并发计算，简单来说，就是将一个计算任务，分割成几个小的部分，让它们同时被计算，之后再汇整计算结果，以完成任务。它跟并行计算（Parallel computing）与分布式计算，有重叠之处，在概念上不同，但常会让人混淆。 并发计算是一种程序运算的特性，可以被视为是并行运算的进一步抽象，它包涵了时间片这种可以被用来实现虚拟并行运算（Pseudoparallelism）的技术，因此在实际的物理运作中，计算过程可能是并行，或非并行的。 并行计算是指，当并发计算的程序，在机器平台上同时被运行的状况，因此，并行计算是一种机器运算的形式之一。分布式计算（Distributed computing）则是并行计算的一个特例，它采用计算机网络来进行同步。 实现并发程序有许多方式，依编程语言与操作系统的支持，可以用进程，或是线程来实现。它可以运行在单一处理器上，将不同的运行步骤分散在不同时间片中运行，以非并行方式循序运算；它也可以用并行计算来实现，将每个行程指定给处理器组中的某个处理器，以单片机多处理器平台，或是透过网络链接的分散平台来实做。 依照硬件与操作系统的支持，并发计算可以在同一个行程中完成，在同一个行程中以多线程来完成，以多个行程来达成，甚至可以分成数个程序来运行。可以用单处理器的循序计算来实现，也可以采并行计算或分布式计算方式实做。 但以并行方式来运作并发程序，并不必然会增进运行效率。因为运行结果可能会因为平台特性而改变，也增加它在设计上的难度。]]></content>
       <categories>
         <category>并发</category>
@@ -1096,19 +1072,19 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[jvm 原理]]></title>
+    <url>%2F2019%2F07%2F01%2Fcoding%2Fjvm%2Fjvm%2F</url>
+    <content type="text"><![CDATA[&emsp;]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[技术积累]]></title>
     <url>%2F2019%2F07%2F01%2Fcoding%2Ftechnology%2Ftechnology%2F</url>
     <content type="text"><![CDATA[&emsp;&emsp;MySQL百万级数据分页查询及优化&emsp;&emsp;Linux 搭建 socks 服务器（翻墙）&emsp;&emsp;Java 中的那些锁事（转载）&emsp;&emsp;书单&emsp;&emsp;java 源码库]]></content>
       <categories>
         <category>技术积累</category>
-      </categories>
-  </entry>
-  <entry>
-    <title><![CDATA[jvm 原理]]></title>
-    <url>%2F2019%2F07%2F01%2Fcoding%2Fjava%2Fjvm%2Fjvm%2F</url>
-    <content type="text"><![CDATA[&emsp;]]></content>
-      <categories>
-        <category>java</category>
       </categories>
   </entry>
 </search>
