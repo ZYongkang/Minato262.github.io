@@ -44,7 +44,7 @@
   <entry>
     <title><![CDATA[目录]]></title>
     <url>%2F2019%2F07%2F01%2Fkaywu%2F</url>
-    <content type="text"><![CDATA[1 数学&emsp;1.1 高等数学&emsp;1.2 数学分析&emsp;1.3 应用数学 2 计算机系统&emsp;2.1 计算机原理&emsp;2.2 分布式系统 3 编程3.1 编程思想&emsp;3.1.1 Unix 编程思想&emsp;3.1.2 简约设计&emsp;3.1.3 设计模式解析 3.2 常用编程语言3.2.1 java&emsp;1) jvm 原理&emsp;2) java 并发&emsp;3) spring 源码分析&emsp;4) mybaits 源码分析 3.2.2 python3.2.3 c&emsp;1) 基于c 编写编程语言 3.3 常用数据库&emsp;3.3.1 mysql 3.4 常用搜索引擎&emsp;3.4.1 ES 3.5 常用缓存&emsp;3.5.1 redis 3.6 常用消息队列&emsp;3.6.1 kafka&emsp;3.6.2 rabbitMQ 4 其他&emsp;4.1 技术积累&emsp;4.2 个人随笔&emsp;4.3 书单&emsp;4.4 源码库]]></content>
+    <content type="text"><![CDATA[1 数学&emsp;1.1 高等数学&emsp;1.2 数学分析&emsp;1.3 应用数学 2 计算机系统&emsp;2.1 计算机原理&emsp;2.2 分布式系统 3 编程3.1 编程思想&emsp;3.1.1 Unix 编程思想&emsp;3.1.2 简约设计&emsp;3.1.3 设计模式解析 3.2 常用编程语言3.2.1 java&emsp;1) jvm 原理&emsp;2) java 并发&emsp;3) spring 源码分析&emsp;4) mybaits 源码分析 3.2.2 python3.2.3 c&emsp;1) 基于c 编写编程语言 3.3 常用数据库&emsp;3.3.1 mysql 3.4 常用中间件&emsp;3.4.1 ES&emsp;3.4.2 redis&emsp;3.4.3 kafka&emsp;3.4.4 rabbitMQ 4 其他&emsp;4.1 技术积累&emsp;4.2 个人随笔&emsp;4.3 书单&emsp;4.4 源码库]]></content>
   </entry>
   <entry>
     <title><![CDATA[应用数学]]></title>
