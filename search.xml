@@ -1025,7 +1025,7 @@
   <entry>
     <title><![CDATA[书单及资料]]></title>
     <url>%2F2019%2F07%2F01%2Fother%2Fbook%2F</url>
-    <content type="text"><![CDATA[一，基础1，数学 史济怀-数学分析教程 2，代码 代码大全 代码简洁之路 算法设计与分析 设计模式 七周七并发 多核程序设计艺术 3，Java Java 编程思想 Java 并发编程的艺术 Java 多线程编程核心技术 4，数据库 高性能 mysql 5，运维 Linux 命令 二，进阶1，基础 深入理解计算机系统 多处理器编程的艺术 图解性能优化 系统架构 2，代码设计 重构 设计模式解析 3，Java Effective Java 多线程编程实战 深入理解 JVM 虚拟机 NIO 与 Socket 编程技术指南 spring 源码分析 4，数据库 Mysql 技术内幕 InnoDB 存储引擎 数据库事务处理的艺术 5，中间件 Redis 原理分析 Mq 原理分析 6，分布式 从 Paxos 到 ZooKeeper 分布式理论 三，高级1，数学 计算机程序设计艺术(中文版)第一卷：基本算法 计算机程序设计艺术(中文版)第二卷：半数值算法 计算机程序设计艺术(中文版)第三卷：排序与查找 2，设计3，论文3.1 Java JSR133 The java.util.concurrent Synchronizer Framework A Java Fork/Join Framework]]></content>
+    <content type="text"><![CDATA[一，基础1，数学 高等数学 史济怀-数学分析教程 2，代码 代码大全 代码简洁之路 算法设计与分析 设计模式 七周七并发 多核程序设计艺术 3，Java Java 编程思想 Java 并发编程的艺术 Java 多线程编程核心技术 4，数据库 高性能 mysql 5，运维 Linux 命令 二，进阶1，基础 深入理解计算机系统 多处理器编程的艺术 图解性能优化 系统架构 2，代码设计 重构 设计模式解析 3，Java Effective Java 多线程编程实战 深入理解 JVM 虚拟机 NIO 与 Socket 编程技术指南 spring 源码分析 4，数据库 Mysql 技术内幕 InnoDB 存储引擎 数据库事务处理的艺术 5，中间件 Redis 原理分析 Mq 原理分析 6，分布式 从 Paxos 到 ZooKeeper 分布式理论 三，高级1，数学 计算机程序设计艺术(中文版)第一卷：基本算法 计算机程序设计艺术(中文版)第二卷：半数值算法 计算机程序设计艺术(中文版)第三卷：排序与查找 2，设计 简约之美_软件设计之道 3，其他 java 架构知识库整理 浅谈人工智能 4，论文4.1 Java JSR133 The java.util.concurrent Synchronizer Framework A Java Fork/Join Framework]]></content>
       <categories>
         <category>技术积累</category>
       </categories>
