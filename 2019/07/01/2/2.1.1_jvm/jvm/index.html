@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="&amp;emsp;">
+<meta name="description" content="一，自动内存管理机制1，Java 内存区域与内存溢出异常&amp;emsp;1.1 概述&amp;emsp;1.2 运行时数据区域&amp;emsp;1.3 HotSpot 虚拟机对象探秘&amp;emsp;1.4 实战：OutOfMemoryError 异常&amp;emsp;1.5 本章小结 2，垃圾收集器与内存分配策略&amp;emsp;2.1 概述&amp;emsp;2.2 对象&amp;emsp;2.3 垃圾收集算法&amp;emsp;2.4 HotSopt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jvm 原理">
 <meta property="og:url" content="http://yoursite.com/2019/07/01/2/2.1.1_jvm/jvm/index.html">
 <meta property="og:site_name" content="水门的博客">
-<meta property="og:description" content="&amp;emsp;">
+<meta property="og:description" content="一，自动内存管理机制1，Java 内存区域与内存溢出异常&amp;emsp;1.1 概述&amp;emsp;1.2 运行时数据区域&amp;emsp;1.3 HotSpot 虚拟机对象探秘&amp;emsp;1.4 实战：OutOfMemoryError 异常&amp;emsp;1.5 本章小结 2，垃圾收集器与内存分配策略&amp;emsp;2.1 概述&amp;emsp;2.2 对象&amp;emsp;2.3 垃圾收集算法&amp;emsp;2.4 HotSopt">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-01T07:19:01.267Z">
+<meta property="og:updated_time" content="2020-03-15T15:36:17.236Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jvm 原理">
-<meta name="twitter:description" content="&amp;emsp;">
+<meta name="twitter:description" content="一，自动内存管理机制1，Java 内存区域与内存溢出异常&amp;emsp;1.1 概述&amp;emsp;1.2 运行时数据区域&amp;emsp;1.3 HotSpot 虚拟机对象探秘&amp;emsp;1.4 实战：OutOfMemoryError 异常&amp;emsp;1.5 本章小结 2，垃圾收集器与内存分配策略&amp;emsp;2.1 概述&amp;emsp;2.2 对象&amp;emsp;2.3 垃圾收集算法&amp;emsp;2.4 HotSopt">
 
 
 
@@ -397,7 +397,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1
+                  629
                 </span>
               
 
@@ -422,7 +422,18 @@
       
 
       
-        <p>&emsp;</p>
+        <h2 id="一，自动内存管理机制"><a href="#一，自动内存管理机制" class="headerlink" title="一，自动内存管理机制"></a>一，自动内存管理机制</h2><h3 id="1，Java-内存区域与内存溢出异常"><a href="#1，Java-内存区域与内存溢出异常" class="headerlink" title="1，Java 内存区域与内存溢出异常"></a>1，Java 内存区域与内存溢出异常</h3><p>&emsp;1.1 概述<br>&emsp;1.2 运行时数据区域<br>&emsp;1.3 HotSpot 虚拟机对象探秘<br>&emsp;1.4 实战：OutOfMemoryError 异常<br>&emsp;1.5 本章小结</p>
+<h3 id="2，垃圾收集器与内存分配策略"><a href="#2，垃圾收集器与内存分配策略" class="headerlink" title="2，垃圾收集器与内存分配策略"></a>2，垃圾收集器与内存分配策略</h3><p>&emsp;2.1 概述<code></code><br>&emsp;2.2 对象<br>&emsp;2.3 垃圾收集算法<br>&emsp;2.4 HotSopt 的算法实现<br>&emsp;2.5 垃圾收集器<br>&emsp;2.6 内存分配与回收策略<br>&emsp;2.7 本章小结</p>
+<h3 id="3，虚拟机性能监控与故障处理工具"><a href="#3，虚拟机性能监控与故障处理工具" class="headerlink" title="3，虚拟机性能监控与故障处理工具"></a>3，虚拟机性能监控与故障处理工具</h3><p>&emsp;3.1 概述<br>&emsp;3.2 JDK 的命令行工具<br>&emsp;3.3 JDK 可视化工具<br>&emsp;3.4 本章小结</p>
+<h3 id="4，调优方案分析与实战"><a href="#4，调优方案分析与实战" class="headerlink" title="4，调优方案分析与实战"></a>4，调优方案分析与实战</h3><p>&emsp;4.1 概述<br>&emsp;4.2 案例分析<br>&emsp;4.3 本章小结</p>
+<h2 id="二，虚拟机执行子系统"><a href="#二，虚拟机执行子系统" class="headerlink" title="二，虚拟机执行子系统"></a>二，虚拟机执行子系统</h2><h3 id="1，类文件结构"><a href="#1，类文件结构" class="headerlink" title="1，类文件结构"></a>1，类文件结构</h3><p>&emsp;1.1 概述<br>&emsp;1.2 无关性的基石<br>&emsp;1.3 Class 类文件的结构<br>&emsp;1.4 字节码指令简介<br>&emsp;1.5 公有设计和私有实现<br>&emsp;1.6 Class 文件结构的发展<br>&emsp;1.7 本章小结</p>
+<h3 id="2，虚拟机类加载机制"><a href="#2，虚拟机类加载机制" class="headerlink" title="2，虚拟机类加载机制"></a>2，虚拟机类加载机制</h3><p>&emsp;2.1 概述<br>&emsp;2.2 类加载的时机<br>&emsp;2.3 类加载器<br>&emsp;2.4 本章小结</p>
+<h3 id="3，虚拟机字节码执行引擎"><a href="#3，虚拟机字节码执行引擎" class="headerlink" title="3，虚拟机字节码执行引擎"></a>3，虚拟机字节码执行引擎</h3><p>&emsp;3.1 概述<br>&emsp;3.2 运行时栈帧结构<br>&emsp;3.3 方法调用<br>&emsp;3.4 基于栈的字节码解释执行引擎<br>&emsp;3.5 本章小结</p>
+<h3 id="4，类加载及执行子系统的案例与实战"><a href="#4，类加载及执行子系统的案例与实战" class="headerlink" title="4，类加载及执行子系统的案例与实战"></a>4，类加载及执行子系统的案例与实战</h3><p>&emsp;4.1 概述<br>&emsp;4.2 案例分析<br>&emsp;4.3 实战：自己动手实现远程执行功能<br>&emsp;4.4 本章小结</p>
+<h2 id="三，程序编译与代码优化"><a href="#三，程序编译与代码优化" class="headerlink" title="三，程序编译与代码优化"></a>三，程序编译与代码优化</h2><h3 id="1，编译期优化"><a href="#1，编译期优化" class="headerlink" title="1，编译期优化"></a>1，编译期优化</h3><p>&emsp;1.1 概述<br>&emsp;1.2 Javac 编译器<br>&emsp;1.3 Java 语法糖的味道<br>&emsp;1.4 实战：插入式注解处理器<br>&emsp;1.5 本章小结</p>
+<h3 id="2，运行期优化"><a href="#2，运行期优化" class="headerlink" title="2，运行期优化"></a>2，运行期优化</h3><p>&emsp;2.1 概述<br>&emsp;2.2 HotSpot 虚拟机内的即时编译器<br>&emsp;2.3 编译优化技术<br>&emsp;2.4 Java 与 C/C++ 的编译器对比<br>&emsp;2.5 本章小结</p>
+<h2 id="四，高效并发"><a href="#四，高效并发" class="headerlink" title="四，高效并发"></a>四，高效并发</h2><h3 id="1，Java-内存模型与线程"><a href="#1，Java-内存模型与线程" class="headerlink" title="1，Java 内存模型与线程"></a>1，Java 内存模型与线程</h3><p>&emsp;1.1 概述<br>&emsp;1.2 硬件的效率与一致性<br>&emsp;1.3 Java 内存模型<br>&emsp;1.4 Java 与 线程<br>&emsp;1.5 本章小结</p>
+<h3 id="2，线程安全与锁优化"><a href="#2，线程安全与锁优化" class="headerlink" title="2，线程安全与锁优化"></a>2，线程安全与锁优化</h3><p>&emsp;2.1 概述<br>&emsp;2.2 线程安全<br>&emsp;2.3 锁优化<br>&emsp;2.4 本章小结</p>
 
       
     </div>
@@ -511,8 +522,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="kay wu">
           <p class="site-author-name" itemprop="name">kay wu</p>
@@ -585,6 +605,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一，自动内存管理机制"><span class="nav-text">一，自动内存管理机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1，Java-内存区域与内存溢出异常"><span class="nav-text">1，Java 内存区域与内存溢出异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2，垃圾收集器与内存分配策略"><span class="nav-text">2，垃圾收集器与内存分配策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3，虚拟机性能监控与故障处理工具"><span class="nav-text">3，虚拟机性能监控与故障处理工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4，调优方案分析与实战"><span class="nav-text">4，调优方案分析与实战</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二，虚拟机执行子系统"><span class="nav-text">二，虚拟机执行子系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1，类文件结构"><span class="nav-text">1，类文件结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2，虚拟机类加载机制"><span class="nav-text">2，虚拟机类加载机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3，虚拟机字节码执行引擎"><span class="nav-text">3，虚拟机字节码执行引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4，类加载及执行子系统的案例与实战"><span class="nav-text">4，类加载及执行子系统的案例与实战</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三，程序编译与代码优化"><span class="nav-text">三，程序编译与代码优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1，编译期优化"><span class="nav-text">1，编译期优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2，运行期优化"><span class="nav-text">2，运行期优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四，高效并发"><span class="nav-text">四，高效并发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1，Java-内存模型与线程"><span class="nav-text">1，Java 内存模型与线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2，线程安全与锁优化"><span class="nav-text">2，线程安全与锁优化</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
