@@ -106,7 +106,7 @@
 <meta property="og:image" content="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/03/20/15847192483122.jpg">
 <meta property="og:image" content="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/03/20/15847192667106.jpg">
 <meta property="og:image" content="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/03/20/1584718517566dd8dec4642574635be2e81ca2d4bec21.png">
-<meta property="og:updated_time" content="2020-03-20T15:58:07.437Z">
+<meta property="og:updated_time" content="2020-03-20T16:12:59.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阿里巴巴开发手册解析">
 <meta name="twitter:description" content="代码规约命名规约1234567891.1.1 代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束1.1.2 代码中的命名严禁使用拼音与英文混合的方式，更不允许直接使用中文的方式1.1.3 / 1.1.4 类名使用UpperCamelCase风格，必须遵从驼峰形式（某些情况诸如领域模型相关的命名除外）；方法名、参数名、成员变量、局部变量都统一使用lowerCamelCase风格，">
@@ -446,8 +446,7 @@
 <p>对于接口的命名，笔者最为不能忍受的一种命名，就是将所有的接口以大写字母I开头，诸如：IUserService。真是一种坑爹到极致的命名：第一，IUserService纠结是一个啥玩意儿？好好的UserService，加上一个大写字母I，直接失去了阅读时的语义性；第二，谁他妈知道你这东西到底是大写字母I还是数字1啊？</p>
 <p>有关枚举类名是否加上Enum后缀，笔者对此有所保留。在笔者的团队中，是不使用Enum作为后缀的，但对此并不反感。至于枚举成员名称，不用大写字母并下划线隔开的，基本属于缺心眼行为。Enum的设计初衷就是对常量的规整和扩展，所以命名规范继承自常量是比较合理的一种选择。</p>
 <p>在命名中体现设计模式，相信这一点很多程序员都能遵守。因为在笔者看来，能在代码中熟练使用设计模式的同学，通常也不会是一个对自己毫无要求的烂货。这条命名规范在Spring以及很多优秀的开源项目中都有很深刻的体现。</p>
-<p>类名是否可以使用复数形式，相信主要的分歧来自于工具类。笔者的规定是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">提供一系列静态方法的工具类，一概使用Utils作为后缀命名</span><br></pre></td></tr></table></figure>
+<p>类名是否可以使用复数形式，相信主要的分歧来自于工具类。笔者的规定是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">提供一系列静态方法的工具类，一概使用Utils作为后缀命名</span><br></pre></td></tr></table></figure></p>
 <p>这条规范的依据，主要来自于笔者发现commons和spring这两个比较优秀的开源框架中提供的工具类通常都带s结尾。</p>
 <h3 id="常量规约"><a href="#常量规约" class="headerlink" title="常量规约"></a>常量规约</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.2.1 不允许出现任何魔法值（即未经定义的常量）直接出现在代码中</span><br><span class="line"></span><br><span class="line">1.2.3 不要使用一个常量类维护所有常量，应该按常量功能进行归类，分开维护</span><br><span class="line"></span><br><span class="line">1.2.4 常量的复用层次有五层：跨应用共享常量、应用内共享常量、子工程内共享常量、包内共享常量、类内共享常量</span><br><span class="line"></span><br><span class="line">1.2.5 如果变量值仅在一个范围内变化用Enum类。如果还带有名称之外的延伸属性，必须使用Enum类</span><br><span class="line"></span><br><span class="line">1.1.12 尽量不要在接口里定义变量，如果一定要定义变量，肯定是与接口方法相关，并且是整个应用的基础常量</span><br></pre></td></tr></table></figure>
 <p>常量规约的核心有两点：第一，别使用常量；第二，让常量可控。</p>
@@ -462,8 +461,7 @@
 <h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.2.2 long或者Long初始赋值时，必须使用大写的L，不能是小写的l，小写容易跟数字1混淆，造成误解</span><br><span class="line"></span><br><span class="line">1.4.7 所有的相同类型的包装类对象之间值的比较，全部使用equals方法比较</span><br><span class="line"></span><br><span class="line">1.4.8 所有的POJO类属性必须使用包装数据类型</span><br><span class="line"></span><br><span class="line">1.4.8 RPC方法的返回值和参数必须使用包装数据类型</span><br><span class="line"></span><br><span class="line">1.4.8 所有的局部变量【推荐】使用基本数据类型</span><br></pre></td></tr></table></figure>
 <p>有关基本类型的声明（1.2.2）和比较（1.4.7），这两条规则比较直观，不再叙述。</p>
 <p>而有关基本类型和包装类型的使用，这东西一直是吵架的核心。用还是不用？这是个问题！很显然，阿里同学的观点是：为了提高程序的容错性和扩展性，尽可能使用包装类型。</p>
-<p>从阿里同学举的例子来说，也是有一定说服力的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数据库的查询结果可能是null，因为自动拆箱，用基本数据类型接收有NPE风险</span><br><span class="line"></span><br><span class="line">比如显示成交总额涨跌情况，即正负x%，x为基本数据类型，调用的RPC服务，调用不成功时，返回的是默认值，页面显示：0%，这是不合理的，应该显示成中划线-。</span><br><span class="line">所以包装数据类型的null值，能够表示额外的信息</span><br></pre></td></tr></table></figure>
+<p>从阿里同学举的例子来说，也是有一定说服力的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数据库的查询结果可能是null，因为自动拆箱，用基本数据类型接收有NPE风险</span><br><span class="line"></span><br><span class="line">比如显示成交总额涨跌情况，即正负x%，x为基本数据类型，调用的RPC服务，调用不成功时，返回的是默认值，页面显示：0%，这是不合理的，应该显示成中划线-。</span><br><span class="line">所以包装数据类型的null值，能够表示额外的信息</span><br></pre></td></tr></table></figure></p>
 <p>不过笔者认为，如果程序员对程序能够驾驭得比较好，基本类型也是一种很好的选择。因为基本类型有一些比较好用的特性：比如说默认值。笔者在这里也举个例子进行说明：</p>
 <p>通常我们都会用is_disabled字段在数据库中表示某一个表的记录是否被逻辑删除，而这个字段，在Java代码中被映射成什么类型呢？</p>
 <p>Boolean？如果被映射成包装类型，那么数据库里面的这个字段就可以为null，有些读者会说，这并没有什么问题啊。可是，数据库is_disabled字段如果为null，代表什么逻辑含义呢？<br>这条记录究竟是有效还是无效？</p>
