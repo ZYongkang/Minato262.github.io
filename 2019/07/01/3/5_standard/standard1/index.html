@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="代码规约命名规约1234567891.1.1 代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束1.1.2 代码中的命名严禁使用拼音与英文混合的方式，更不允许直接使用中文的方式1.1.3 / 1.1.4 类名使用UpperCamelCase风格，必须遵从驼峰形式（某些情况诸如领域模型相关的命名除外）；方法名、参数名、成员变量、局部变量都统一使用lowerCamelCase风格，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿里巴巴开发手册解析">
+<meta property="og:url" content="http://yoursite.com/2019/07/01/3/5_standard/standard1/index.html">
+<meta property="og:site_name" content="水门的博客">
+<meta property="og:description" content="代码规约命名规约1234567891.1.1 代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束1.1.2 代码中的命名严禁使用拼音与英文混合的方式，更不允许直接使用中文的方式1.1.3 / 1.1.4 类名使用UpperCamelCase风格，必须遵从驼峰形式（某些情况诸如领域模型相关的命名除外）；方法名、参数名、成员变量、局部变量都统一使用lowerCamelCase风格，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/03/20/1584719142378c5c26728625a4189aea2fd1355891484.png">
+<meta property="og:image" content="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/03/20/15847192374336.png">
+<meta property="og:image" content="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/03/20/15847192483122.jpg">
+<meta property="og:image" content="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/03/20/15847192667106.jpg">
+<meta property="og:image" content="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/03/20/1584718517566dd8dec4642574635be2e81ca2d4bec21.png">
+<meta property="og:updated_time" content="2020-03-20T15:58:07.437Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="阿里巴巴开发手册解析">
+<meta name="twitter:description" content="代码规约命名规约1234567891.1.1 代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束1.1.2 代码中的命名严禁使用拼音与英文混合的方式，更不允许直接使用中文的方式1.1.3 / 1.1.4 类名使用UpperCamelCase风格，必须遵从驼峰形式（某些情况诸如领域模型相关的命名除外）；方法名、参数名、成员变量、局部变量都统一使用lowerCamelCase风格，">
+<meta name="twitter:image" content="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/03/20/1584719142378c5c26728625a4189aea2fd1355891484.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/07/01/3/5_standard/standard1/">
+
+
+
+
+
+  <title>阿里巴巴开发手册解析 | 水门的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">水门的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/5_standard/standard1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kay wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水门的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">阿里巴巴开发手册解析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T00:00:02+08:00">
+                2019-07-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术积累/" itemprop="url" rel="index">
+                    <span itemprop="name">技术积累</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  10k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="代码规约"><a href="#代码规约" class="headerlink" title="代码规约"></a>代码规约</h2><h3 id="命名规约"><a href="#命名规约" class="headerlink" title="命名规约"></a>命名规约</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.1.1 代码中的命名均不能以下划线或美元符号开始，也不能以下划线或美元符号结束</span><br><span class="line"></span><br><span class="line">1.1.2 代码中的命名严禁使用拼音与英文混合的方式，更不允许直接使用中文的方式</span><br><span class="line"></span><br><span class="line">1.1.3 / 1.1.4 类名使用UpperCamelCase风格，必须遵从驼峰形式（某些情况诸如领域模型相关的命名除外）；方法名、参数名、成员变量、局部变量都统一使用lowerCamelCase风格，必须遵从驼峰形式</span><br><span class="line"></span><br><span class="line">1.1.5 常量命名全部大写，单词间用下划线隔开</span><br><span class="line"></span><br><span class="line">1.1.9 包名统一使用小写，点分隔符之间有且仅有一个自然语义的英语单词</span><br></pre></td></tr></table></figure>
+<p>上述规则，主要是规定了你书写Java的时候，哪些字符可以用，什么时候用大写，什么时候用小写。应该说，绝大多数写Java的都遵循着上述的规范，就像笔者说的：尼玛这都不懂，乘早改行别写Java了。</p>
+<p>笔者在实际编程过程中，对类名的风格，可能更激进一些，根据阿里的规范：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">类名使用UpperCamelCase风格，必须遵从驼峰形式，但以下情形例外：（领域模型的相关命名）DO / BO / DTO / VO等</span><br></pre></td></tr></table></figure>
+<p>实际上还是有可能会存在着诸如：UserVO，UserDTO，UserDAO这样的命名。对不起，在笔者的团队中，这样的命名也会被禁止，这里分为2种情况：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">禁止使用 VO / BO / DTO / VO 等进行领域模型的命名</span><br></pre></td></tr></table></figure></p>
+<p>有读者要问，那么如果万一项目中要使用DTO或者VO咋办？笔者的观点如下：</p>
+<p>第一，项目中避免使用DTO或者VO，DTO是一个早在2004年就被讨论并认定为一个反模式的东西；</p>
+<p>第二，谁规定领域模型就一定要用DTO或者VO做结尾？还原领域模型的本来意义才是命名的核心，一个User在实际业务系统中可能是一个Admin或者Supervisor，那就直接用Admin来命名，而不是把User转化成UserVO，UserVO啥都不是，是初级程序员造出来的一个怪胎。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">所有的DAO使用正常的驼峰法进行命名，例如：UserDao</span><br></pre></td></tr></table></figure>
+<p>对上面这条，或许有很多DAO大写党要发飙了。其实笔者就想反问这些人一句：你咋不把UserService写成UserSERVICE呢？</p>
+<h3 id="命名原则"><a href="#命名原则" class="headerlink" title="命名原则"></a>命名原则</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.1.5 力求语义表达完整清楚，不要嫌名字长</span><br><span class="line"></span><br><span class="line">1.1.10 杜绝完全不规范的缩写，避免望文不知义</span><br></pre></td></tr></table></figure>
+<p>这两条说的是命名的基本原则，总的来说其实表达了一个意思：你他妈的别给我用缩写！</p>
+<p>其实有很多程序员会非常神奇的患上「缩写综合症」。比如非常典型的就是：UserMgmt，这他妈是什么鬼？多敲几个字母会死么？</p>
+<h3 id="类的命名"><a href="#类的命名" class="headerlink" title="类的命名"></a>类的命名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.1.6 抽象类命名使用Abstract或Base开头；异常类命名使用Exception结尾；测试类命名以它要测试的类的名称开始，以Test结尾</span><br><span class="line"></span><br><span class="line">1.1.13 对于Service和DAO类，基于SOA的理念，暴露出来的服务一定是接口，内部的实现类用Impl的后缀与接口区别</span><br><span class="line"></span><br><span class="line">1.1.13 如果是形容能力的接口名称，取对应的形容词做接口名</span><br><span class="line"></span><br><span class="line">1.1.14 枚举类名建议带上Enum后缀，枚举成员名称需要全大写，单词间用下划线隔开</span><br><span class="line"></span><br><span class="line">1.1.11 如果使用到了设计模式，建议在类名中体现出具体模式</span><br><span class="line"></span><br><span class="line">1.1.9 包名统一使用单数形式；类名如果有复数含义，类名可以使用复数形式</span><br></pre></td></tr></table></figure>
+<p>上述规则，主要在讲述具体命名一个类的时候的一个「用词规范」。这些用词规范绝大多数实际上也是一种约定俗成，比如Abstract前缀，Exception后缀等等。</p>
+<p>对于接口的命名，笔者最为不能忍受的一种命名，就是将所有的接口以大写字母I开头，诸如：IUserService。真是一种坑爹到极致的命名：第一，IUserService纠结是一个啥玩意儿？好好的UserService，加上一个大写字母I，直接失去了阅读时的语义性；第二，谁他妈知道你这东西到底是大写字母I还是数字1啊？</p>
+<p>有关枚举类名是否加上Enum后缀，笔者对此有所保留。在笔者的团队中，是不使用Enum作为后缀的，但对此并不反感。至于枚举成员名称，不用大写字母并下划线隔开的，基本属于缺心眼行为。Enum的设计初衷就是对常量的规整和扩展，所以命名规范继承自常量是比较合理的一种选择。</p>
+<p>在命名中体现设计模式，相信这一点很多程序员都能遵守。因为在笔者看来，能在代码中熟练使用设计模式的同学，通常也不会是一个对自己毫无要求的烂货。这条命名规范在Spring以及很多优秀的开源项目中都有很深刻的体现。</p>
+<p>类名是否可以使用复数形式，相信主要的分歧来自于工具类。笔者的规定是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">提供一系列静态方法的工具类，一概使用Utils作为后缀命名</span><br></pre></td></tr></table></figure>
+<p>这条规范的依据，主要来自于笔者发现commons和spring这两个比较优秀的开源框架中提供的工具类通常都带s结尾。</p>
+<h3 id="常量规约"><a href="#常量规约" class="headerlink" title="常量规约"></a>常量规约</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.2.1 不允许出现任何魔法值（即未经定义的常量）直接出现在代码中</span><br><span class="line"></span><br><span class="line">1.2.3 不要使用一个常量类维护所有常量，应该按常量功能进行归类，分开维护</span><br><span class="line"></span><br><span class="line">1.2.4 常量的复用层次有五层：跨应用共享常量、应用内共享常量、子工程内共享常量、包内共享常量、类内共享常量</span><br><span class="line"></span><br><span class="line">1.2.5 如果变量值仅在一个范围内变化用Enum类。如果还带有名称之外的延伸属性，必须使用Enum类</span><br><span class="line"></span><br><span class="line">1.1.12 尽量不要在接口里定义变量，如果一定要定义变量，肯定是与接口方法相关，并且是整个应用的基础常量</span><br></pre></td></tr></table></figure>
+<p>常量规约的核心有两点：第一，别使用常量；第二，让常量可控。</p>
+<p>常量的存在按照笔者个人的理解是向下兼容的选择（因为JDK1.5之后才出现枚举）外加用起来足够爽（想象一下静态调用时引用的便捷性，甚至基本类型可以直接参与业务逻辑的计算）。</p>
+<p>所以在上述规则中，我们可以看到常量进化到枚举的趋势，也能看到由于用起来足够爽带来的常量管理需求：要求分组（1.2.3）以及要求放在合适的位置（1.2.4）。</p>
+<p>有关分组，笔者有不同意见：常量分组未必要分散到不同的类，在一个常量类中定义静态类也是一种分组方式，有时候这样的分组方式可能管理起来更有效。</p>
+<p>至于接口中只能定义常量不能定义变量，基本就属于幼儿园规则了。</p>
+<h3 id="语法糖"><a href="#语法糖" class="headerlink" title="语法糖"></a>语法糖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1.2.2 long或者Long初始赋值时，必须使用大写的L，不能是小写的l，小写容易跟数字1混淆，造成误解</span><br><span class="line"></span><br><span class="line">1.1.12 接口类中的方法和属性不要加任何修饰符号（public 也不要加），保持代码的简洁性，并加上有效的Javadoc注释</span><br><span class="line"></span><br><span class="line">1.4.2 所有的覆写方法，必须加@Override注解</span><br><span class="line"></span><br><span class="line">1.4.3 可变参数必须放置在参数列表的最后。（提倡同学们尽量不用可变参数编程）</span><br><span class="line"></span><br><span class="line">1.4.4 对外暴露的接口签名，原则上不允许修改方法签名，避免对接口调用方产生影响。接口过时必须加@Deprecated注解，并清晰地说明采用的新接口或者新服务是什么</span><br><span class="line"></span><br><span class="line">1.4.5 不能使用过时的类或方法</span><br><span class="line"></span><br><span class="line">1.4.10 序列化类新增属性时，请不要修改serialVersionUID字段，避免反序列失败</span><br><span class="line"></span><br><span class="line">1.4.17 循环体内，字符串的联接方式，使用StringBuilder的append</span><br><span class="line"></span><br><span class="line">1.4.18 final可提高程序响应效率</span><br><span class="line"></span><br><span class="line">1.4.19 慎用Object的clone方法来拷贝对象</span><br></pre></td></tr></table></figure>
+<p>有关语法糖的总结其实比较牵强，因为绝大多数的规则看上去都比较小儿科，比如像覆写方法的@Override注解，@Deprecated注解，可变参数的问题等等基本上都在IDE层面解决了。</p>
+<p>当一个项目在IDE中产生了一些由于使用过时方法之类的事儿导致的warning时，有洁癖的程序员应该主动修复这个warning。这也是是一个程序员的基本素养问题。</p>
+<p>最后的三条，笔者认为有点鸡肋，对于初级程序员，大多还到不了考虑final和clone的层次；而中高级程序员，这几条规则对他们而言并无问题。</p>
+<h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.2.2 long或者Long初始赋值时，必须使用大写的L，不能是小写的l，小写容易跟数字1混淆，造成误解</span><br><span class="line"></span><br><span class="line">1.4.7 所有的相同类型的包装类对象之间值的比较，全部使用equals方法比较</span><br><span class="line"></span><br><span class="line">1.4.8 所有的POJO类属性必须使用包装数据类型</span><br><span class="line"></span><br><span class="line">1.4.8 RPC方法的返回值和参数必须使用包装数据类型</span><br><span class="line"></span><br><span class="line">1.4.8 所有的局部变量【推荐】使用基本数据类型</span><br></pre></td></tr></table></figure>
+<p>有关基本类型的声明（1.2.2）和比较（1.4.7），这两条规则比较直观，不再叙述。</p>
+<p>而有关基本类型和包装类型的使用，这东西一直是吵架的核心。用还是不用？这是个问题！很显然，阿里同学的观点是：为了提高程序的容错性和扩展性，尽可能使用包装类型。</p>
+<p>从阿里同学举的例子来说，也是有一定说服力的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数据库的查询结果可能是null，因为自动拆箱，用基本数据类型接收有NPE风险</span><br><span class="line"></span><br><span class="line">比如显示成交总额涨跌情况，即正负x%，x为基本数据类型，调用的RPC服务，调用不成功时，返回的是默认值，页面显示：0%，这是不合理的，应该显示成中划线-。</span><br><span class="line">所以包装数据类型的null值，能够表示额外的信息</span><br></pre></td></tr></table></figure>
+<p>不过笔者认为，如果程序员对程序能够驾驭得比较好，基本类型也是一种很好的选择。因为基本类型有一些比较好用的特性：比如说默认值。笔者在这里也举个例子进行说明：</p>
+<p>通常我们都会用is_disabled字段在数据库中表示某一个表的记录是否被逻辑删除，而这个字段，在Java代码中被映射成什么类型呢？</p>
+<p>Boolean？如果被映射成包装类型，那么数据库里面的这个字段就可以为null，有些读者会说，这并没有什么问题啊。可是，数据库is_disabled字段如果为null，代表什么逻辑含义呢？<br>这条记录究竟是有效还是无效？</p>
+<p>如果这个字段不能为null，那么将其映射成基本类型是一个皆大欢喜的事情：既保证了数据库数据的完整性，我们在初始化的时候还可以忽略这个字段，因为boolean天生的默认值就是false</p>
+<p>所以，笔者对于包装类还是基本类型的结论是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一切跟着业务的实际情况而定，基本类型也有其生存空间</span><br></pre></td></tr></table></figure>
+<h3 id="方法命名"><a href="#方法命名" class="headerlink" title="方法命名"></a>方法命名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.1.15  Service/DAO层方法命名规约</span><br><span class="line"> - 获取单个对象的方法用get做前缀</span><br><span class="line"> - 获取多个对象的方法用list做前缀</span><br><span class="line"> - 获取统计值的方法用count做前缀</span><br><span class="line"> - 插入的方法用save（推荐）或insert做前缀</span><br><span class="line"> - 删除的方法用remove（推荐）或delete做前缀</span><br><span class="line"> - 修改的方法用update做前缀</span><br></pre></td></tr></table></figure>
+<p>有关方法的命名，笔者想多说几句不同意见。对于上述的规则，笔者认为适合在DAO这个层次进行实践，而不能应用于Service层。</p>
+<p>使用Hibernate作为持久层框架的读者，对Hibernate的API应该比较熟悉，而上面的命名规范，和Hibernate对外暴露的API名称是很接近的。我们知道，通常到了DAO这个层次，数据库操作相对来说是一个原子操作，所以增删改查的语义是最适合做方法命名的。这也就是笔者认为这套规则在DAO层能够被实践得很好的一个原因。</p>
+<p>当然，上述规则中有一个例外：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">获取单个对象用load做前缀，避免使用get</span><br></pre></td></tr></table></figure></p>
+<p>原因很简单，get可能是getter方法的前缀，作为一个偏执狂，老子不冒风险。</p>
+<p>话题回到Service的命名上来，为什么笔者不认同使用相同的命名规范作用于Service层呢？因为Service层通常是对外暴露的接口，具有一定的业务意义，也就是说Service层通常也不会是简单的增删改查，而是若干原子操作的集合。</p>
+<p>举两个很简单的例子：发短信。发短信这个业务中可能包含了本地配置的读取、本地数据库的读写，远程服务的调用。我们可以看到这是一连串数据库操作甚至是异构系统调用的集合实现，能用简单的增删改查来命名吗？所以，笔者的观点很简单：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Service层接口方法的命名，应还原业务的本来面目，采用动词或者动宾结构来进行方法的命名</span><br></pre></td></tr></table></figure></p>
+<p>举例来说：resetPassword / login / sendMessage 都是比较合理的命名方式。</p>
+<h3 id="方法和属性"><a href="#方法和属性" class="headerlink" title="方法和属性"></a>方法和属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.4.9 定义DO/DTO/VO等POJO类时，不要设定任何属性默认值</span><br><span class="line"></span><br><span class="line">1.4.11 构造方法里面禁止加入任何业务逻辑，如果有初始化逻辑，请放在init方法中</span><br><span class="line"></span><br><span class="line">1.4.14 当一个类有多个构造方法，或者多个同名方法，这些方法应该按顺序放置在一起，便于阅读</span><br><span class="line"></span><br><span class="line">1.4.15 类内方法定义顺序依次是：公有方法或保护方法 &gt; 私有方法 &gt; getter/setter方法</span><br><span class="line"></span><br><span class="line">1.4.16 setter方法中，参数名称与类成员变量名称一致，this.成员名=参数名。在getter/setter方法中，尽量不要增加业务逻辑</span><br><span class="line"></span><br><span class="line">1.4.20 类成员与方法访问控制从严</span><br></pre></td></tr></table></figure>
+<p>这几条规约理解起来不难，执行起来也不难。要探究背后的原因，可能就需要花点功夫。</p>
+<p>比如，构造方法和setter/getter方法禁止加入业务逻辑，主要是这些方法有很大概率被程序框架的反射机制调用。一旦其中含有业务逻辑，那么调试和定位就会变成灾难。</p>
+<p>不过对于getter方法，通常要网开一面。因为在实际情况中，我们往往会在一个POJO中加入额外的getter方法用于序列化或者内部逻辑的使用。在这种情况下，避免和其他getter方法产生分歧是需要注意的地方。</p>
+<p>至于说到类内的方法定义顺序，笔者基本同意上述规则，但在实际执行中可能更加严格：getter和setter方法的顺序也有严格讲究，必须是先getter方法，后setter方法，而不是让它们成对出现。</p>
+<p>有关类成员和方法的访问控制，阿里的同学洋洋洒洒说了好几条，语法层面偏多，在这里就不再详细展开。</p>
+<h3 id="格式规约"><a href="#格式规约" class="headerlink" title="格式规约"></a>格式规约</h3><p>格式规约是代码规范中争议最大的，由于条目众多，在这里就不逐一解读，挑选几条大致说一下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.3.5 缩进采用4个空格，禁止使用tab字符</span><br><span class="line"></span><br><span class="line">1.3 6. 单行字符数限不超过 120 个</span><br><span class="line"></span><br><span class="line">1.3.8 IDE的text file encoding设置为UTF-8; IDE中文件的换行符使用Unix格式，不要使用windows格式</span><br><span class="line"></span><br><span class="line">1.3.10 方法体内的执行语句组、变量的定义语句组、不同的业务逻辑之间或者不同的语义之间插入一个空行</span><br></pre></td></tr></table></figure></p>
+<p>绝大多数情况下，空格党和Tab党的较量是空格党完胜。笔者也不记得是多少年前被一位前辈教育说禁止使用Tab，就保持了良好的习惯至今。对于缩进，个人比较赞同4个空格，但HTML等页面上使用4个空格的话，一些复杂页面的缩进就会比较恐怖，此时可以降级为2个空格。</p>
+<p>对于单行字符数的限制不超过120个这条规则，笔者完全不能认同。这里面牵涉到的情况比较多，不能一棒子打死了。有些逻辑有大量的分支和循环的嵌套，如果遵循4个空格的缩进原则，碰到方法名称还比较长的状况，就要折行，这给代码阅读带来极大的困扰；另外有一种情况，就是需要额外进行比较长的注释编写，不能写在一行里的感觉真是比较糟糕，因为还得考虑断句才不影响阅读。另外，笔者有一个习惯是在条件语句边上加一句注释，这样就有很大概率会超出120字：</p>
+<p>有人会问，条件语句边上加注释是什么鬼？从上面的代码上可以看到，条件语句上面的一行注释实际上在解释整个代码片段，而条件语句边上的注释说明的是条件语句本身！当然如果读者有更好的写注释的位置，请及时给笔者留言。</p>
+<p>文件的UTF-8和Unix格式没什么好说的，IDE支持的也很好。但这一点对初级程序员尤为重要，我已经不知道多少次就这个问题惩罚过实习生了。</p>
+<p>有关语句组空行，是笔者极力推荐的一个做法。这不仅仅是为了空行而空行，这里的空行本身就是一种编程思路的整理。而笔者还有一个习惯就是对比较复杂的逻辑，都在语句组的前面加上注释，注释也用编号编排，这样回头debug时也会极大提升效率。</p>
+<h3 id="集合类型"><a href="#集合类型" class="headerlink" title="集合类型"></a>集合类型</h3><p>阿里规范中的集合类型这个章节，感觉写得比较鸡肋。绝大多数的规范似乎都是针对初级程序员的。笔者看了半天也没总结出一条值得额外解读的，所以权当复习一遍基础知识就好。</p>
+<h3 id="并发处理"><a href="#并发处理" class="headerlink" title="并发处理"></a>并发处理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.6.1 获取单例对象需要保证线程安全，其中的方法也要保证线程安全</span><br><span class="line"></span><br><span class="line">1.6.2 创建线程或线程池时请指定有意义的线程名称，方便出错时回溯</span><br><span class="line"></span><br><span class="line">1.6.3 线程资源必须通过线程池提供，不允许在应用中自行显式创建线程</span><br><span class="line"></span><br><span class="line">1.6.4 线程池不允许使用Executors去创建，而是通过ThreadPoolExecutor去创建</span><br></pre></td></tr></table></figure>
+<p>上面这4条规则主要是针对线程的创建和使用。由于Spring的存在，其实上述情况不太可能发生。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.6.5 高并发时，同步调用应该去考量锁的性能损耗。能用无锁数据结构，就不要用锁；能锁区块，就不要锁整个方法体；能用对象锁，就不要用类锁</span><br><span class="line"></span><br><span class="line">1.6.7 对多个资源、数据库表、对象同时加锁时，需要保持一致的加锁顺序，否则可能会造成死锁</span><br><span class="line"></span><br><span class="line">1.6.8 并发修改同一记录时，避免更新丢失，要么在应用层加锁，要么在缓存加锁，要么在数据库层使用乐观锁，使用version作为更新依据</span><br></pre></td></tr></table></figure>
+<p>上面这3条规则主要是针对锁。不过这几条规则看上去更像是3道面试题的答案。这3道面试题分别是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">使用锁同步，有什么需要注意的地方？</span><br><span class="line"></span><br><span class="line">什么是死锁？举例说明什么情况会发生死锁？</span><br><span class="line"></span><br><span class="line">什么是乐观锁？什么是悲观锁？分别用在什么场景？</span><br></pre></td></tr></table></figure></p>
+<p>相信能解答上述面试题的同学，应该对上面的原则了然于心。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.6.9 多线程并行处理定时任务时，Timer运行多个TimeTask时，只要其中之一没有捕获抛出的异常，其它任务便会自动终止运行，使用ScheduledExecutorService则没有这个问题</span><br><span class="line"></span><br><span class="line">1.6.10 使用CountDownLatch进行异步转同步操作，每个线程退出前必须调用countDown方法，线程执行代码注意catch异常，确保countDown方法可以执行，</span><br><span class="line">避免主线程无法执行至countDown方法，直到超时才返回结果回溯</span><br><span class="line"></span><br><span class="line">1.6.13 volatile解决多线程内存不可见问题。对于一写多读，是可以解决变量同步问题，但是如果多写，同样无法解决线程安全问题</span><br><span class="line"></span><br><span class="line">1.6.14 HashMap在容量不够进行resize时由于高并发可能出现死链</span><br><span class="line"></span><br><span class="line">1.6.15 ThreadLocal无法解决共享对象的更新问题，ThreadLocal对象建议使用static修饰。这个变量是针对一个线程内所有操作共有的，所以设置为静态变量，</span><br><span class="line">所有此类实例共享此静态变量</span><br></pre></td></tr></table></figure>
+<p>上面这些规则基本上属于知识贴范畴，可以一带而过，有些可能不太会实际碰到。像定时任务，可能使用Spring的封装更多一些，而Spring默认就是使用ScheduledExecutorService的。</p>
+<p>而CountDownLatch的异常捕获，也是一个老生常谈的问题了，属于多线程编程的基本功。</p>
+<p>最后的三条对于写应用的同学接触不多，但写底层的同学应该会很熟悉。</p>
+<h3 id="代码风格"><a href="#代码风格" class="headerlink" title="代码风格"></a>代码风格</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.7.1 在一个switch块内，每个case要么通过break/return等来终止，要么注释说明程序将继续执行到哪一个case为止；</span><br><span class="line">在一个switch块内，都必须包含一个default语句并且放在最后，即使它什么代码也没有</span><br></pre></td></tr></table></figure>
+<p>这条主要是期待程序员人为把握好代码的执行逻辑。对于switch语句，如果没有终止语句，会依次执行每一个case块。实际上，笔者认为switch语句是一个比较差的语法糖，通常情况下都可以用更加优雅的方式来写，包括并不限于使用设计模式。所以在笔者的团队中是禁止使用switch语句的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.7 2 在if/else/for/while/do语句中必须使用大括号，即使只有一行代码，避免使用下面的形式：if (condition) statements;</span><br></pre></td></tr></table></figure></p>
+<p>这一条比较有意思，因为这种一行式的代码风格，在javascript里面经常会看到，所以很多全栈工程师也会把它引入到Java中来。笔者对此并不反感，但确实在可读性上不那么友好。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.7.3 推荐尽量少用else， if-else的方式可以改写成：</span><br><span class="line">if(condition)&#123;</span><br><span class="line">...</span><br><span class="line">return obj;</span><br><span class="line">&#125;</span><br><span class="line">// 接着写else的业务逻辑代码;</span><br><span class="line"></span><br><span class="line">1.7.3 如果非得使用if()...else if()...else...方式表达逻辑，【强制】请勿超过3层，超过请使用状态设计模式</span><br></pre></td></tr></table></figure>
+<p>上面这点笔者比较认同，因为else不仅会带来大段的代码缩进的困扰，同时也会降低代码的可读性。不过对于那些坚持必须在代码的最后一行统一return的同学，上面的写法可能就不太容易接受了。实际上，上述代码结构比较常见于Spring的源码中，倒不是尽早return，而是else的逻辑块可能直接throw异常出去了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.7.4 除常用方法（如getXxx/isXxx）等外，不要在条件判断中执行其它复杂的语句，将复杂逻辑判断的结果赋值给一个有意义的布尔变量名，以提高可读性</span><br><span class="line">boolean existed = (file.open(fileName, &quot;w&quot;) != null) &amp;&amp; (...) || (...);</span><br><span class="line">if (existed) &#123;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有关这一条，补充说明一下：将复杂的逻辑判断结果赋值给一个有意义的布尔变量名，除了提高可读性之外，实际上能够极大方便调试。但笔者认为单单只是抽取部分代码，并不能提高可读性，而是应该将复杂的逻辑判断进一步封装为一个方法：<br><img src="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/03/20/1584719142378c5c26728625a4189aea2fd1355891484.png" alt="1584719142378_C5C26728-625A-4189-AEA2-FD1355891484"></p>
+<p>上面的代码片段中，左边是阿里风格，右边是陆老师的风格，大家可以比较一下，哪个更好？哪个更符合面向对象的思维呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.7.5 循环体中的语句要考量性能，以下操作尽量移至循环体外处理，如定义对象、变量、获取数据库连接，进行不必要的try-catch操作</span><br></pre></td></tr></table></figure></p>
+<p>这一条值得说一下，因为有些代码会走得比较深，写着写着就忘了它处于循环体的内部了。所以保持一个谨慎的心态比较重要。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1.7.7 方法中需要进行参数校验的场景：</span><br><span class="line">1） 调用频次低的方法。 </span><br><span class="line">2） 执行时间开销很大的方法，参数校验时间几乎可以忽略不计，但如果因为参数错误导致中间执行回退，或者错误，那得不偿失。</span><br><span class="line">3） 需要极高稳定性和可用性的方法。 </span><br><span class="line">4） 对外提供的开放接口，不管是RPC/API/HTTP接口。</span><br><span class="line">5） 敏感权限入口。</span><br><span class="line"></span><br><span class="line">1.7.8 方法中不需要参数校验的场景： </span><br><span class="line">1） 极有可能被循环调用的方法，不建议对参数进行校验。但在方法说明里必须注明外部参数检查</span><br><span class="line">2） 底层的方法调用频度都比较高，一般不校验。毕竟是像纯净水过滤的最后一道，参数错误不太可能到底层才会暴露问题。一般DAO层与Service层都在同一个应用中，</span><br><span class="line">部署在同一台服务器中，所以DAO的参数校验，可以省略</span><br><span class="line">3） 被声明成private只会被自己代码所调用的方法，如果能够确定调用方法的代码传入参数已经做过检查或者肯定不会有问题，此时可以不校验参数</span><br></pre></td></tr></table></figure>
+<p>这两条说的是参数校验，说的比较在理，也比较全面。比起很多公司的奇葩规定来说，要人性化得多。笔者认为需要补充的是：参数的校验主要还需要从格式和业务两个层面进行考量。业务层面的校验往往要比单纯的格式校验更为复杂，所以在写代码时可以建立一定层次的假设，当然这可能也会引入团队沟通的问题，需要根据实际情况权衡。</p>
+<p>有关阿里代码风格方面的解读，受限于阿里自身提出的规约比较少。对此，笔者是稍有失望的。因为代码风格规约是最能够体现一个团队对于代码整洁程度的一个衡量标准。所以笔者忍不住在这里多加了几条笔者团队的共识，供读者参考：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在任何情况下，代码量越少越容易维护</span><br></pre></td></tr></table></figure></p>
+<p>基于上面的原则，笔者的团队会鼓励使用三目表达式对简要的if/else进行重构<br><img src="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/03/20/15847192374336.png" alt></p>
+<p>当然，像下列左侧的代码，也会重构成右侧的：<br><img src="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/03/20/15847192483122.jpg" alt></p>
+<p>一个复杂的Service层逻辑，不应超过30行，否则需要进行逻辑规整和抽象</p>
+<p>在业务逻辑中尽可能不要使用setter方法，而是使用构造函数或者封装成一个有逻辑意义的方法，提高代码的可读性<br>什么？连setter方法都不让用？这是什么SB一样的规约啊！事实上，笔者团队确实是这么做的，我们来看一下代码：<br><img src="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/03/20/15847192667106.jpg" alt></p>
+<p>在上面的代码中，左侧代码中的setter方法调用，会被封装到ShuttleOrder对象中的cancel方法中去。在实际的service代码中，只会出现下半部分的一行代码。</p>
+<p>这样做的好处在于：cancel这个方法被封装后，shuttleOrder.cancel()的调用从可读性上要明显优于使用2句setter方法，同时也为将来的逻辑扩展预留了位置。这也是面向对象的一种实践。</p>
+<h3 id="注释规约"><a href="#注释规约" class="headerlink" title="注释规约"></a>注释规约</h3><p>注释规约的内容比较多，这里也仅挑选一些具有代表性的进行解读<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.8.5 所有的枚举类型字段必须要有注释，说明每个数据项的用途</span><br><span class="line"></span><br><span class="line">1.8.6 与其&quot;半吊子&quot;英文来注释，不如用中文注释把问题说清楚。专有名词与关键字保持英文原文即可</span><br><span class="line"></span><br><span class="line">1.8.8 注释掉的代码尽量要配合说明，而不是简单的注释掉</span><br><span class="line"></span><br><span class="line">1.8.10 好的命名、代码结构是自解释的，注释力求精简准确、表达到位</span><br></pre></td></tr></table></figure></p>
+<p>枚举类加注释是非常必要的，因为枚举通常是都是常量的扩展，而常量是需要说明的。</p>
+<p>鉴于很多程序员的英语水平，笔者建议英语不够好的程序员直接使用中文写注释。</p>
+<p>对于注释掉的代码，笔者的意见是在绝大多数情况下应该直接删除，除非在很短的时间内还有恢复的余地。</p>
+<p>有关什么是好的命名和代码结构，什么样的命名能够使得代码做到自解释，笔者将另外撰文进行说明。</p>
+<h2 id="数据库规约"><a href="#数据库规约" class="headerlink" title="数据库规约"></a>数据库规约</h2><p>数据库规约本身并不属于Java规约的范畴，不过阿里的规范中包含了不少数据库规约的内容，所以笔者也同样加以解读。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">3.1.1 是与否概念的字段，必须使用is_xxx的方式命名，数据类型是unsigned tinyint（ 1表示是，0表示否）</span><br><span class="line"></span><br><span class="line">3.1 2 表名、字段名必须使用小写字母或数字；禁止出现数字开头，禁止两个下划线中间只出现数字</span><br><span class="line"></span><br><span class="line">3.1.3 表名不使用复数名词</span><br><span class="line"></span><br><span class="line">3.1.4 禁用保留字</span><br><span class="line"></span><br><span class="line">3.1.5 唯一索引名为uk_字段名；普通索引名则为idx_字段名</span><br><span class="line"></span><br><span class="line">3.1.10 表的命名最好是加上业务名称_表的作用</span><br><span class="line"></span><br><span class="line">3.1.11 库名与应用名称尽量一致</span><br></pre></td></tr></table></figure></p>
+<p>上述规约主要说的是库、表、字段的命名规约。应该说绝大多数的上述规约都是参考项，需要根据实际情况进行调整，我们逐条来说。</p>
+<p>有关布尔值的数据库映射，对于使用is_xx进行命名没有异议，对于数据类型是否应该使用tinyint稍有保留，笔者实际上使用bit更多。由于布尔值所对应的Java类型是boolean，所以笔者通常在命名时，利用boolean的默认值特性，对一些常用的命名进行更加严格的规定。比如「是否有效」，命名成为「is_disabled」就要比「is_enabled」来的好。因为 is_disable = false 是绝大多数程序的事实逻辑，这样就可以利用boolean值默认为false的特性。</p>
+<p>Java中的绝大多数命名都使用驼峰法，而数据库的命名实际上更加严格。光光小写是不够的，而是要强制使用下划线命名法（主要是因为SQL是大小写不敏感的语言）。笔者在实际工作中经常看到使用驼峰法命名表名或者字段名的，这种基本上属于小学没毕业的行为。</p>
+<p>有关表名不能使用复数，不能使用关键字，这些属于比较基础的命名规范，应该遵守。但是笔者在这里提出更为严格的要求：不仅不能使用SQL关键字进行命名，同样不允许使用Java关键字！因为绝大多数情况，数据库字段会被映射到相应的Java对象，如果可以使用Java关键字，那么映射的时候就是自找麻烦了。</p>
+<p>最后三条规约属于建议，相信每个公司都有自己独特的规定。比如笔者见过有一些写Oracle出身的程序员，习惯使用tbl_做表名的前缀，使用vw_做视图的前缀。个人觉得这个方面不宜做过多规定，只要团队保持风格整体一致即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3.1.6 小数类型为decimal，禁止使用float和double</span><br><span class="line"></span><br><span class="line">3.1.7 如果存储的字符串长度几乎相等，使用char定长字符串类型</span><br><span class="line"></span><br><span class="line">3.1.8 varchar是可变长字符串，不预先分配存储空间，长度不要超过5000</span><br></pre></td></tr></table></figure></p>
+<p>这三条主要说的是数据库设计时的类型规约。</p>
+<p>除了上述三条之外，在笔者团队另外还会遵守如下几条：</p>
+<p>明确日期和时间，日期使用date类型并使用xxDate进行Java字段命名，时间使用date_time类型并使用xxTime进行Java字段命名，以示区分<br>上面这条主要是和日期时间有关的，强制这样的规约，对于提升代码的可读性是有帮助的。</p>
+<p>枚举类型在数据库中既可以映射成int，也可以映射成varchar，视实际情况定<br>通常对于排序和检索有强依赖的，枚举类型映射成int比较理想，否则可以映射成varchar。虽然从效率上说，int基本上会强于varchar，但varchar毕竟可读性更好，所以还是应该一分为二来看。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">3.1.9 表必备三字段：id, gmt_create, gmt_modified</span><br><span class="line"></span><br><span class="line">3.1.8 如果存储长度大于此值，定义字段类型为text，独立出来一张表，用主键来对应，避免影响其它字段索引效率</span><br><span class="line"></span><br><span class="line">3.1.12 如果修改字段含义或对字段表示的状态追加时，需要及时更新字段注释</span><br><span class="line"></span><br><span class="line">3.1.13 字段允许适当冗余，以提高性能，但是必须考虑数据同步的情况</span><br><span class="line"></span><br><span class="line">3.1.14 单表行数超过500万行或者单表容量超过2GB，才推荐进行分库分表</span><br><span class="line"></span><br><span class="line">3.1.15 合适的字符存储长度，不但节约数据库表空间、节约索引存储，更重要的是提升检索速度</span><br></pre></td></tr></table></figure></p>
+<p>上面的规约主要涉及到一些数据库表设计上的原则。</p>
+<p>其中，3.1.8是非常值得大家注意的一点，笔者个人的习惯是对于大字段，拆表的同时，优化SQL，尽可能做到用主键单独取大字段，避免产生效率瓶颈。</p>
+<p>而3.1.14是希望提醒一些自视甚高的架构师不要过早的进行过度设计。这里笔者提一点：</p>
+<p>对于每一张数据库表的设计，应该预估表在未来若干时间段内的数量，以采取最佳的程序处理措施<br>这里所说的最佳程序处理措施包括并不限于：使用应用级别缓存对数据库进行减压；选取合适的时间点对表进行分库分表；是否进行人为拆表以保证较快的SQL执行等等。</p>
+<p>有关3.1.13，我们在有关SQL编写环节还会说到。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">3.2.1 业务上具有唯一特性的字段，即使是组合字段，也必须建成唯一索引</span><br><span class="line"></span><br><span class="line">3.2.2 超过三个表禁止join</span><br><span class="line"></span><br><span class="line">3.2.3 在varchar字段上建立索引时，必须指定索引长度</span><br><span class="line"></span><br><span class="line">3.2.4 页面搜索严禁左模糊或者全模糊</span><br><span class="line"></span><br><span class="line">3.2.5 如果有order by的场景，请注意利用索引的有序性</span><br><span class="line"></span><br><span class="line">3.2.7 利用延迟关联或者子查询优化超多分页场景</span><br><span class="line"></span><br><span class="line">3.2.9 建组合索引的时候，区分度最高的在最左边</span><br></pre></td></tr></table></figure></p>
+<p>上述规约主要讲的是和索引相关的内容。对于这块，笔者不是专业的DBA，所以只是挑了其中和程序开发特别有关的来讲一讲。</p>
+<p>比如3.2.2的禁止超过3个表的join，在笔者的团队中，规定更为严格：</p>
+<p>禁止超过2个表的join语句出现在程序中<br>其实不许使用join是很多初级程序员非常不能理解的。要说明白这个问题，估计又要长篇大论，笔者会另辟文章进行说明。但这里还是引用一下robbin的观点（笔者表示深刻赞同）：<br><img src="http://kaywu-images.oss-cn-beijing.aliyuncs.com/2020/03/20/1584718517566dd8dec4642574635be2e81ca2d4bec21.png" alt="1584718517566_DD8DEC46-4257-4635-BE2E-81CA2D4BEC21"></p>
+<p>另外有关严禁使用全模糊查找，建组合索引时，区分度最高的往左放这些原则，在一定程度上会改变我们编写程序的习惯，所以应该时刻注意。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">3.3.1 不要使用count(列名)或count(常量)来替代count(*)</span><br><span class="line"></span><br><span class="line">3.3.5 在代码中写分页查询逻辑时，若count为0应直接返回，避免执行后面的分页语句</span><br><span class="line"></span><br><span class="line">3.3.6 不得使用外键与级联，一切外键概念必须在应用层解决</span><br><span class="line"></span><br><span class="line">3.3.7 禁止使用存储过程，存储过程难以调试和扩展，更没有移植性</span><br><span class="line"></span><br><span class="line">3.3.9 in操作能避免则避免，若实在避免不了，需要仔细评估in后边的集合元素数量，控制在1000个之内</span><br><span class="line"></span><br><span class="line">3.4.1 在表查询中，一律不要使用 * 作为查询的字段列表，需要哪些字段必须明确写明</span><br></pre></td></tr></table></figure></p>
+<p>上面的这几条属于SQL编写规约。阿里的规范中洋洋洒洒讲了很多条，实际上都是在给程序员提个醒，笔者在这里不在赘述</p>
+<p>有关count(<em>)的争论，一直有大量的说法。此次阿里的规范总算为count(</em>)党找到了SQL标准，应该说也基本为这件事情画上了句号。</p>
+<p>有关外键和级联，笔者稍有困惑的是外键。因为按照笔者的理解，外键影响数据库插入的速度应该有限，与外键约束带来的好处相比，或许还是有外键更好一些（有这方面经验的读者可以留言指点迷津）。级联是恶魔，必须禁止。</p>
+<p>至于存储过程，或许Oracle出身的DBA会跳出来唱反调了。笔者的观点和阿里相同：存储过程很难移植和维护，应该抛弃。</p>
+<p>有关表查询中不许使用 * 作为查询的字段列表，这点或许能够成为规约，但笔者并不十分认同。尤其是对于使用Hibernate作为ORM工具的同学来说，这条规则执行起来有难度。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/01/3/5_standard/standard/" rel="next" title="编程规范">
+                <i class="fa fa-chevron-left"></i> 编程规范
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/01/3/2_notes/notes2/" rel="prev" title="随笔——追求简约的设计">
+                随笔——追求简约的设计 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="kay wu">
+          <p class="site-author-name" itemprop="name">kay wu</p>
+           
+              <p class="site-description motion-element" itemprop="description">给时间以生命，而不是给生命以时间</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">102</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Minato262" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      Github
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码规约"><span class="nav-text">代码规约</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命名规约"><span class="nav-text">命名规约</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命名原则"><span class="nav-text">命名原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类的命名"><span class="nav-text">类的命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量规约"><span class="nav-text">常量规约</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法糖"><span class="nav-text">语法糖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型"><span class="nav-text">基本类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法命名"><span class="nav-text">方法命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法和属性"><span class="nav-text">方法和属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#格式规约"><span class="nav-text">格式规约</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合类型"><span class="nav-text">集合类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#并发处理"><span class="nav-text">并发处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码风格"><span class="nav-text">代码风格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释规约"><span class="nav-text">注释规约</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库规约"><span class="nav-text">数据库规约</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kay wu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
