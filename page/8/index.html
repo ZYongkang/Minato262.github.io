@@ -315,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/concurrent337/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/19/3/book/OnJava8/book/Appendix-Understanding-equals-and-hashCode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -334,7 +334,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/2/2.1.2_concurrent/concurrent337/" itemprop="url">3.3.7 单线程消息模式（Thread-Per-Message Pattern）</a></h1>
+                <a class="post-title-link" href="/2020/03/19/3/book/OnJava8/book/Appendix-Understanding-equals-and-hashCode/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T03:03:07+08:00">
-                2019-07-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-19T23:42:55+08:00">
+                2020-03-19
               </time>
             
 
@@ -356,28 +356,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/并发/" itemprop="url" rel="index">
-                    <span itemprop="name">并发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -400,7 +378,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  9.1k
                 </span>
               
 
@@ -427,11 +405,15 @@
       
         
           
-          
-          
+          [TOC]
+
+附录:理解equals和hashCode方法假设有一个容器使用hash函数，当你创建一个放到这个容器时，你必须定义 hashCode() 函数和 equals() 函数。这两个函数一起被用于hash容器中的查询操作。
+
+equals规范当你创建一个类的时候，它自动继承自 Objcet 
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/2/2.1.2_concurrent/concurrent337/#more" rel="contents">
+            <a class="btn" href="/2020/03/19/3/book/OnJava8/book/Appendix-Understanding-equals-and-hashCode/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -482,7 +464,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/concurrent336/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/19/3/book/OnJava8/book/06-Housekeeping/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -501,7 +483,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/2/2.1.2_concurrent/concurrent336/" itemprop="url">3.3.6 读写锁模式（Read-Write Lock Pattern）</a></h1>
+                <a class="post-title-link" href="/2020/03/19/3/book/OnJava8/book/06-Housekeeping/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -513,8 +495,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T03:03:06+08:00">
-                2019-07-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-19T23:42:55+08:00">
+                2020-03-19
               </time>
             
 
@@ -523,28 +505,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/并发/" itemprop="url" rel="index">
-                    <span itemprop="name">并发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -567,7 +527,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  18.3k
                 </span>
               
 
@@ -594,11 +554,13 @@
       
         
           
-          
-          
+          [TOC]
+
+第六章 初始化和清理“不安全”的编程是造成编程代价昂贵的罪魁祸首之一。有两个安全性问题：初始化和清理。C 语言中很多的 bug 都是因为程序员忘记初始化导致的。尤其是很多类库的使用者不知道如何初始化类库组件，甚至他们必须得去初始化。清理则是另一个特殊的问题，因为当你使用一个元素做完事后
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/2/2.1.2_concurrent/concurrent336/#more" rel="contents">
+            <a class="btn" href="/2020/03/19/3/book/OnJava8/book/06-Housekeeping/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -649,7 +611,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/concurrent335/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/19/3/book/OnJava8/book/17-Files/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -668,7 +630,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/2/2.1.2_concurrent/concurrent335/" itemprop="url">3.3.5 生产消费模式（Producer-Consumer Pattern）</a></h1>
+                <a class="post-title-link" href="/2020/03/19/3/book/OnJava8/book/17-Files/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -680,8 +642,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T03:03:05+08:00">
-                2019-07-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-19T23:42:55+08:00">
+                2020-03-19
               </time>
             
 
@@ -690,28 +652,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/并发/" itemprop="url" rel="index">
-                    <span itemprop="name">并发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -734,7 +674,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  6.5k
                 </span>
               
 
@@ -761,11 +701,16 @@
       
         
           
-          
-          
+          [TOC]
+
+第十七章 文件
+在丑陋的 Java I/O 编程方式诞生多年以后，Java终于简化了文件读写的基本操作。
+
+这种”困难方式”的全部细节都在 Appendix: I/O Streams。如果你读过这个部分，就会认同 Java 设计者毫不在意他们的使用者的体验这一观念。打开并读取文件对于大
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/2/2.1.2_concurrent/concurrent335/#more" rel="contents">
+            <a class="btn" href="/2020/03/19/3/book/OnJava8/book/17-Files/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -816,7 +761,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/concurrent334/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/19/3/book/OnJava8/book/18-Strings/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -835,7 +780,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/2/2.1.2_concurrent/concurrent334/" itemprop="url">3.3.4 回避模式（Balking Pattern）</a></h1>
+                <a class="post-title-link" href="/2020/03/19/3/book/OnJava8/book/18-Strings/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -847,8 +792,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T03:03:04+08:00">
-                2019-07-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-19T23:42:55+08:00">
+                2020-03-19
               </time>
             
 
@@ -857,28 +802,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/并发/" itemprop="url" rel="index">
-                    <span itemprop="name">并发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -901,7 +824,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  16.3k
                 </span>
               
 
@@ -928,11 +851,18 @@
       
         
           
-          
-          
+          [TOC]
+
+第十八章 字符串
+字符串操作毫无疑问是计算机程序设计中最常见的行为之一。
+
+在 Java 大展拳脚的 Web 系统中更是如此。在本章中，我们将深入学习在 Java 语言中应用最广泛的 String 类，并研究与之相关的类及工具。
+
+字符串的不可变String 对象是不可变的。查看 JD
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/2/2.1.2_concurrent/concurrent334/#more" rel="contents">
+            <a class="btn" href="/2020/03/19/3/book/OnJava8/book/18-Strings/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -983,7 +913,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/concurrent333/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/19/3/book/OnJava8/book/23-Annotations/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -1002,7 +932,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/2/2.1.2_concurrent/concurrent333/" itemprop="url">3.3.3 保护性暂挂模式（Guarded Suspension Pattern）</a></h1>
+                <a class="post-title-link" href="/2020/03/19/3/book/OnJava8/book/23-Annotations/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -1014,8 +944,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T03:03:03+08:00">
-                2019-07-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-19T23:42:55+08:00">
+                2020-03-19
               </time>
             
 
@@ -1024,28 +954,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/并发/" itemprop="url" rel="index">
-                    <span itemprop="name">并发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1068,7 +976,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  14.4k
                 </span>
               
 
@@ -1095,11 +1003,15 @@
       
         
           
-          
-          
+          [TOC]
+
+第二十三章 注解注解（也被称为元数据）为我们在代码中添加信息提供了一种形式化的方式，使我们可以在稍后的某个时刻更容易的使用这些数据。
+注解在一定程度上是把元数据和源代码文件结合在一起的趋势所激发的，而不是保存在外部文档。这同样是对像 C# 语言对于 Java 语言特性压力的一种回应。
+
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/2/2.1.2_concurrent/concurrent333/#more" rel="contents">
+            <a class="btn" href="/2020/03/19/3/book/OnJava8/book/23-Annotations/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1141,7 +1053,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1185,7 +1097,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">102</span>
+                <span class="site-state-item-count">146</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
