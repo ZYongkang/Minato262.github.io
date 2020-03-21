@@ -315,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/03-Objects-Everywhere/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/Appendix-IO-Streams/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -334,7 +334,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/03-Objects-Everywhere/" itemprop="url">第三章 万物皆对象</a></h1>
+                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/Appendix-IO-Streams/" itemprop="url">附录:流式IO</a></h1>
         
 
         <div class="post-meta">
@@ -357,28 +357,6 @@
           </span>
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术积累/" itemprop="url" rel="index">
-                    <span itemprop="name">技术积累</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -400,7 +378,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  10.1k
+                  8.5k
                 </span>
               
 
@@ -427,14 +405,15 @@
       
         
           
-          第三章 万物皆对象
-如果我们说另外一种不同的语言，我们会发觉一个不同的世界！— Ludwig Wittgenstein (1889-1951)
+          
+附录:流式IO
+Java 7 引入了一种简单明了的方式来读写文件和操作目录。大多情况下，文件这一章所介绍的那些库和技术就足够你用了。但是，如果你必须面对一些特殊的需求和比较底层的操作，或者处理一些老版本的代码，那么你就必须了解本附录中的内容。
 
-相比 C++ ，Java 是一种更纯粹的面向对象编程语言。虽然它们都是混合语言，但在 Java 中，设计者们认为混合的作用并非像在 C++ 中那般重要。混
+对于编程语言的设计者来说，实现良好的输入/输出（I/
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/03-Objects-Everywhere/#more" rel="contents">
+            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/Appendix-IO-Streams/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -485,7 +464,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/01-What-is-an-Object/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/Appendix-New-IO/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -504,7 +483,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/01-What-is-an-Object/" itemprop="url">第一章 对象的概念</a></h1>
+                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/Appendix-New-IO/" itemprop="url">附录:新IO</a></h1>
         
 
         <div class="post-meta">
@@ -527,28 +506,6 @@
           </span>
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术积累/" itemprop="url" rel="index">
-                    <span itemprop="name">技术积累</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -570,7 +527,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  12.8k
+                  7.9k
                 </span>
               
 
@@ -597,14 +554,15 @@
       
         
           
-          第一章 对象的概念
-“我们没有意识到惯用语言的结构有多大的力量。可以毫不夸张地说，它通过语义反应机制奴役我们。语言表现出来并在无意识中给我们留下深刻印象的结构会自动投射到我们周围的世界。”  – Alfred Korzybski (1930)
+          
+附录:新IO
+Java 新I/O 库是在 1.4 版本引入到 Java .nio.* package 中的，旨在更快速。
 
-计算机革命的起源来自机器。编程语言就像是那台机器。它不
+实际上，新 I/O 使用 NIO（同步非阻塞）的方式重写了老的 I/O 了，因此它获得了 NIO 的种种优点。即使我们不显式地使用 NIO 方式来编写代码，也能带来性能和速度
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/01-What-is-an-Object/#more" rel="contents">
+            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/Appendix-New-IO/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -655,7 +613,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/05-Control-Flow/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/Appendix-Passing-and-Returning-Objects/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -674,7 +632,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/05-Control-Flow/" itemprop="url">第五章 控制流</a></h1>
+                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/Appendix-Passing-and-Returning-Objects/" itemprop="url">附录:对象传递和返回</a></h1>
         
 
         <div class="post-meta">
@@ -697,28 +655,6 @@
           </span>
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术积累/" itemprop="url" rel="index">
-                    <span itemprop="name">技术积累</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -740,7 +676,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  7.1k
+                  503
                 </span>
               
 
@@ -767,14 +703,15 @@
       
         
           
-          第五章 控制流
-程序必须在执行过程中控制它的世界并做出选择。 在 Java 中，你需要执行控制语句来做出选择。
+          
+附录:对象传递和返回
+到现在为止，你已经对“传递”对象实际上是传递引用这一想法想法感到满意。
 
-Java 使用了 C 的所有执行控制语句，因此对于熟悉 C/C++ 编程的人来说，这部分内容轻车熟路。大多数面向过程编程语言都有共通的某种控制语句。在 Java 中，涉及的关键字包括 i
+在许多编程语言中，你可以使用该语言的“常规”方式来传递对象，并且大多数情况下一切正常。 但是通常会出现这种情况，你必须做一些不平常的事情，突然事情变得更加复杂。 Java也不例外，当您传递对象并对其进行
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/05-Control-Flow/#more" rel="contents">
+            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/Appendix-Passing-and-Returning-Objects/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -825,7 +762,7 @@ Java 使用了 C 的所有执行控制语句，因此对于熟悉 C/C++ 编程�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/07-Implementation-Hiding/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/Appendix-Object-Serialization/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -844,7 +781,7 @@ Java 使用了 C 的所有执行控制语句，因此对于熟悉 C/C++ 编程�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/07-Implementation-Hiding/" itemprop="url">第七章 封装</a></h1>
+                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/Appendix-Object-Serialization/" itemprop="url">附录:对象序列化</a></h1>
         
 
         <div class="post-meta">
@@ -867,28 +804,6 @@ Java 使用了 C 的所有执行控制语句，因此对于熟悉 C/C++ 编程�
           </span>
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术积累/" itemprop="url" rel="index">
-                    <span itemprop="name">技术积累</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -910,7 +825,7 @@ Java 使用了 C 的所有执行控制语句，因此对于熟悉 C/C++ 编程�
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  10.2k
+                  9.3k
                 </span>
               
 
@@ -938,14 +853,11 @@ Java 使用了 C 的所有执行控制语句，因此对于熟悉 C/C++ 编程�
         
           
           
-第七章 封装
-访问控制（Access control）（或者隐藏实现（implementation hiding））与“最初的实现不恰当”有关。
-
-所有优秀的作者——包括那些编写软件的人——都知道一件好的作品都是经过反复打磨才变得优秀的。如果你把一段代码置于某个位置一段时间，过一会重新来看，你可能
+附录:对象序列化当你创建对象时，只要你需要，它就会一直存在，但是在程序终止时，无论如何它都不会继续存在。尽管这么做肯定是有意义的，但是仍旧存在某些情况，如果对象能够在程序不运行的情况下仍能存在并保存其信息，那将非常有用。这样，在下次运行程序时，该对象将被重建并且拥有的信息与在程序上次运行时它所拥有
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/07-Implementation-Hiding/#more" rel="contents">
+            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/Appendix-Object-Serialization/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -996,7 +908,7 @@ Java 使用了 C 的所有执行控制语句，因此对于熟悉 C/C++ 编程�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/08-Reuse/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/Appendix-Standard-IO/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -1015,7 +927,7 @@ Java 使用了 C 的所有执行控制语句，因此对于熟悉 C/C++ 编程�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/08-Reuse/" itemprop="url">第八章 复用</a></h1>
+                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/Appendix-Standard-IO/" itemprop="url">附录:标准IO</a></h1>
         
 
         <div class="post-meta">
@@ -1038,28 +950,6 @@ Java 使用了 C 的所有执行控制语句，因此对于熟悉 C/C++ 编程�
           </span>
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术积累/" itemprop="url" rel="index">
-                    <span itemprop="name">技术积累</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -1081,7 +971,7 @@ Java 使用了 C 的所有执行控制语句，因此对于熟悉 C/C++ 编程�
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  12.3k
+                  1.6k
                 </span>
               
 
@@ -1109,14 +999,14 @@ Java 使用了 C 的所有执行控制语句，因此对于熟悉 C/C++ 编程�
         
           
           
-第八章 复用
-代码复用是面向对象编程（OOP）最具魅力的原因之一。
+附录:标准IO
+标准 I/O这个术语参考Unix中的概念，指程序所使用的单一信息流（这种思想在大多数操作系统中，也有相似形式的实现）。
 
-对于像 C 语言等面向过程语言来说，“复用”通常指的就是“复制代码”。任何语言都可通过简单复制来达到代码复用的目的，但是这样做的效果并不好。Java 围绕“类”（Class）来解决问题。我们可以直接使用别人构建或调试过的代码，而
+程序的所有输入都可以来自于标准输入，其所有输出都可以流向标准输出，并且其所有错误信息均可以发送到标准错误。标准 I/O 的意义在于程序之间可以很容易地连接起来，
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/08-Reuse/#more" rel="contents">
+            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/Appendix-Standard-IO/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
