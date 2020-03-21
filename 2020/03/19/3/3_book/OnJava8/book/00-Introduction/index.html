@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="简介 “我的语言极限，即是我的世界的极限。” ——路德维希·维特根斯坦（Wittgenstein）  这句话无论对于自然语言还是编程语言来说都是一样的。你所使用的编程语言会将你的思维模式固化并逐渐远离其他语言，而且往往发生在潜移默化中。Java 作为一门傲娇的语言尤其如此。 Java 是一门派生语言，早期语言设计者为了不想在项目中使用 C++ 而创造了这种看起来很像 C++，却比 C++ 有了改进">
+<meta property="og:type" content="article">
+<meta property="og:title" content="水门的博客">
+<meta property="og:url" content="http://yoursite.com/2020/03/19/3/3_book/OnJava8/book/00-Introduction/index.html">
+<meta property="og:site_name" content="水门的博客">
+<meta property="og:description" content="简介 “我的语言极限，即是我的世界的极限。” ——路德维希·维特根斯坦（Wittgenstein）  这句话无论对于自然语言还是编程语言来说都是一样的。你所使用的编程语言会将你的思维模式固化并逐渐远离其他语言，而且往往发生在潜移默化中。Java 作为一门傲娇的语言尤其如此。 Java 是一门派生语言，早期语言设计者为了不想在项目中使用 C++ 而创造了这种看起来很像 C++，却比 C++ 有了改进">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-19T15:42:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="水门的博客">
+<meta name="twitter:description" content="简介 “我的语言极限，即是我的世界的极限。” ——路德维希·维特根斯坦（Wittgenstein）  这句话无论对于自然语言还是编程语言来说都是一样的。你所使用的编程语言会将你的思维模式固化并逐渐远离其他语言，而且往往发生在潜移默化中。Java 作为一门傲娇的语言尤其如此。 Java 是一门派生语言，早期语言设计者为了不想在项目中使用 C++ 而创造了这种看起来很像 C++，却比 C++ 有了改进">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/19/3/3_book/OnJava8/book/00-Introduction/">
+
+
+
+
+
+  <title> | 水门的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">水门的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/19/3/3_book/OnJava8/book/00-Introduction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kay wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水门的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-19T23:42:55+08:00">
+                2020-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  3.5k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><blockquote>
+<p>“我的语言极限，即是我的世界的极限。” ——路德维希·维特根斯坦（<em>Wittgenstein</em>）</p>
+</blockquote>
+<p>这句话无论对于自然语言还是编程语言来说都是一样的。你所使用的编程语言会将你的思维模式固化并逐渐远离其他语言，而且往往发生在潜移默化中。Java 作为一门傲娇的语言尤其如此。</p>
+<p>Java 是一门派生语言，早期语言设计者为了不想在项目中使用 C++ 而创造了这种看起来很像 C++，却比 C++ 有了改进的新语言（原始的项目并未成功）。Java 最核心的变化就是加入了“虚拟机”和“垃圾回收机制”，这两个概念在之后的章节会有详细描述。 此外，Java 还在其他方面推动了行业发展。例如，现在绝大多数编程语言都支持文档注释语法和 HTML 文档生成工具。</p>
+<p>Java 最主要的概念之一“对象”来自 SmallTalk 语言。SmallTalk 语言恪守“对象”（在下一章中描述）是编程的最基本单元。于是，万物皆对象。历经时间的检验，人们发现这种信念太过狂热。有些人甚至认为“对象”的概念是完全错误的，应该舍弃。就我个人而言，把一切事物都抽象成对象不仅是一项不必要的负担，同时还会招致许多设计朝着不好的方向发展。尽管如此，“对象”的概念依然有其闪光点。固执地要求所有东西都是一个对象（特别是一直到最底层级别）是一种设计错误；相反，完全逃避“对象”的概念似乎同样太过苛刻。</p>
+<p>Java 语言曾规划设计的许多功能并未按照承诺兑现。本书中，我将尝试解释这些原因，力争让读者知晓这些功能，并明白为什么这些功能最终并不适用。这无关 Java 是一种好语言或者坏语言，一旦你了解了该语言的缺陷和局限性，你就能够：</p>
+<ol>
+<li><p>明白有些功能特性为什么会被“废弃”。</p>
+</li>
+<li><p>熟悉语言边界，更好地设计和编码。</p>
+</li>
+</ol>
+<p>编程的过程就是复杂性管理的过程：业务问题的复杂性，以及依赖的计算机的复杂性。由于这种复杂性，我们的大多数软件项目都失败了。</p>
+<p>许多语言设计决策时都考虑到了复杂性，并试图降低语言的复杂性，但在设计过程中遇到了一些更棘手的问题，最终导致语言设计不可避免地“碰壁”，复杂性增加。例如，C++ 必须向后兼容 C（允许 C 程序员轻松迁移），并且效率很高。这些目标非常实用，并且也是 C++ 在编程界取得了成功的原因之一，但同时也引入了额外的复杂性，导致某些用 C++ 编写的项目开发失败。当然，你可以责怪程序员和管理人员手艺不精，但如果有一种编程语言可以帮助你在开发过程中发现错误，那岂不是更好？</p>
+<p>虽然 VB（Visual BASIC）绑定在 BASIC 上，但 BASIC 实际上并不是一种可扩展的语言。大量扩展的堆积造成 VB 的语法难以维护。Perl 向后兼容 awk、sed、grep 以及其它要替换的 Unix 工具。因此它常常被诟病产生了一堆“只写代码”（<em>write-only code</em>，写代码的人自己都看不懂的代码）。另一方面，C ++，VB，Perl 和其他语言（如 SmallTalk）在设计时重点放在了对某些复杂问题的处理上，因而在解决这些特定类型的问题方面非常成功。</p>
+<p>通信革命使我们相互沟通更加便利。无论是一对一沟通，还是团队里的互相沟通，甚至是地球上不同地区的沟通。据说下一次革命需要的是一种全球性的思维，这种思维源于足量的人以及足量相互连接。我不知道 Java 是否能成为这场革命的工具之一，但至少这种可能性让我觉得：我现在正在做的传道授业的事情是有意义的！</p>
+<h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><p>阅读本书需要读者对编程有基本的了解:</p>
+<ul>
+<li><p>程序是一系列“陈述（语句、代码）”构成</p>
+</li>
+<li><p>子程序、方法、宏的概念</p>
+</li>
+<li><p>控制语句（例如 <strong>if</strong>），循环结构（例如 <strong>while</strong>）</p>
+</li>
+</ul>
+<p>可能你已在学校、书籍或网络上了学过这些。只要你觉得对上述的编程基本概念熟悉，你就可以完成本书的学习。</p>
+<p>你可以通过在 On Java 8 的网站上免费下载 《Think in C》来补充学习 Java 所需要的前置知识。本书介绍了 Java 语言的基本控制机制以及面向对象编程（OOP）的概念。在本书中我引述了一些 C/C++ 语言中的一些特性来帮助读者更好的理解 Java。毕竟 Java 是在它们的基础之上发明的，理解他们之间的区别，有助于读者更好地学习 Java。我会试图简化这些引述，尽量让没有 C/C++ 基础的读者也能很好地理解。</p>
+<h2 id="JDK文档"><a href="#JDK文档" class="headerlink" title="JDK文档"></a>JDK文档</h2><p>甲骨文公司已经提供了免费的标准 JDK 文档。除非有必要，否则本书中将不再赘述 API 相关的使用细节。使用浏览器来即时搜索最新最全的 JDK 文档好过翻阅本书来查找。只有在需要补充特定的示例时，我才会提供有关的额外描述。</p>
+<h2 id="C编程思想"><a href="#C编程思想" class="headerlink" title="C编程思想"></a>C编程思想</h2><p><em>Thinking in C</em> 已经可以在 <a href="https://archive.org/details/ThinkingInC" target="_blank" rel="noopener">www.OnJava8.com</a> 免费下载。Java 的基础语法是基于 C 语言的。<em>Thinking in C</em> 中有更适合初学者的编程基础介绍。 我已经委托 Chuck Allison 将这本 C 基础的书籍作为独立产品附赠于本书的 CD 中。希望大家在阅读本书时，都已具备了学习 Java 的良好基础。</p>
+<h2 id="源码下载"><a href="#源码下载" class="headerlink" title="源码下载"></a>源码下载</h2><p>本书中所有源代码的示例都在版权保护的前提下通过 GitHub 免费提供。你可以将这些代码用于教育。任何人不得在未经正确引用代码来源的情况下随意重新发布此代码示例。在每个代码文件中，你都可以找到以下版权声明文件作为参考：</p>
+<p><strong>Copyright.txt</strong></p>
+<p>©2017 MindView LLC。版权所有。如果上述版权声明，本段和以下内容，特此授予免费使用，复制，修改和分发此计算机源代码（源代码）及其文档的许可，且无需出于下述目的的书面协议所有副本中都有五个编号的段落。</p>
+<ol>
+<li><p>允许编译源代码并将编译代码仅以可执行格式包含在个人和商业软件程序中。</p>
+</li>
+<li><p>允许在课堂情况下使用源代码而不修改源代码，包括在演示材料中，前提是 “On Java 8” 一书被引用为原点。</p>
+</li>
+<li><p>可以通过以下方式获得将源代码合并到印刷媒体中的许可：MindView LLC，PO Box 969，Crested Butte，CO 81224 <a href="mailto:MindViewInc@gmail.com" target="_blank" rel="noopener">MindViewInc@gmail.com</a> </p>
+</li>
+<li><p>源代码和文档的版权归 MindView LLC 所有。提供的源代码没有任何明示或暗示的担保，包括任何适销性，适用于特定用途或不侵权的默示担保。MindView LLC 不保证任何包含源代码的程序的运行不会中断或没有错误。MindView LLC 不对任何目的的源代码或包含源代码的任何软件的适用性做出任何陈述。包含源代码的任何程序的质量和性能的全部风险来自源代码的用户。用户理解源代码是为研究和教学目的而开发的，建议不要仅仅因任何原因依赖源代码或任何包含源代码的程序。如果源代码或任何产生的软件证明有缺陷，则用户承担所有必要的维修，修理或更正的费用。</p>
+</li>
+<li><p>在任何情况下，MINDVIEW LLC 或其出版商均不对任何一方根据任何法律理论对直接，间接，特殊，偶发或后果性损害承担任何责任，包括利润损失，业务中断，商业信息丢失或任何其他保险公司。由于 MINDVIEW LLC 或其出版商已被告知此类损害的可能性，因此使用本源代码及其文档或因无法使用任何结果程序而导致的个人受伤或者个人受伤。MINDVIEW LLC 特别声明不提供任何担保，包括但不限于对适销性和特定用途适用性的暗示担保。此处提供的源代码和文档基于“原样”基础，没有MINDVIEW LLC的任何随附服务，MINDVIEW LLC 没有义务提供维护，支持，更新，增强或修改。</p>
+</li>
+</ol>
+<p><strong>请注意</strong>，MindView LLC 仅提供以下唯一网址发布更新书中的代码示例，<a href="https://github.com/BruceEckel/OnJava8-examples" target="_blank" rel="noopener">https://github.com/BruceEckel/OnJava8-examples</a> 。你可在上述条款范围内将示例免费使用于项目和课堂中。</p>
+<p>如果你在源代码中发现错误，请在下面的网址提交更正：<a href="https://github.com/BruceEckel/OnJava8-examples/issues" target="_blank" rel="noopener">https://github.com/BruceEckel/OnJava8-examples/issues</a> </p>
+<h2 id="编码样式"><a href="#编码样式" class="headerlink" title="编码样式"></a>编码样式</h2><p>本书中代码标识符（关键字，方法，变量和类名）以粗体，固定宽度代码字体显示。像 “*class” 这种在代码中高频率出现的关键字可能让你觉得粗体有点乏味。（译者注：由于中英排版差异，中文翻译过程并未完全参照原作者的说明。具体排版格式请参考<a href="https://github.com/ruanyf/document-style-guide" target="_blank" rel="noopener">此处</a>）其他显示为正常字体。本书文本格式尽可能遵循 Oracle 常见样式，并保证在大多数 Java 开发环境中被支持。书中我使用了自己喜欢的字体风格。Java 是一种自由的编程语言，你也可以使用 IDE（集成开发环境）工具（如 IntelliJ IDEA，Eclipse 或 NetBeans）将格式更改为适合你的格式。</p>
+<p>本书代码文件使用自动化工具进行测试，并在最新版本的 Java 编译通过（除了那些特别标记的错误之外）。本书重点介绍并使用 Java 8 进行测试。如果你必须了解更早的语言版本，可以在 <a href="http://www.OnJava8.com" target="_blank" rel="noopener">www.OnJava8.com</a> 免费下载 《Thinking in Java》。</p>
+<h2 id="BUG提交"><a href="#BUG提交" class="headerlink" title="BUG提交"></a>BUG提交</h2><p>本书经过多重校订，但还是难免有所遗漏被新读者发现。如果你在正文或示例中发现任何错误的内容，请在<a href="https://github.com/BruceEckel/OnJava8-examples/issues" target="_blank" rel="noopener">此处</a>提交错误以及建议更正，作者感激不尽。</p>
+<h2 id="邮箱订阅"><a href="#邮箱订阅" class="headerlink" title="邮箱订阅"></a>邮箱订阅</h2><p>你可以在 <a href="http://www.OnJava8.com" target="_blank" rel="noopener">www.OnJava8.com上</a> 订阅邮件。邮件不含广告并尽量提供干货。</p>
+<h2 id="Java图形界面"><a href="#Java图形界面" class="headerlink" title="Java图形界面"></a>Java图形界面</h2><p>Java 在图形用户界面和桌面程序方面的发展可以说是一段悲伤的历史。Java 1.0 中图形用户界面（GUI）库的原始设计目标是让用户能在所有平台提供一个漂亮的界面。但遗憾的是，这个理想没有实现。相反，Java 1.0 AWT（抽象窗口工具包）在所有平台都表现平平，并且有诸多限制。你只能使用四种字体。另外，Java 1.0 AWT 编程模型也很笨拙且非面向对象。我的一个曾在 Java 设计期间工作过的学生道出了缘由：早期的 AWT 设计是在仅仅在一个月内构思、设计和实施的。不得不说这是一个“奇迹”，但同时更是“设计失败”的绝佳教材。</p>
+<p>在 Java 1.1 版本的 AWT 中 情况有所改善，事件模型带来更加清晰的面向对象方法，并添加了JavaBeans，致力于面向易于创建可视化编程环境的组件编程模型（已废弃）。</p>
+<p>Java 2（Java 1.2）通过使用 Java 基类（JFC）内容替换来完成从旧版 Java 1.0 AWT 的转换。其中 GUI 部分称为 Swing。这是一组丰富的 JavaBeans，它们创建了一个合理的 GUI。修订版 3（3之前都不好）比以往更适用于开发图形界面程序。</p>
+<p>Sun 在图形界面的最后一次尝试，称为 JavaFX。当 Oracle 收购 Sun 时，他们将原来雄心勃勃的项目（包括脚本语言）改为库，现在它似乎是 Java 官方唯一还在开发中的 UI 工具包（参见维基百科关于 JavaFX 的文章） - 但即使如此，JavaFX 最终似乎也失败了。</p>
+<p>现今 Swing 依然是 Java 发行版的一部分（只接受维护，不再有新功能开发）。而 Java 现在是一个开源项目，它应该始终可用。此外，Swing 和 JavaFX 有一些有限的交互性。这些可能是为了帮助开发者过渡到 JavaFX。</p>
+<p>桌面程序领域似乎从未尝勾起 Java 设计师的野心。Java 没有在图形界面取得该有的一席之地。另外，曾被大肆吹嘘的 JavaBeans 也没有获得任何影响力。（许多不幸的作者花了很多精力在 Swing 上编写书籍，甚至只用 JavaBeans 编写书籍）。Java 图形界面程序大多数情况下仅用于 IDE（集成开发环境）和一些企业内部应用程序。你可以采用 Java 开发图形界面，但这并非 Java 最擅长的领域。如果你必须学习 Swing，可以参考 <em>Thinking in Java</em> 第4版（可从 <a href="http://www.OnJava8.com" target="_blank" rel="noopener">www.OnJava8.com</a> 获得）或者通过其他专门的书籍学习。</p>
+<!-- 分页 -->
+<div style="page-break-after: always;"></div>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/19/3/3_book/OnJava8/book/02-Installing-Java-and-the-Book-Examples/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="kay wu">
+          <p class="site-author-name" itemprop="name">kay wu</p>
+           
+              <p class="site-description motion-element" itemprop="description">给时间以生命，而不是给生命以时间</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">146</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Minato262" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      Github
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前提条件"><span class="nav-text">前提条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK文档"><span class="nav-text">JDK文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C编程思想"><span class="nav-text">C编程思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码下载"><span class="nav-text">源码下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编码样式"><span class="nav-text">编码样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BUG提交"><span class="nav-text">BUG提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#邮箱订阅"><span class="nav-text">邮箱订阅</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java图形界面"><span class="nav-text">Java图形界面</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kay wu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
