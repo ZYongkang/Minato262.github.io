@@ -901,7 +901,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  3k
                 </span>
               
 
@@ -928,8 +928,9 @@
       
         
           
-          
-          
+          并发的意义在于多线程协作完成某项任务，而线程的协作就不可避免地需要共享数据。今天我们就来讨论下如何发布和共享类对象，使其可以被多个线程安全地访问。
+之前，我们讨论了同步操作在多线程安全中如何保证原子性，其实关键字synchronized不光实现了原子性，还实现内存可见性(Memory Visibil
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/07/01/2/2.1.2_concurrent/concurrent612/#more" rel="contents">
@@ -1068,7 +1069,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  2k
                 </span>
               
 
@@ -1095,8 +1096,13 @@
       
         
           
-          
-          
+          要编写多线程安全的代码，最关键的一点就是需要对于共享的和可变的状态进行访问控制：
+
+所谓共享的，指的是该变量可能同时被多个线程访问；
+所谓可变的，指的是该变量在生命周期内其值可能放生变化。
+
+如果在多线程同时访问一个共享可变的状态变量，但是没有进行有效的访问控制的话，那么程序的运行就可能带来意料之外
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/07/01/2/2.1.2_concurrent/concurrent611/#more" rel="contents">

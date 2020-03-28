@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="给时间以生命，而不是给生命以时间">
+<meta name="description" content="并发的意义在于多线程协作完成某项任务，而线程的协作就不可避免地需要共享数据。今天我们就来讨论下如何发布和共享类对象，使其可以被多个线程安全地访问。 之前，我们讨论了同步操作在多线程安全中如何保证原子性，其实关键字synchronized不光实现了原子性，还实现内存可见性(Memory Visibility)。也就是在同步的过程中，不仅要防止某个线程正在使用的状态被另一个线程修改，还要保证一个线程修">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="6.1.2 对象共享">
 <meta property="og:url" content="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/concurrent612/index.html">
 <meta property="og:site_name" content="水门的博客">
-<meta property="og:description" content="给时间以生命，而不是给生命以时间">
+<meta property="og:description" content="并发的意义在于多线程协作完成某项任务，而线程的协作就不可避免地需要共享数据。今天我们就来讨论下如何发布和共享类对象，使其可以被多个线程安全地访问。 之前，我们讨论了同步操作在多线程安全中如何保证原子性，其实关键字synchronized不光实现了原子性，还实现内存可见性(Memory Visibility)。也就是在同步的过程中，不仅要防止某个线程正在使用的状态被另一个线程修改，还要保证一个线程修">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-01T06:25:19.059Z">
+<meta property="og:updated_time" content="2020-03-28T05:55:42.147Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="6.1.2 对象共享">
-<meta name="twitter:description" content="给时间以生命，而不是给生命以时间">
+<meta name="twitter:description" content="并发的意义在于多线程协作完成某项任务，而线程的协作就不可避免地需要共享数据。今天我们就来讨论下如何发布和共享类对象，使其可以被多个线程安全地访问。 之前，我们讨论了同步操作在多线程安全中如何保证原子性，其实关键字synchronized不光实现了原子性，还实现内存可见性(Memory Visibility)。也就是在同步的过程中，不仅要防止某个线程正在使用的状态被另一个线程修改，还要保证一个线程修">
 
 
 
@@ -398,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  3k
                 </span>
               
 
@@ -423,7 +423,71 @@
       
 
       
-        
+        <p>并发的意义在于多线程协作完成某项任务，而线程的协作就不可避免地需要共享数据。今天我们就来讨论下如何发布和共享类对象，使其可以被多个线程安全地访问。</p>
+<p>之前，我们讨论了同步操作在多线程安全中如何保证原子性，其实关键字synchronized不光实现了原子性，还实现内存可见性(Memory Visibility)。也就是在同步的过程中，不仅要防止某个线程正在使用的状态被另一个线程修改，还要保证一个线程修改了对象状态之后，其他线程能获得更新之后的状态。</p>
+<h2 id="1-内存可见性"><a href="#1-内存可见性" class="headerlink" title="1. 内存可见性"></a>1. 内存可见性</h2><p>在单个线程环境中，对某个变量写入值后，在没有其他写操作的情况下，读取该变量的值总是相同；但是在多线程环境中情况并非如此，虽然难以接受且违反直观，但是很多问题就是这样发生的，这都是由于没有使用同步机制保证可见性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class NoVisibility &#123;</span><br><span class="line">    private static boolean ready;</span><br><span class="line">    private static int number;</span><br><span class="line"></span><br><span class="line">    private static class ReaderThread extends Thread &#123;</span><br><span class="line">        public void run() &#123;</span><br><span class="line">            //内部静态类可以直接使用外部类的静态域</span><br><span class="line">            while (!ready)&#123;</span><br><span class="line">                // 线程让步,使当前线程从执行状态（运行状态）变为可执行态（就绪状态）。</span><br><span class="line">                // 就是说当一个线程使用了这个方法之后，它就会把自己CPU执行的时间让掉，</span><br><span class="line">                // 让自己或者其它的线程运行。</span><br><span class="line">                Thread.yield();</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(number);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        new ReaderThread().start();</span><br><span class="line">        //JVM可能对一些语句进行重排序</span><br><span class="line">        number = 42;</span><br><span class="line">        ready = true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面的期望的代码结果是：因主线程执行ready = true，匿名子线程退出循环，打印number。但是很可能事与愿违：由于匿名线程和主线程并不是一个线程环境，虽然主线程中更新了ready变量的值，但是由于缺少同步机制，更新之后的值不一定对匿名子线程是可见的，匿名子线程很可能就由于使用了失效的数据而不能正常工作.</p>
+<p>失效数据是由于Java的内存机制导致的：在没有同步机制的情况下，在多线程的环境中，每个进程单独使用保存在自己的线程环境中的变量拷贝。正因如此，当多线程共享一个可变状态时，该状态就会有多份拷贝，当一个线程环境中的变量拷贝被修改了，并不会立刻就去更新其他线程中的变量拷贝。</p>
+<p>有些情况下，上面的程序会输出0，这是由于重排序的发生，也就是JVM根据优化的需要调整“不相关”代码的执行顺序。在主线程中，number = 42和ready = true看似是不相关的，不相互依赖，所以可能被JVM在编译时颠倒执行顺序，所以才会出现这个奇怪结果。</p>
+<p>重排序和变量多拷贝可能看上去是一种奇怪的设计，但是这样做的目的是希望JVM能充分利用多核处理器强大的性能，Java内存模型更为具体的内容将会在未来的篇章中为大家详细介绍。</p>
+<h3 id="1-1-加锁和可见性"><a href="#1-1-加锁和可见性" class="headerlink" title="1.1 加锁和可见性"></a>1.1 加锁和可见性</h3><p>正像前文提到同步控制那样，加锁的含义也不仅仅局限于建立互斥性以保证原子性，还涉及到内存可见性。为确保所有线程都能看到共享变量的最新值，所有对该变量执行读操作和写操作的线程都必须在同一个锁上同步。</p>
+<h3 id="1-2-Volatile变量"><a href="#1-2-Volatile变量" class="headerlink" title="1.2 Volatile变量"></a>1.2 Volatile变量</h3><p>加锁当然是多线程安全的完备方法，但是有的时候只需要确保少数状态变量的可见性即可，使用加锁机制未免有些大材小用，因此Java语言提供一种稍弱的同步机制——Volatile变量。当变量被声明为Volatile类型后，在编译时和运行时，JVM都会注意到这是一个共享变量，既不会在编译时对该变量的操作进行重排序，也不会缓存该变量到其他线程不可见的地方，保证所有线程都能读取到该变量的最新状态。</p>
+<p>访问Volatile变量时并没使用加锁操作，不会阻塞线程的运行，所以性能远远优于同步代码块和上锁机制，只比访问正常变量略高，不过这是牺牲原子性为代价的。</p>
+<blockquote>
+<p>加锁机制可以确保可见性、原子性和不可重排序性，但是Volatile变量只能确保可见性和不可重排序性。</p>
+</blockquote>
+<p>使用Volatile变量时需要谨慎，一定要确保以下所有条件：</p>
+<ol>
+<li>对当前变量的写操作，不依赖变量的当前值（比如++操作就不符合要求），或者确保只有一个进程更新该变量状态；</li>
+<li>该变量不会和其他变量一起纳入不变性条件中；</li>
+<li>访问该变量不需要加锁；</li>
+</ol>
+<p>实际使用中，Volatile变量多使用在会发生状态翻转的标志位上。</p>
+<h2 id="2-发布与逸出"><a href="#2-发布与逸出" class="headerlink" title="2. 发布与逸出"></a>2. 发布与逸出</h2><p>对象的可见性是保证对象的最新状态被共享，同时我们还应该注意防止不应该被共享的对象被暴露在多线程环境中。</p>
+<p>发布对象意味着该对象能在当前作用域之外的代码中被使用，比如，将类内部的对象传给其他类使用，或者一个非私有方法返回了该对象的引用等等。Java中强调类的封装性就是希望能合理的发布对象，保护类的内部信息。发布类内部状态，在多线程的环境下可能问题不大，但是在并发环境中却用可能严重地破坏多线程安全。</p>
+<p>某个不该发布的对象被发布了，这种情况被称为逸出.<br>我们来一起看看几种逸出的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class UnsafeStates &#123;</span><br><span class="line">    private String[] states = new String[]&#123;</span><br><span class="line">        &quot;AK&quot;, &quot;AL&quot; /*...*/</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    public String[] getStates() &#123;</span><br><span class="line">        return states;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面的例子中，虽然states是私有变量，但是其被共有方法所暴露，数组中的元素都可以被任意修改，这就是一种逸出的情况。</p>
+<blockquote>
+<p>当一个对象被发布时，该对象的非私有域中的所有引用都会被发布，即间接发布。</p>
+</blockquote>
+<p>有一种逸出是比较隐蔽的，就是This逸出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class ThisEscape &#123;</span><br><span class="line">    public ThisEscape(EventSource source) &#123;</span><br><span class="line">        source.registerListener(new EventListener() &#123;</span><br><span class="line">            public void onEvent(Event e) &#123;</span><br><span class="line">                doSomething(e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>内部的匿名类是隐私持有外部类的this引用的，这就无意中将this发布给内部类，如果内部类再被发布，则外部类就可能逸出，无意间造成内存泄漏和多线程安全问题。</p>
+<p>具体来说，只有当构造器执行结束后，this对象完成初始化后才能发布，否者就是一种不正确的构造，存在多线程安全隐患。</p>
+<p>解决这个问题最常见的方法就是工厂模式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class SafeListener &#123;</span><br><span class="line">    private final EventListener listener;</span><br><span class="line"></span><br><span class="line">    private SafeListener() &#123;</span><br><span class="line">        listener = new EventListener() &#123;</span><br><span class="line">            public void onEvent(Event e) &#123;</span><br><span class="line">                doSomething(e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static SafeListener newInstance(EventSource source) &#123;</span><br><span class="line">        SafeListener safe = new SafeListener();</span><br><span class="line">        source.registerListener(safe.listener);</span><br><span class="line">        return safe;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上例中，外部类的构造器被设置为私有的，其他类执行外部类的公有静态方法在构造器执行完毕之后才返回对象的引用，避免了this对象的逸出问题。</p>
+<p>相对而言，对象安全发布的问题比可见性问题更容易被忽视，接下来就讨论下如何才能安全发布对象。</p>
+<h2 id="3-线程封闭"><a href="#3-线程封闭" class="headerlink" title="3. 线程封闭"></a>3. 线程封闭</h2><p>对象的发布既然是个头疼的问题，所以我们应该避免泛滥地发布对象，最简单的方式就是尽可能把对象的使用范围都控制在单线程环境中，也就是线程封闭。</p>
+<p>常见的线程封闭方法有：</p>
+<ol>
+<li>Ad-hoc线程封闭，也就是维护线程封闭性的责任完全由编程承担，这种方法是不推荐的；</li>
+<li>局部变量封闭，很多人容易忽视一点，局部变量的固有属性之一就是封闭在执行线程内，无法被外界引用，所以尽量使用局部变量可以减少逸出的发生；</li>
+<li>ThreadLocal，这是一种更为规范的方法，该类将把进程中的某个值和保存值的对象关联起来，并提供get和set方法，保证get方法获得的值都是当前进程调用set方法设置的最新值。</li>
+</ol>
+<p>需要说明的是，看起来是ThreadLocal类似于一种 Map&lt;Thread, T&gt;对象，来保存特定于线程的值，但实际上这些值<strong> </strong>，其生命周期和Thread对象一致，一旦线程终止后，线程对象中的值都会被回收。</p>
+<p>ThreadLoacl在JDBC和J2EE容器中有着大量的应用。比如，在JDBC中，ThreadLoacl用来保证每个线程只能有一个数据库连接，再如在J2EE中，用以保存线程的上下文，方便线程切换等。</p>
+<h2 id="4-不变性"><a href="#4-不变性" class="headerlink" title="4. 不变性"></a>4. 不变性</h2><p>如果一定要将发布对象，那么不可变的对象是首选，因为其一定是多线程安全的，可以放心地被用来数据共享。这是因为不变的对象的状态只有一种状态，并且该状态由其构造器控制。</p>
+<p>对象不可变要求满足以下条件：</p>
+<ol>
+<li>该对象是正确创建的，没有this逸出问题；</li>
+<li>该对象的所有状态在创建之后不能修改，也就是其set方法应该为私有的，或者该域直接是final的。</li>
+</ol>
+<p>下面这个类就是不可变的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@Immutable</span><br><span class="line"> public final class ThreeStooges &#123;</span><br><span class="line">    private final Set&lt;String&gt; stooges = new HashSet&lt;String&gt;();</span><br><span class="line"></span><br><span class="line">    public ThreeStooges() &#123;</span><br><span class="line">        stooges.add(&quot;Moe&quot;);</span><br><span class="line">        stooges.add(&quot;Larry&quot;);</span><br><span class="line">        stooges.add(&quot;Curly&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public boolean isStooge(String name) &#123;</span><br><span class="line">        return stooges.contains(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getStoogeNames() &#123;</span><br><span class="line">        List&lt;String&gt; stooges = new Vector&lt;String&gt;();</span><br><span class="line">        stooges.add(&quot;Moe&quot;);</span><br><span class="line">        stooges.add(&quot;Larry&quot;);</span><br><span class="line">        stooges.add(&quot;Curly&quot;);</span><br><span class="line">        return stooges.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>《Effective Java》建议在类设计时应该尽可能减少可变的域：除非必须，域都应该是私有域；除非可变，域都应该是final域。</p>
+<h2 id="5-安全发布"><a href="#5-安全发布" class="headerlink" title="5. 安全发布"></a>5. 安全发布</h2><p>要安全地发布一个对象，对象的引用以及对象的状态必须同时对其他线程可见。一个正确构造的对象可以通过以下方式安全地发布：</p>
+<ol>
+<li>在静态初始化函数中初始化一个对象的引用（态初始化函数由JVM在初始化阶段执行，JVM为其提供同步机制）；</li>
+<li>将对象的引用保存在Volatile域或AtomicReference对象中；</li>
+<li>将对象的引用保存在某个正确构造对象的final域中；</li>
+<li>将对象的引用保存到一个由锁保护的域中；</li>
+<li>将对象的引用保存到线程安全容器中；</li>
+</ol>
+<h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6. 总结"></a>6. 总结</h2><p>在讨论过可见性和安全发布之后，我们来总结下安全共享对象的策略：</p>
+<ol>
+<li>线程封闭：线程封闭的对象只能由一个线程拥有，对象封闭在线程中，并且只能由该线程修改。</li>
+<li>只读共享：共享不可变的只读对象，只要保证可见性即可，可以不需要额外的同步操作。</li>
+<li>线程安全共享：线程安全的对象在其内部封装同步机制，多线程通过公有接口访问数据；对象发布的内部状态必须是安全发布的，且可变的状态需要锁来保护；对象的引用和对象的状态都是可见的。</li>
+</ol>
+
       
     </div>
     
@@ -517,8 +581,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="kay wu">
           <p class="site-author-name" itemprop="name">kay wu</p>
@@ -591,6 +664,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-内存可见性"><span class="nav-text">1. 内存可见性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-加锁和可见性"><span class="nav-text">1.1 加锁和可见性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-Volatile变量"><span class="nav-text">1.2 Volatile变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-发布与逸出"><span class="nav-text">2. 发布与逸出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-线程封闭"><span class="nav-text">3. 线程封闭</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-不变性"><span class="nav-text">4. 不变性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-安全发布"><span class="nav-text">5. 安全发布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-总结"><span class="nav-text">6. 总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
