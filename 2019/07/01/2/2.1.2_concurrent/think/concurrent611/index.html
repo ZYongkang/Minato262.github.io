@@ -97,14 +97,14 @@
 <meta name="description" content="要编写多线程安全的代码，最关键的一点就是需要对于共享的和可变的状态进行访问控制：  所谓共享的，指的是该变量可能同时被多个线程访问； 所谓可变的，指的是该变量在生命周期内其值可能放生变化。  如果在多线程同时访问一个共享可变的状态变量，但是没有进行有效的访问控制的话，那么程序的运行就可能带来意料之外的错误。为了解决这个问题，有以下三种办法：  不在线程中共享该状态变量（很可惜，不可能完全避免，但是">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="6.1.1 多线程的安全性问题">
-<meta property="og:url" content="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/concurrent611/index.html">
+<meta property="og:title" content="6.1.1 多线程安全性">
+<meta property="og:url" content="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/think/concurrent611/index.html">
 <meta property="og:site_name" content="水门的博客">
 <meta property="og:description" content="要编写多线程安全的代码，最关键的一点就是需要对于共享的和可变的状态进行访问控制：  所谓共享的，指的是该变量可能同时被多个线程访问； 所谓可变的，指的是该变量在生命周期内其值可能放生变化。  如果在多线程同时访问一个共享可变的状态变量，但是没有进行有效的访问控制的话，那么程序的运行就可能带来意料之外的错误。为了解决这个问题，有以下三种办法：  不在线程中共享该状态变量（很可惜，不可能完全避免，但是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-28T05:49:54.095Z">
+<meta property="og:updated_time" content="2020-03-28T07:06:56.499Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="6.1.1 多线程的安全性问题">
+<meta name="twitter:title" content="6.1.1 多线程安全性">
 <meta name="twitter:description" content="要编写多线程安全的代码，最关键的一点就是需要对于共享的和可变的状态进行访问控制：  所谓共享的，指的是该变量可能同时被多个线程访问； 所谓可变的，指的是该变量在生命周期内其值可能放生变化。  如果在多线程同时访问一个共享可变的状态变量，但是没有进行有效的访问控制的话，那么程序的运行就可能带来意料之外的错误。为了解决这个问题，有以下三种办法：  不在线程中共享该状态变量（很可惜，不可能完全避免，但是">
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/concurrent611/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/think/concurrent611/">
 
 
 
 
 
-  <title>6.1.1 多线程的安全性问题 | 水门的博客</title>
+  <title>6.1.1 多线程安全性 | 水门的博客</title>
   
 
 
@@ -315,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/concurrent611/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/think/concurrent611/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -332,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">6.1.1 多线程的安全性问题</h1>
+          <h1 class="post-title" itemprop="name headline">6.1.1 多线程安全性</h1>
         
 
         <div class="post-meta">
@@ -494,8 +494,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/01/2/2.1.2_concurrent/concurrent54/" rel="next" title="5.4 综述">
-                <i class="fa fa-chevron-left"></i> 5.4 综述
+              <a href="/2019/07/01/2/2.1.2_concurrent/concurrent610/" rel="next" title="6.1.0 Java并发思考-导读&总结">
+                <i class="fa fa-chevron-left"></i> 6.1.0 Java并发思考-导读&总结
               </a>
             
           </div>
@@ -504,7 +504,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/01/2/2.1.2_concurrent/concurrent612/" rel="prev" title="6.1.2 对象共享">
+              <a href="/2019/07/01/2/2.1.2_concurrent/think/concurrent612/" rel="prev" title="6.1.2 对象共享">
                 6.1.2 对象共享 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -581,7 +581,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">147</span>
+                <span class="site-state-item-count">151</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="给时间以生命，而不是给生命以时间">
+<meta name="description" content="本文将简要介绍java内存模型（JMM）的底层细节以及所提供的保障，并从JMM的角度再谈如何在并发环境下正确初始化对象，这将有助于理解更高层面的并发同步机制背后的原理。  1. 何为内存模型如大家所知，Java代码在编译和运行的过程中会对代码有很多意想不到且不受开发人员控制的操作：  在生成指令顺序可能和源代码中顺序不相同； 编译器可能会把变量保存到寄存器中而非内存中； 处理器可以采用乱序或者并">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="6.1.6 尝试Java加锁新思路：原子变量和非阻塞同步算法">
-<meta property="og:url" content="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/concurrent616/index.html">
+<meta property="og:title" content="6.1.3 从 Java 内存模型角度理解安全初始化">
+<meta property="og:url" content="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/think/concurrent613/index.html">
 <meta property="og:site_name" content="水门的博客">
-<meta property="og:description" content="给时间以生命，而不是给生命以时间">
+<meta property="og:description" content="本文将简要介绍java内存模型（JMM）的底层细节以及所提供的保障，并从JMM的角度再谈如何在并发环境下正确初始化对象，这将有助于理解更高层面的并发同步机制背后的原理。  1. 何为内存模型如大家所知，Java代码在编译和运行的过程中会对代码有很多意想不到且不受开发人员控制的操作：  在生成指令顺序可能和源代码中顺序不相同； 编译器可能会把变量保存到寄存器中而非内存中； 处理器可以采用乱序或者并">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-01T06:36:14.677Z">
+<meta property="og:updated_time" content="2020-03-28T06:15:41.708Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="6.1.6 尝试Java加锁新思路：原子变量和非阻塞同步算法">
-<meta name="twitter:description" content="给时间以生命，而不是给生命以时间">
+<meta name="twitter:title" content="6.1.3 从 Java 内存模型角度理解安全初始化">
+<meta name="twitter:description" content="本文将简要介绍java内存模型（JMM）的底层细节以及所提供的保障，并从JMM的角度再谈如何在并发环境下正确初始化对象，这将有助于理解更高层面的并发同步机制背后的原理。  1. 何为内存模型如大家所知，Java代码在编译和运行的过程中会对代码有很多意想不到且不受开发人员控制的操作：  在生成指令顺序可能和源代码中顺序不相同； 编译器可能会把变量保存到寄存器中而非内存中； 处理器可以采用乱序或者并">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/concurrent616/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/think/concurrent613/">
 
 
 
 
 
-  <title>6.1.6 尝试Java加锁新思路：原子变量和非阻塞同步算法 | 水门的博客</title>
+  <title>6.1.3 从 Java 内存模型角度理解安全初始化 | 水门的博客</title>
   
 
 
@@ -315,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/concurrent616/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/think/concurrent613/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -332,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">6.1.6 尝试Java加锁新思路：原子变量和非阻塞同步算法</h1>
+          <h1 class="post-title" itemprop="name headline">6.1.3 从 Java 内存模型角度理解安全初始化</h1>
         
 
         <div class="post-meta">
@@ -344,7 +344,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T06:01:06+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T06:01:03+08:00">
                 2019-07-01
               </time>
             
@@ -398,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  2.7k
                 </span>
               
 
@@ -423,7 +423,59 @@
       
 
       
-        
+        <blockquote>
+<p>本文将简要介绍java内存模型（JMM）的底层细节以及所提供的保障，并从JMM的角度再谈如何在并发环境下正确初始化对象，这将有助于理解更高层面的并发同步机制背后的原理。</p>
+</blockquote>
+<h2 id="1-何为内存模型"><a href="#1-何为内存模型" class="headerlink" title="1. 何为内存模型"></a>1. 何为内存模型</h2><p>如大家所知，Java代码在编译和运行的过程中会对代码有很多意想不到且不受开发人员控制的操作：</p>
+<ul>
+<li>在生成指令顺序可能和源代码中顺序不相同；</li>
+<li>编译器可能会把变量保存到寄存器中而非内存中；</li>
+<li>处理器可以采用乱序或者并行的方式执行指令；</li>
+<li>缓存可能会改变将写入变量提交到主内存的次序；</li>
+<li>保存在处理器本地缓存中的值，对于其他处理器是不可见的；</li>
+<li>…..</li>
+</ul>
+<p>以上所有的这些情况都可能会导致多线程同步的问题。</p>
+<p>其实，在单线程的环境下，这些底层的技术都是为了提高执行效率而存在，不会影响运行结果：JVM只会在运行结果和严格串行执行结果相同的情况下进行如上的优化操作。我们需要知道近些年以来计算性能的提高很大程度上要感谢这些重新排序的操作。</p>
+<p>为了进一步提高效率，多核处理器已经广泛被使用，程序在多数时间内都是并发执行，只有在需要的时候才回去协调各个线程之间的操作。那什么是需要的时候呢，JVM将这个问题抛给了程序，要求在代码中使用同步机制来保证多线程安全。</p>
+<h3 id="1-1-多处理器架构中的内存模型"><a href="#1-1-多处理器架构中的内存模型" class="headerlink" title="1.1 多处理器架构中的内存模型"></a>1.1 多处理器架构中的内存模型</h3><p>在多核理器架构中，每个处理器都拥有自己的缓存，并且会定期地与主内存进行协调。这样的架构就需要解决缓存一致性（Cache Coherence）的问题。很可惜，一些框架中只提供了最小保证，即允许不同处理器在任意时刻从同一存储位置上看到不同的值。</p>
+<blockquote>
+<p>正因此存在上面所述的硬件能力和线程安全需求的差异，才导致需要在代码中使用同步机制来保证多线程安全。</p>
+</blockquote>
+<p>这样“不靠谱”的设计还是为了追求性能，因为要保证每个处理器都能在任意时刻知道其他处理器在做什么需要很大的开销，而且大部分情况下处理器也没有这样的需求，放宽对于存储一致性的保障，以换取性能的提升。</p>
+<p>架构中定义了一些特殊的指令，也就是内存栅栏，当需要多线程间数据共享的时，这些指令将会提供额外的存储协调。</p>
+<p>值得庆幸的是JMM为我们屏蔽了各个框架在内存模型上的差异，让开发人员不用再去关系这些底层问题。</p>
+<h3 id="1-2-重排序"><a href="#1-2-重排序" class="headerlink" title="1.2 重排序"></a>1.2 重排序</h3><p>JVM不光会改变命令执行的顺序，甚至还会让不同线程看到的代码执行的顺序也是不同的，这就会让在没有同步操作的情况下预测代码执行结果边变的困难。</p>
+<p>下面的代码是《Java Concurrency in Practice》给出的一个例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class PossibleReordering &#123;</span><br><span class="line">    static int x = 0, y = 0;</span><br><span class="line">    static int a = 0, b = 0;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws InterruptedException &#123;</span><br><span class="line">        //对于每个线程内部而言，语句的执行顺序和结果无关</span><br><span class="line">        //但是对于线程之间，语句的执行顺序却和结果密切相关</span><br><span class="line">        //而不同线程之间的见到的代码执行顺序可能都是不同的</span><br><span class="line">        Thread one = new Thread(new Runnable() &#123;</span><br><span class="line">            public void run() &#123;</span><br><span class="line">                a = 1;</span><br><span class="line">                x = b;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        Thread other = new Thread(new Runnable() &#123;</span><br><span class="line">            public void run() &#123;</span><br><span class="line">                b = 1;</span><br><span class="line">                y = a;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        one.start();</span><br><span class="line">        other.start();</span><br><span class="line">        one.join();</span><br><span class="line">        other.join();</span><br><span class="line">        System.out.println(&quot;( &quot; + x + &quot;,&quot; + y + &quot;)&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上代码的输出结果可能是（1，0）、（0，1）、（1，1）甚至是（0，0），这是由于两个线程的执行先后顺序可能不同，线程内部的赋值操作的顺序也有可能相互颠倒。</p>
+<p>上面这样简单的代码，如果缺少合理的同步机制都很难预测其结果，复杂的程序将更为困难，这正是通过同步机制限制编译器和运行时对于内存操作重排序限制的意义所在。</p>
+<h3 id="1-3-Java内存模型与Happens-Before规则"><a href="#1-3-Java内存模型与Happens-Before规则" class="headerlink" title="1.3 Java内存模型与Happens-Before规则"></a>1.3 Java内存模型与Happens-Before规则</h3><p>Java内存模型是通过各种操作来定义的，包括对于变量的对写操作，监视器的加锁和释放锁操作，以及线程的启动和合并，而这些操作都要满足一种偏序关系——Happen-Before规则：想要保证执行操作B的线程看到执行操作A的结果，而无论两个操作是否在同一线程，则操作A和操作B之间必须满足Happens-Before关系，否者JVM将可以对他们的执行顺序任意安排。</p>
+<p>Happens-Before规则：</p>
+<ul>
+<li>程序顺序规则：一个线程中的每个操作，先于随后该线程中的任意后续操作执行（针对可见性而言）;</li>
+<li>监视器锁规则：对一个锁的解锁操作，先于随后对这个锁的获取操作执行;</li>
+<li>volatile变量规则：对一个volatile变量的写操作，先于对这个变量的读操作执行;</li>
+<li>传递性：如果A happens-before B，B happens-before C，那么A happens-before C;</li>
+<li>start规则：如果线程A执行线程B的start方法，那么线程A的ThreadB.start()先于线程B的任意操作执行;</li>
+<li>join规则：如果线程A执行线程B的join方法，那么线程B的任意操作先于线程A从TreadB.join()方法成功返回之前执行；</li>
+<li>中断规则：当线程A调用另一个线程B的interrupt方法时，必须在线程A检测到线程B被中断（抛出InterruptException，或者调用ThreadB.isInterrupted()）之前执行。</li>
+<li>终结器规则：一个对象的构造函数先于该对象的finalizer方法执行前完成；</li>
+</ul>
+<h2 id="2-安全发布与内存模型"><a href="#2-安全发布与内存模型" class="headerlink" title="2. 安全发布与内存模型"></a>2. 安全发布与内存模型</h2><p>对象共享：Java并发环境中的烦心事中曾介绍过安全发布和数据共享的问题，而造成不正确的发布的根源就在于发布对象的操作和访问对象的操作之间缺少Happens-Before关系。</p>
+<p>请看下面这个例子，这是一个不安全的懒加载，只有在第一次用到Resource对象时才会去初始化该对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class UnsafeLazyInitialization &#123;</span><br><span class="line">    private static Resource resource;</span><br><span class="line"></span><br><span class="line">    public static Resource getInstance() &#123;</span><br><span class="line">        if (resource == null)</span><br><span class="line">            resource = new Resource(); // unsafe publication</span><br><span class="line">        return resource;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static class Resource &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>getInstance() 方法是一个静态方法，可以被多个线程同时调用，就有可能出现数据竞争的问题，在Java内存模型的角度来说就是读取resource对象判断是都为空和对resource赋值的写操作并不存在Happens-Before关系，彼此在多线程环境中不一定是可见的。此外，new Resource()来创建一个类对象，要先分配内存空间，对象各个域都是被赋予默认值，然后再调用构造函数对写入各个域。由于这个过程和读取Resource对象的操作并不满足Happens-Before关系，所以可能一个线程中正在创建对象但是没有执行完毕，而这时另一个线程看到的Resource对象的确不是为空，但却是个失效的状态。</p>
+<p>真正线程安全的懒加载应该是这样的，通过同步机制上锁，让读操作和写操作满足Happens-Before规则。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class SafeLazyInitialization &#123;</span><br><span class="line">    private static Resource resource;</span><br><span class="line"></span><br><span class="line">    //一线程获得内置锁之后，在释放锁之前的操作都会先于另外一个线程得到锁的操作执行</span><br><span class="line">    public synchronized static Resource getInstance() &#123;</span><br><span class="line">        if (resource == null)</span><br><span class="line">            resource = new Resource();</span><br><span class="line">        return resource;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static class Resource &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-1-正确的延迟初始化"><a href="#2-1-正确的延迟初始化" class="headerlink" title="2.1 正确的延迟初始化"></a>2.1 正确的延迟初始化</h3><p>为了避免懒加载每次调用getInstance方法的同步开销，可以使用提前初始化的方法，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class EagerInitialization &#123;</span><br><span class="line">    private static Resource resource = new Resource();</span><br><span class="line"></span><br><span class="line">    public static Resource getResource() &#123;</span><br><span class="line">        return resource;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static class Resource &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>提前初始化方法利用静态初始化提前加载并有同步机制保护的特性实现了安全发布。更进一步，该方法和JVM的延迟加载机制结合，形成了一种完备的延迟初始化技术-延迟初始化占位类模式，实例如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class ResourceFactory &#123;</span><br><span class="line">    //静态初始化不需要额外的同步机制</span><br><span class="line">    private static class ResourceHolder &#123;</span><br><span class="line">        public static Resource resource = new Resource();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //延迟加载</span><br><span class="line">    public static Resource getResource() &#123;</span><br><span class="line">        return ResourceHolder.resource;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static class Resource &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上述代码中专门使用了一个类ResourceHolder来初始化Resource对象，ResourceHolder会被JVM推迟初始化直到被真正的调用，并且因为利用了静态初始化而不需要额外的同步机制。</p>
+<blockquote>
+<p>静态初始化或静态代码块因为由JVM的机制保护，不需要额外的同步机制；</p>
+</blockquote>
+<h3 id="2-2-双重检查加锁"><a href="#2-2-双重检查加锁" class="headerlink" title="2.2 双重检查加锁"></a>2.2 双重检查加锁</h3><p>下面让我们从Java内存模型的角度谈谈臭名昭著的双重检查加锁（DCL），示例代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class DoubleCheckedLocking &#123;</span><br><span class="line">    private static Resource resource;</span><br><span class="line"></span><br><span class="line">    public static Resource getInstance() &#123;</span><br><span class="line">        //没有在同步的情况下读取共享变量，破坏了Happens_Before规则</span><br><span class="line">        if (resource == null) &#123;</span><br><span class="line">            synchronized (DoubleCheckedLocking.class) &#123;</span><br><span class="line">                if (resource == null)</span><br><span class="line">                    resource = new Resource();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return resource;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static class Resource &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>由于在早期的JVM中，同步操作很是效率低，所以延迟初始化常被用来避免不必要的同步开销，但是对于DCL，其虽然很好的解决了“独占性”，但是没有正确理解”可见性”。</p>
+<p>对象共享：Java并发环境中的烦心事中曾经介绍过：对于共享变量，读写操作都需要在同一个锁的保护之下，从而使得读/写操作都满足Happens-Before规则，在多线程环境中可见。但是在DCL中，第一次对于resource的空判断没有在同步机制下进行，和写操作之间没有Happens-Before关系，即使写操作是同步的，也不能保证写操作的结果是多线程可见的，此时读出的resource的值就可能是初始化到一半的失效状态。</p>
+<p>其实只要把resource设置为Volatile就能保证DCL的正常工作，而且性能的影响很小，但是现在JVM已经不断成熟和完善， 没有必要再使用DCL技术，延迟初始化占位模式更为简单和易于理解。</p>
+
       
     </div>
     
@@ -453,8 +505,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/01/2/2.1.2_concurrent/concurrent615/" rel="next" title="6.1.5 驾驭 Java 线程池：定制与扩展">
-                <i class="fa fa-chevron-left"></i> 6.1.5 驾驭 Java 线程池：定制与扩展
+              <a href="/2019/07/01/2/2.1.2_concurrent/think/concurrent612/" rel="next" title="6.1.2 对象共享">
+                <i class="fa fa-chevron-left"></i> 6.1.2 对象共享
               </a>
             
           </div>
@@ -463,8 +515,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/01/3/2_notes/notes/" rel="prev" title="随笔">
-                随笔 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/01/2/2.1.2_concurrent/think/concurrent614/" rel="prev" title="6.1.4 从任务到线程：Java 结构化并发应用程序">
+                6.1.4 从任务到线程：Java 结构化并发应用程序 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -517,8 +569,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="kay wu">
           <p class="site-author-name" itemprop="name">kay wu</p>
@@ -531,7 +592,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">147</span>
+                <span class="site-state-item-count">151</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -591,6 +652,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-何为内存模型"><span class="nav-text">1. 何为内存模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-多处理器架构中的内存模型"><span class="nav-text">1.1 多处理器架构中的内存模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-重排序"><span class="nav-text">1.2 重排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-Java内存模型与Happens-Before规则"><span class="nav-text">1.3 Java内存模型与Happens-Before规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安全发布与内存模型"><span class="nav-text">2. 安全发布与内存模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-正确的延迟初始化"><span class="nav-text">2.1 正确的延迟初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-双重检查加锁"><span class="nav-text">2.2 双重检查加锁</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

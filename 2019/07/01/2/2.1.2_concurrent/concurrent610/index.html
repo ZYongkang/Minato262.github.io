@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="java,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="1.《多线程安全性：每个人都在谈，但是不是每个人都谈地清》多线程安全性的定义可能众说纷纭，但是其最核心的一点就是正确性，也就是程序的行为结果和预期一致。 当多个线程访问某个类时，不管运行环境采用何种线程调度算法或者这些线程如何交替执行，且不需要在主程序中添加任何额外的协同机制，这个类都能表现出正确的行为，那么这个类就是线程安全的。 要编写多线程安全的代码，最关键的一点就是需要对于共享的和可变的状态">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="6.1.0 Java并发思考-导读&amp;总结">
+<meta property="og:url" content="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/concurrent610/index.html">
+<meta property="og:site_name" content="水门的博客">
+<meta property="og:description" content="1.《多线程安全性：每个人都在谈，但是不是每个人都谈地清》多线程安全性的定义可能众说纷纭，但是其最核心的一点就是正确性，也就是程序的行为结果和预期一致。 当多个线程访问某个类时，不管运行环境采用何种线程调度算法或者这些线程如何交替执行，且不需要在主程序中添加任何额外的协同机制，这个类都能表现出正确的行为，那么这个类就是线程安全的。 要编写多线程安全的代码，最关键的一点就是需要对于共享的和可变的状态">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-28T07:01:42.434Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="6.1.0 Java并发思考-导读&amp;总结">
+<meta name="twitter:description" content="1.《多线程安全性：每个人都在谈，但是不是每个人都谈地清》多线程安全性的定义可能众说纷纭，但是其最核心的一点就是正确性，也就是程序的行为结果和预期一致。 当多个线程访问某个类时，不管运行环境采用何种线程调度算法或者这些线程如何交替执行，且不需要在主程序中添加任何额外的协同机制，这个类都能表现出正确的行为，那么这个类就是线程安全的。 要编写多线程安全的代码，最关键的一点就是需要对于共享的和可变的状态">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/concurrent610/">
+
+
+
+
+
+  <title>6.1.0 Java并发思考-导读&总结 | 水门的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">水门的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/2/2.1.2_concurrent/concurrent610/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kay wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水门的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">6.1.0 Java并发思考-导读&总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T06:00:01+08:00">
+                2019-07-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/并发/" itemprop="url" rel="index">
+                    <span itemprop="name">并发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  4.3k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-《多线程安全性：每个人都在谈，但是不是每个人都谈地清》"><a href="#1-《多线程安全性：每个人都在谈，但是不是每个人都谈地清》" class="headerlink" title="1.《多线程安全性：每个人都在谈，但是不是每个人都谈地清》"></a>1.《多线程安全性：每个人都在谈，但是不是每个人都谈地清》</h2><p>多线程安全性的定义可能众说纷纭，但是其最核心的一点就是正确性，也就是程序的行为结果和预期一致。</p>
+<p>当多个线程访问某个类时，不管运行环境采用何种线程调度算法或者这些线程如何交替执行，且不需要在主程序中添加任何额外的协同机制，这个类都能表现出正确的行为，那么这个类就是线程安全的。</p>
+<p>要编写多线程安全的代码，最关键的一点就是需要对于共享的和可变的状态进行访问控制. 多线程安全要求在一个原子性操作中更新所有相关状态的变量。每个共享可变的变量，都应该只有一个锁来保护。如果由多个变量协同完成操作，则这些变量应该由同一个锁来保护。</p>
+<h2 id="2-《对象共享：Java并发环境中的烦心事》"><a href="#2-《对象共享：Java并发环境中的烦心事》" class="headerlink" title="2.《对象共享：Java并发环境中的烦心事》"></a>2.《对象共享：Java并发环境中的烦心事》</h2><p>并发的意义在于多线程协作完成某项任务，而线程的协作就不可避免地需要共享数据。</p>
+<p>多线程安全不光要求实现了原子性，还要求实现内存可见性(Memory Visibility)。也就是在同步的过程中，不仅要防止某个线程正在使用的状态被另一个线程修改，还要保证一个线程修改了对象状态之后，其他线程能获得更新之后的状态。</p>
+<p>在没有同步机制的情况下，在多线程的环境中，每个进程单独使用保存在自己的线程环境中的变量拷贝。正因如此，当多线程共享一个可变状态时，该状态就会有多份拷贝，当一个线程环境中的变量拷贝被修改了，并不会立刻就去更新其他线程中的变量拷贝。</p>
+<p>加锁机制可以确保可见性、原子性和不可重排序性，但是Volatile变量只能确保可见性和不可重排序性。</p>
+<h2 id="3-《从Java内存模型角度理解安全初始化》"><a href="#3-《从Java内存模型角度理解安全初始化》" class="headerlink" title="3.《从Java内存模型角度理解安全初始化》"></a>3.《从Java内存模型角度理解安全初始化》</h2><p>JVM只会在运行结果和严格串行执行结果相同的情况下进行如上的优化操作，如对代码的执行顺序重新排序。</p>
+<p>为了进一步提高效率，多核处理器已经广泛被使用。在多核理器架构中，每个处理器都拥有自己的缓存，并且会定期地与主内存进行协调。这样的架构就需要解决缓存一致性（Cache Coherence）的问题。但是这些框架中只提供了最小保证，即允许不同处理器在任意时刻从同一存储位置上看到不同的值。</p>
+<blockquote>
+<p>正因此存在上面所述的硬件能力和线程安全需求的差异，才导致需要在代码中使用同步机制来保证多线程安全。</p>
+</blockquote>
+<p>Java内存模式为我们屏蔽了各个框架在内存模型上的差异。想要保证执行操作B的线程看到执行操作A的结果，而无论两个操作是否在同一线程，则操作A和操作B之间必须满足Happens-Before关系，否者JVM将可以对他们的执行顺序任意安排。</p>
+<p>静态初始化或静态代码块因为由JVM的机制保护，不需要额外的同步机制，就可以保证其一定在调用类的方法（包括构造器）之前执行完毕。该特性和JVM的延迟加载机制结合，形成了一种完备的延迟初始化技术-延迟初始化占位类模式。</p>
+<h2 id="4-《从任务到线程：Java结构化并发应用程序》"><a href="#4-《从任务到线程：Java结构化并发应用程序》" class="headerlink" title="4.《从任务到线程：Java结构化并发应用程序》"></a>4.《从任务到线程：Java结构化并发应用程序》</h2><p>并发设计的本质，就是要把程序的逻辑分解为多个任务，这些任务独立而又协作的完成程序的功能。而其中最关键的地方就是如何将逻辑上的任务分配到实际的线程中去执行。换而言之，任务是目的，而线程是载体，线程的实现要以任务为目标。</p>
+<p>java.util.concurrent提供了Executor框架来帮助我们管理线程资源，规划线程的执行。Executor的本质就是管理和调度线程池。使用线程池任务池的优势在于：</p>
+<p>通过复用现有线程而不是创建新的线程，降低创建线程时的开销；<br>复用现有线程，可以直接执行任务，避免因创建线程而让任务等待，提高响应速度。<br>Executor可以创建的线程池共有四种：</p>
+<ol>
+<li>newFixedThreadPool；</li>
+<li>newCachedThreadPool；</li>
+<li>newScheduledThreadPool；</li>
+<li>newSingleThreadExecutor。</li>
+</ol>
+<p>Java1.5开始提供了Executor的扩展接口ExecutorService，其提供了两种方法关闭方法：</p>
+<ul>
+<li>shutdown: 平缓的关闭过程，即不再接受新的任务，等到已提交的任务执行完毕后关闭进程池；</li>
+<li>shutdownNow: 立刻关闭所有任务，无论是否再执行；</li>
+</ul>
+<p>Java中设计了另一种接口Callable来作Runnable的升级版。Callable支持任务有返回值，并支持异常的抛出。</p>
+<p>Future类表示任务生命周期状态，提供方法查询任务状态外，还提供get方法获得任务的返回值，如果任务没有执行完就会被拥塞。</p>
+<p>当遇到一次性提交一组任务的情况，这个时候可以使用CompletionService，CompletionService可以理解为Executor和BlockingQueue的组合：当一组任务被提交后，CompletionService将按照任务完成的顺序将任务的Future对象放入队列中。</p>
+<h2 id="5-《关闭线程的正确方法：“优雅”的中断》"><a href="#5-《关闭线程的正确方法：“优雅”的中断》" class="headerlink" title="5.《关闭线程的正确方法：“优雅”的中断》"></a>5.《关闭线程的正确方法：“优雅”的中断》</h2><p>Java中没有提供安全的机制来终止线程。虽然有Thread.stop/suspend等方法，但是这些方法存在缺陷，不能保证线程中共享数据的一致性，所以应该避免直接调用。更为妥当的方式是使用Java中提供了中断机制，来让多线程之间相互协作，由一个进程来安全地终止另一个进程。</p>
+<blockquote>
+<p>中断是取消线程的最合理的方式。<br>调用Interrupt方法并不是意味着要立刻停止目标线程，而只是传递请求中断的消息。所以对于中断操作的正确理解为：正在运行的线程收到中断请求之后，在下一个合适的时刻中断自己。</p>
+</blockquote>
+<p>Future用来管理任务的生命周期，自然也可以来取消任务，调用Future.cancel方法就是用中断请求结束任务并退出.</p>
+<p>一些的方法的拥塞是不能响应中断请求的，这类操作以I/O操作居多，但是可以让其抛出类似的异常，来停止任务。</p>
+<h2 id="6-《驾驭Java线程池：定制与扩展》"><a href="#6-《驾驭Java线程池：定制与扩展》" class="headerlink" title="6.《驾驭Java线程池：定制与扩展》"></a>6.《驾驭Java线程池：定制与扩展》</h2><p>ThreadPoolExecutor提供了Executor的基本实现，除了提供*四种常见的方法来获得特定配置的进程池，还可以进行各种定制，以获得灵活稳定的线程池。</p>
+<p>以下是ThreadPoolExecutor的构造函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public ThreadPoolExecutor(</span><br><span class="line">    int corePoolSize,//基本大小</span><br><span class="line">    int maximumPoolSize, //最大大小</span><br><span class="line">    long keepAliveTime, //线程保活时间</span><br><span class="line">    TimeUnit unit, //保活时间单位                 </span><br><span class="line">    BlockingQueue&lt;Runnable&gt; workQueue,//任务队列</span><br><span class="line">    ThreadFactory threadFactory,//任务工厂</span><br><span class="line">    RejectedExecutionHandler handler) &#123;...&#125;//饱和策略</span><br></pre></td></tr></table></figure></p>
+<p>ThreadPoolExecutor使用拥塞队列BlockingQueue来保存等待的任务，任务队列共分为三种：无界队列，有解队列和同步队列。</p>
+<p>ThreadPoolExecutor通过参数RejectedExecutionHandler来设定饱和策略，JDK中提供的实现共有四种：</p>
+<ul>
+<li>中止策略(Abort Policy)：默认的策略，队列满时，会抛出异常RejectedExecutionException，调用者在捕获异常之后自行判断如何处理该任务；</li>
+<li>抛弃策略(Discard Policy)：队列满时，进程池抛弃新任务，并不通知调用者；</li>
+<li>抛弃最久策略(Discard-oldest Policy)：队列满时，进程池将抛弃队列中被提交最久的任务；</li>
+<li>调用者运行策略(Caller-Runs Policy)：该策略不会抛弃任务，也不会抛出异常，而是将任务退还给调用者，也就是说当队列满时，新任务将在调用ThreadPoolExecutor的线程中执行。</li>
+</ul>
+<p>当线程池需要创建新的线程时，就会通过线程工厂来创建Thread对象。默认情况下，线程池的线程工厂会创建简单的新线程，如果需要用户可以为线程池定制线程工厂。</p>
+<p>ThreadPoolExecutor提供了可扩展的方法：</p>
+<ul>
+<li>beforeExecute: 在任务被执行之前被调用;</li>
+<li>afterExecute: 无论任务执行成功和还是抛出异常，都在返回后执行；如果任务执行中出现Error或是beforeExecute抛出异常，则afterExecutor不会被执行。</li>
+<li>terminated: 进程池完成之后被调用，可以用于释放进程池在生命周期内分配的各种资源和日志等工作。</li>
+</ul>
+<h2 id="7-《探秘Java并发模块：容器与工具类》"><a href="#7-《探秘Java并发模块：容器与工具类》" class="headerlink" title="7.《探秘Java并发模块：容器与工具类》"></a>7.《探秘Java并发模块：容器与工具类》</h2><p>同步容器类的代表就是Vector和HashTable，这是早期JDK中提供的类。此外Collections.synchronizedXXX等工厂方法也可以把普通的容器（如HashMap）封装成同步容器。这些同步容器类的共同点就是：使用同步（Synchronized）方法来封装容器的操作方法，以保证容器多线程安全，但这样也使得容器的每次操作都会对整个容器上锁，所以同一时刻只能有一个线程访问容器。</p>
+<p>同步容器类不能保证容器复合操作的原子性，使用其迭代器时也不能保证多线程安全。</p>
+<p>从Java 5开始，JDK中提供了并发容器类来改进同步容器类的不足。Java 5 中提供了ConcurrentHashMap来代替同步的HashMap，提供了CopyOnWriteArrayList来代替同步都是List。</p>
+<p>在ConcurrentHashMap分段锁来保护容器中的元素。如果访问的元素不是由同一个锁来保护，则允许并发被访问。这样做虽然增加了维护和管理的开销，但是提高并发性。不过，ConcurrentHashMap中也存在对整个容器加锁的情况，比如容器要扩容，需要重新计算所有元素的散列值， 就需要获得全部的分段锁。</p>
+<p>CopyOnWriteArrayList用于代替同步的List，其为“写时复制（Copy-on-Write）”容器，本质为事实不可变对象，一旦需要修改，就会创建一个新的容器副本并发布。容器的迭代器会保留一个指向底层基础数组的引用，这个数组是不变的，且其当前位置位于迭代器的起始位置。</p>
+<p>Java 5 还新增了两种容器类型：Queue和BlockingQueue：</p>
+<ul>
+<li>队列Queue，其实现有ConcurrentLinkedQueue（并发的先进先出队列）和PriorityQueue（非并发的优先级队列）；Queue上的操作不会被拥塞，如果队列为空 ，会立刻返回null，如果队列已满，则会立刻返回失败；</li>
+<li>拥塞队列BlockingQueue，是Queue的一种扩展，其上的操作是可拥塞的：如果队列为空，则获取元素的操作将被拥塞直到队列中有可用元素，同理如果队列已满，则放入元素的操作也会被用塞到队列有可用的空间。</li>
+</ul>
+<p>Java中还提供了同步工具类，这些同步工具类可以根据自身的状态来协调线程的控制流，上面提到的拥塞队列就是一种同步工具类，除此之外还有闭锁（Latch），信号量（Semaphore）和栅栏（Barrier）等</p>
+<h2 id="8-《Java高级上锁机制：显式锁-ReentrantLock》"><a href="#8-《Java高级上锁机制：显式锁-ReentrantLock》" class="headerlink" title="8.《Java高级上锁机制：显式锁 ReentrantLock》"></a>8.《Java高级上锁机制：显式锁 ReentrantLock》</h2><p>ReentrantLock，它和同步(Synchronized)方法的内置锁不同，这是一种显式锁。显式锁作为一种高级的上锁工作， 是同步方法的一种补充和扩展，用来实现同步代码块无法完成的功能，比如提供响应中断的获得锁操作，提供支持超时的获得锁操作等等。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public interface Lock &#123;</span><br><span class="line">    void lock(); //获取锁</span><br><span class="line">    void lockInterruptibly() throws InterruptedException; //可中断的获取锁操作</span><br><span class="line">    boolean tryLock(); //尝试获取锁，不会被拥塞，如果失败立刻返回</span><br><span class="line">    boolean tryLock(long time, TimeUnit unit) throws InterruptedException; //在一定时间内尝试获得锁，如果超时则失败</span><br><span class="line">    void unlock(); // 释放锁</span><br><span class="line">    Condition newCondition();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>显式锁需要在手动调用lock方法来获得锁，并在使用后在finally代码块中调用unlock方法释放锁，以保证无论操作是否成功都能释放掉锁。</p>
+<p>ReentrantLock的构造函数中提供两种锁的类型：</p>
+<ul>
+<li>公平锁：线程将按照它们请求锁的顺序来获得锁；</li>
+<li>非公平锁：允许插队，如果一个线程请求非公平锁的那个时刻，锁的状态正好为可用，则该线程将跳过所有等待中的线程获得该锁。</li>
+</ul>
+<p>非公平锁在线程间竞争锁资源激烈的情况下，性能更高，是显式锁所使用默认模式。</p>
+<p>无论是显式锁还是内置锁，都是互斥锁，也就是同一时刻只能有一个线程得到锁。互斥锁是保守的加锁策略，可以避免“写-写”冲突、“写-读”冲突”和”读-读”冲突。但是有时候不需要这么严格 ，同时多个任务读取数据是被允许，这有助于提升效率，不需要避免“读-读”操作。为此，Java 5.0 中出现了读-写锁ReadWriteLock。</p>
+<blockquote>
+<p>建议只有在一些内置锁无法满足的情况下，再将显式锁ReentrantLock作为高级工具使用，比如要使用轮询锁、定时锁、可中断锁或者是公平锁。除此之外，还应该优先使用synchronized方法。</p>
+</blockquote>
+<h2 id="9-《尝试Java加锁新思路：原子变量和非阻塞同步算法》"><a href="#9-《尝试Java加锁新思路：原子变量和非阻塞同步算法》" class="headerlink" title="9.《尝试Java加锁新思路：原子变量和非阻塞同步算法》"></a>9.《尝试Java加锁新思路：原子变量和非阻塞同步算法》</h2><p>无论是内置锁还是显式锁，都是一种独占锁，也是悲观锁。所谓悲观锁，就是以悲观的角度出发，认为如果不上锁，一定会有其他线程修改数据，破坏一致性，影响多线程安全，所以必须通过加锁让线程独占资源。</p>
+<p>与悲观锁相对，还有更高效的方法——乐观锁，这种锁需要借助冲突检查机制来判断在更新的过程中是否存在来气其他线程的干扰，如果没有干扰，则操作成功，如果存在干扰则操作失败，并且可以重试或采取其他策略。</p>
+<p>大部分处理器框架是通过实现比较并交换（Compare and Swap，CAS）指令来实现乐观锁。CAS指令包含三个操作数：需要读写的内存位置V，进行比较的值A和拟写入新值B。当且仅当V处的值等于A时，才说明V处的值没有被修改过，指令才会使用原子方式更新其为B值，否者将不会执行任何操作。无论操作是否执行， CAS都会返回V处原有的值。</p>
+<p>CAS的方法在性能上有很大优势：在竞争程度不是很大的情况下，基于CAS的操作，在性能上远远超过基于锁的方法；在没有竞争的情况下，CAS的性能更高。</p>
+<p>但是CAS的缺点是：将竞争的问题交给调用者来处理，但是悲观锁自身就能处理竞争。</p>
+<p>Java中也引入CAS。对于int、long和对象的引用，Java都支持CAS操作，也就是原子变量类，JVM会把对于原子变量类的操作编译为底层硬件提供的最有效的方法：如果硬件支持CAS，则编译为CAS指令，如果不支持，则编译为上锁的操作。常见的原子变量有AtomicInteger、AtomicLong、AtomicBoolean和AtomicReference。</p>
+<p>原子变量可以被视为一种更好volatile变量。但是原子变量没有定义hashCode和equals方法，所以每个实例都是不同的，不适合作为散列容器的key。</p>
+<blockquote>
+<p>在中低程度的竞争之下，原子变量能提供更高的可伸缩性，而在高强度的竞争下，锁能够有效地避免竞争。</p>
+</blockquote>
+<p>如果某种算法中，一个线程的失败或者挂起不会导致其他线程也失败和挂起，这该种算法是非阻塞的算法。</p>
+<p>如果在算法中仅仅使用CAS用于协调线程间的操作，并且能够正确的实现，那么该算法既是一种无阻塞算法，也是一种无锁算法。在非拥塞算法中，不会出现死锁的优先级反转的问题。</p>
+<p>创建非阻塞算法的关键在于将原子修改的范围缩小到单个变量上，同时保证数据一致性。非阻塞算法的特点：某项操作的完成具有不确定性，如不成功必须重新执行。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/01/2/2.1.2_concurrent/concurrent54/" rel="next" title="5.4 综述">
+                <i class="fa fa-chevron-left"></i> 5.4 综述
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/01/2/2.1.2_concurrent/think/concurrent611/" rel="prev" title="6.1.1 多线程安全性">
+                6.1.1 多线程安全性 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="kay wu">
+          <p class="site-author-name" itemprop="name">kay wu</p>
+           
+              <p class="site-description motion-element" itemprop="description">给时间以生命，而不是给生命以时间</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">151</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Minato262" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      Github
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-《多线程安全性：每个人都在谈，但是不是每个人都谈地清》"><span class="nav-text">1.《多线程安全性：每个人都在谈，但是不是每个人都谈地清》</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-《对象共享：Java并发环境中的烦心事》"><span class="nav-text">2.《对象共享：Java并发环境中的烦心事》</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-《从Java内存模型角度理解安全初始化》"><span class="nav-text">3.《从Java内存模型角度理解安全初始化》</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-《从任务到线程：Java结构化并发应用程序》"><span class="nav-text">4.《从任务到线程：Java结构化并发应用程序》</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-《关闭线程的正确方法：“优雅”的中断》"><span class="nav-text">5.《关闭线程的正确方法：“优雅”的中断》</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-《驾驭Java线程池：定制与扩展》"><span class="nav-text">6.《驾驭Java线程池：定制与扩展》</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-《探秘Java并发模块：容器与工具类》"><span class="nav-text">7.《探秘Java并发模块：容器与工具类》</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-《Java高级上锁机制：显式锁-ReentrantLock》"><span class="nav-text">8.《Java高级上锁机制：显式锁 ReentrantLock》</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-《尝试Java加锁新思路：原子变量和非阻塞同步算法》"><span class="nav-text">9.《尝试Java加锁新思路：原子变量和非阻塞同步算法》</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kay wu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
