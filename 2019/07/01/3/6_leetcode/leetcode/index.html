@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="java,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -94,18 +94,17 @@
 
 
 
-<meta name="description" content="SpringBoot系列 - 集成MongoDBMongoDB是一个高性能、开源、无模式的文档型数据库，是当前NoSql数据库中比较热门的一种。 适合对大量或者无固定格式的数据进行存储，比如：日志、缓存等。对事物支持较弱，不适用复杂的多文档（多表）的级联查询。 MongoDB的适用场景：  在应用服务器的日志记录 存储一些监控数据 应用不需要事务及复杂 join 支持 应用需要2000-3000以">
-<meta name="keywords" content="java">
+<meta name="description" content="给时间以生命，而不是给生命以时间">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot系列 - 集成MongoDB">
-<meta property="og:url" content="http://yoursite.com/2019/07/01/3/1_technology/technology5/index.html">
+<meta property="og:title" content="LeetCode">
+<meta property="og:url" content="http://yoursite.com/2019/07/01/3/6_leetcode/leetcode/index.html">
 <meta property="og:site_name" content="水门的博客">
-<meta property="og:description" content="SpringBoot系列 - 集成MongoDBMongoDB是一个高性能、开源、无模式的文档型数据库，是当前NoSql数据库中比较热门的一种。 适合对大量或者无固定格式的数据进行存储，比如：日志、缓存等。对事物支持较弱，不适用复杂的多文档（多表）的级联查询。 MongoDB的适用场景：  在应用服务器的日志记录 存储一些监控数据 应用不需要事务及复杂 join 支持 应用需要2000-3000以">
+<meta property="og:description" content="给时间以生命，而不是给生命以时间">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-07T14:25:24.154Z">
+<meta property="og:updated_time" content="2020-06-07T11:10:37.142Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringBoot系列 - 集成MongoDB">
-<meta name="twitter:description" content="SpringBoot系列 - 集成MongoDBMongoDB是一个高性能、开源、无模式的文档型数据库，是当前NoSql数据库中比较热门的一种。 适合对大量或者无固定格式的数据进行存储，比如：日志、缓存等。对事物支持较弱，不适用复杂的多文档（多表）的级联查询。 MongoDB的适用场景：  在应用服务器的日志记录 存储一些监控数据 应用不需要事务及复杂 join 支持 应用需要2000-3000以">
+<meta name="twitter:title" content="LeetCode">
+<meta name="twitter:description" content="给时间以生命，而不是给生命以时间">
 
 
 
@@ -134,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/01/3/1_technology/technology5/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/01/3/6_leetcode/leetcode/">
 
 
 
 
 
-  <title>SpringBoot系列 - 集成MongoDB | 水门的博客</title>
+  <title>LeetCode | 水门的博客</title>
   
 
 
@@ -315,7 +314,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/1_technology/technology5/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/6_leetcode/leetcode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -332,7 +331,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SpringBoot系列 - 集成MongoDB</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode</h1>
         
 
         <div class="post-meta">
@@ -344,7 +343,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T00:00:05+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T00:00:01+08:00">
                 2019-07-01
               </time>
             
@@ -398,7 +397,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1.1k
+                  0
                 </span>
               
 
@@ -423,37 +422,7 @@
       
 
       
-        <h2 id="SpringBoot系列-集成MongoDB"><a href="#SpringBoot系列-集成MongoDB" class="headerlink" title="SpringBoot系列 - 集成MongoDB"></a>SpringBoot系列 - 集成MongoDB</h2><p>MongoDB是一个高性能、开源、无模式的文档型数据库，是当前NoSql数据库中比较热门的一种。 适合对大量或者无固定格式的数据进行存储，比如：日志、缓存等。对事物支持较弱，不适用复杂的多文档（多表）的级联查询。</p>
-<p>MongoDB的适用场景：</p>
-<ol>
-<li>在应用服务器的日志记录</li>
-<li>存储一些监控数据</li>
-<li>应用不需要事务及复杂 join 支持</li>
-<li>应用需要2000-3000以上的读写QPS</li>
-<li>应用需要TB甚至 PB 级别数据存储</li>
-<li>应用发展迅速，需要能快速水平扩展</li>
-<li>应用要求存储的数据不丢失</li>
-<li>应用需要99.999%高可用</li>
-<li>应用需要大量的地理位置查询、文本查询</li>
-</ol>
-<p>本篇将介绍如何在SpringBoot中使用MongoDB数据库。</p>
-<h3 id="maven依赖"><a href="#maven依赖" class="headerlink" title="maven依赖"></a>maven依赖</h3><p>只需要添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-data-mongodb&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
-<h3 id="安装MongoDB"><a href="#安装MongoDB" class="headerlink" title="安装MongoDB"></a>安装MongoDB</h3><p>MongoDB的安装教程请参考 官网安装</p>
-<p>我是在centos7上面安装的MongoDB 4.0，并且修改配置文件/etc/mongod.conf，将绑定端口设置成0.0.0.0，让其他主机也能访问。</p>
-<p>启动mongodb后，添加一个用户，步骤如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mongo --port 27017</span><br><span class="line">use test</span><br><span class="line">db.createUser(</span><br><span class="line">   &#123;</span><br><span class="line">     user: &quot;xiongneng&quot;,</span><br><span class="line">     pwd: &quot;123456&quot;,</span><br><span class="line">     roles: [ &#123; role: &quot;readWrite&quot;, db: &quot;test&quot; &#125; ]</span><br><span class="line">   &#125;</span><br><span class="line"> )</span><br></pre></td></tr></table></figure></p>
-<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>修改application.yml配置，增加mongodb的配置项：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  data:</span><br><span class="line">    mongodb:</span><br><span class="line">      uri: mongodb://xiongneng:123456@localhost:27017/test</span><br></pre></td></tr></table></figure></p>
-<h3 id="定义实体类"><a href="#定义实体类" class="headerlink" title="定义实体类"></a>定义实体类</h3><p>这里只是为了测试，我就定义一个简单的客户类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">(collection = &quot;customer&quot;)</span><br><span class="line">public class Customer &#123;</span><br><span class="line">    </span><br><span class="line">    private String id;</span><br><span class="line">    private String firstName;</span><br><span class="line">    private String lastName;</span><br><span class="line"></span><br><span class="line">    public Customer() &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Customer(String firstName, String lastName) &#123;</span><br><span class="line">        this.firstName = firstName;</span><br><span class="line">        this.lastName = lastName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 省略get、set方法</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return String.format(</span><br><span class="line">                &quot;Customer[id=%s, firstName=&apos;%s&apos;, lastName=&apos;%s&apos;]&quot;,</span><br><span class="line">                id, firstName, lastName);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>其中的id属性是MongoDB用来唯一识别客户的主键，其实这里可以不用注解，因为默认就叫id。</p>
-<p>另外MongoDB里面的数据会存储到集合中，Spring Data MongoDB会将Customer类的数据映射到名字叫customer的集合中。</p>
-<h3 id="定义DAO类"><a href="#定义DAO类" class="headerlink" title="定义DAO类"></a>定义DAO类</h3><p>这里可继承MongoRepository，这样一些通用操作的方法，比如增删改查你就不用写了，只需要添加你自己自定义的其他方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public interface CustomerRepository extends MongoRepository&lt;Customer, String&gt; &#123;</span><br><span class="line"></span><br><span class="line">    Customer findByFirstName(String firstName);</span><br><span class="line"></span><br><span class="line">    List&lt;Customer&gt; findByLastName(String lastName);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里我定义了两个简单查询方法，一个是根据名称查找单个客户，一个是根据姓来查找客户列表。 你无需去写实现类，运行时SpringBoot会自动帮你生成实现，这也是它的强大之处，将你从代码樊笼中解脱出来。</p>
-<h3 id="编写服务类"><a href="#编写服务类" class="headerlink" title="编写服务类"></a>编写服务类</h3><p>接下来编写核心的业务服务类 CustomerService<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">public class CustomerService &#123;</span><br><span class="line">    </span><br><span class="line">    private CustomerRepository repository;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 删除所有的客户</span><br><span class="line">     */</span><br><span class="line">    public void deleteAll() &#123;</span><br><span class="line">        repository.deleteAll();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 保存客户</span><br><span class="line">     * @param customer 客户</span><br><span class="line">     */</span><br><span class="line">    public void save(Customer customer) &#123;</span><br><span class="line">        repository.save(customer);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 查询所有客户列表</span><br><span class="line">     * @return 客户列表</span><br><span class="line">     */</span><br><span class="line">    public Iterable&lt;Customer&gt; findAll() &#123;</span><br><span class="line">        return repository.findAll();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 通过名查找某个客户</span><br><span class="line">     * @param firstName</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public Customer findByFirstName(String firstName) &#123;</span><br><span class="line">        return repository.findByFirstName(firstName);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 通过姓查找客户列表</span><br><span class="line">     * @param lastName</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public List&lt;Customer&gt; findByLastName(String lastName) &#123;</span><br><span class="line">        return repository.findByLastName(lastName);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="编写测试用例"><a href="#编写测试用例" class="headerlink" title="编写测试用例"></a>编写测试用例</h3><p>OK，一切准备妥当之后，我们来编写测试用例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">(SpringRunner.class)</span><br><span class="line">@SpringBootTest</span><br><span class="line">public class ApplicationTests &#123;</span><br><span class="line">    private static final Logger log = LoggerFactory.getLogger(ApplicationTests.class);</span><br><span class="line"></span><br><span class="line">    private CustomerService service;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 测试增删改查</span><br><span class="line">     */</span><br><span class="line">    public void test() &#123;</span><br><span class="line"></span><br><span class="line">        service.deleteAll();</span><br><span class="line"></span><br><span class="line">        // save a couple of customers</span><br><span class="line">        service.save(new Customer(&quot;Alice&quot;, &quot;Smith&quot;));</span><br><span class="line">        service.save(new Customer(&quot;Bob&quot;, &quot;Smith&quot;));</span><br><span class="line"></span><br><span class="line">        // fetch all customers</span><br><span class="line">        System.out.println(&quot;Customers found with findAll():&quot;);</span><br><span class="line">        System.out.println(&quot;-------------------------------&quot;);</span><br><span class="line">        int count = 0;</span><br><span class="line">        for (Customer customer : service.findAll()) &#123;</span><br><span class="line">            System.out.println(customer);</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        assertThat(count, is(2));</span><br><span class="line"></span><br><span class="line">        // fetch an individual customer</span><br><span class="line">        System.out.println(&quot;Customer found with findByFirstName(&apos;Alice&apos;):&quot;);</span><br><span class="line">        System.out.println(&quot;--------------------------------&quot;);</span><br><span class="line">        Customer c = service.findByFirstName(&quot;Alice&quot;);</span><br><span class="line">        assertThat(c, notNullValue());</span><br><span class="line">        assertThat(c.getFirstName(), is(&quot;Alice&quot;));</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;Customers found with findByLastName(&apos;Smith&apos;):&quot;);</span><br><span class="line">        System.out.println(&quot;--------------------------------&quot;);</span><br><span class="line"></span><br><span class="line">        List&lt;Customer&gt; list = service.findByLastName(&quot;Smith&quot;);</span><br><span class="line">        assertThat(list, notNullValue());</span><br><span class="line">        assertThat(list.size(), greaterThan(1));</span><br><span class="line">        assertThat(list.size(), is(2));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在上面的测试中，我先删掉数据库中所有客户数据，然后新增两条数据，查询所有的数据，根据姓或名查询。</p>
-<p>运行测试结果为green bar，同时输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Customers found with findAll():</span><br><span class="line">-------------------------------</span><br><span class="line">Customer[id=5a9a30e616afd63f48afeea6, firstName=&apos;Alice&apos;, lastName=&apos;Smith&apos;]</span><br><span class="line">Customer[id=5a9a30e616afd63f48afeea7, firstName=&apos;Bob&apos;, lastName=&apos;Smith&apos;]</span><br><span class="line">Customer found with findByFirstName(&apos;Alice&apos;):</span><br><span class="line">--------------------------------</span><br><span class="line">Customers found with findByLastName(&apos;Smith&apos;):</span><br></pre></td></tr></table></figure></p>
-<p>更多关于MongoDB的使用，请移步 官网</p>
-<h3 id="GitHub源码"><a href="#GitHub源码" class="headerlink" title="GitHub源码"></a>GitHub源码</h3><p>springboot-mongodb</p>
-
+        
       
     </div>
     
@@ -468,12 +437,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/java/" rel="tag"># java</a>
-          
-        </div>
-      
 
       
       
@@ -483,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/01/3/1_technology/technology2/" rel="next" title="Linux 搭建 socks 服务器（翻墙）">
-                <i class="fa fa-chevron-left"></i> Linux 搭建 socks 服务器（翻墙）
+              <a href="/2019/07/01/2/2.1.1_jvm/jvm/" rel="next" title="jvm 原理">
+                <i class="fa fa-chevron-left"></i> jvm 原理
               </a>
             
           </div>
@@ -493,8 +456,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/01/3/1_technology/technology3/" rel="prev" title="MySQL百万级数据分页查询及优化">
-                MySQL百万级数据分页查询及优化 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/01/3/2_notes/notes1/" rel="prev" title="随笔——成功与失败并无绝对">
+                随笔——成功与失败并无绝对 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -547,17 +510,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="kay wu">
           <p class="site-author-name" itemprop="name">kay wu</p>
@@ -630,22 +584,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot系列-集成MongoDB"><span class="nav-text">SpringBoot系列 - 集成MongoDB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#maven依赖"><span class="nav-text">maven依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装MongoDB"><span class="nav-text">安装MongoDB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配置文件"><span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义实体类"><span class="nav-text">定义实体类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义DAO类"><span class="nav-text">定义DAO类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写服务类"><span class="nav-text">编写服务类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写测试用例"><span class="nav-text">编写测试用例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub源码"><span class="nav-text">GitHub源码</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
