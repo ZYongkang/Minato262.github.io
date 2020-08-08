@@ -315,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/Appendix-The-Positive-Legacy-of-C-plus-plus-and-Java/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/Appendix-Understanding-equals-and-hashCode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -334,7 +334,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/Appendix-The-Positive-Legacy-of-C-plus-plus-and-Java/" itemprop="url">附录:C++和Java的优良传统</a></h1>
+                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/Appendix-Understanding-equals-and-hashCode/" itemprop="url">附录:理解equals和hashCode方法</a></h1>
         
 
         <div class="post-meta">
@@ -378,7 +378,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1.5k
+                  9.1k
                 </span>
               
 
@@ -406,14 +406,13 @@
         
           
           
-附录:C++和Java的优良传统
-在各种讨论声中，有一些人认为C++是一种设计糟糕的语言。 我认为理解C++和Java语言的选择有助于了解更大的视角。
+附录:理解equals和hashCode方法假设有一个容器使用hash函数，当你创建一个放到这个容器时，你必须定义 hashCode() 函数和 equals() 函数。这两个函数一起被用于hash容器中的查询操作。
 
-也就是说，我几乎不再使用C++了。当我使用它的时候，要么是用来检查遗留代码，要么是编写性能关键（performance-critical）部分，
+equals规范当你创建一个类的时候，它自动继承自 Objcet 类。如果你不
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/Appendix-The-Positive-Legacy-of-C-plus-plus-and-Java/#more" rel="contents">
+            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/Appendix-Understanding-equals-and-hashCode/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -464,7 +463,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/Appendix-New-IO/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/06-Housekeeping/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -483,7 +482,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/Appendix-New-IO/" itemprop="url">附录:新IO</a></h1>
+                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/06-Housekeeping/" itemprop="url">第六章 初始化和清理</a></h1>
         
 
         <div class="post-meta">
@@ -527,7 +526,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  7.9k
+                  18.3k
                 </span>
               
 
@@ -555,14 +554,11 @@
         
           
           
-附录:新IO
-Java 新I/O 库是在 1.4 版本引入到 Java .nio.* package 中的，旨在更快速。
-
-实际上，新 I/O 使用 NIO（同步非阻塞）的方式重写了老的 I/O 了，因此它获得了 NIO 的种种优点。即使我们不显式地使用 NIO 方式来编写代码，也能带来性能和速度
+第六章 初始化和清理“不安全”的编程是造成编程代价昂贵的罪魁祸首之一。有两个安全性问题：初始化和清理。C 语言中很多的 bug 都是因为程序员忘记初始化导致的。尤其是很多类库的使用者不知道如何初始化类库组件，甚至他们必须得去初始化。清理则是另一个特殊的问题，因为当你使用一个元素做完事后就不会去关心
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/Appendix-New-IO/#more" rel="contents">
+            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/06-Housekeeping/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -613,7 +609,7 @@ Java 新I/O 库是在 1.4 版本引入到 Java .nio.* package 中的，旨在更
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/Appendix-Supplements/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/12-Collections/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -632,7 +628,7 @@ Java 新I/O 库是在 1.4 版本引入到 Java .nio.* package 中的，旨在更
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/Appendix-Supplements/" itemprop="url">附录:补充</a></h1>
+                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/12-Collections/" itemprop="url">第十二章 集合</a></h1>
         
 
         <div class="post-meta">
@@ -676,7 +672,7 @@ Java 新I/O 库是在 1.4 版本引入到 Java .nio.* package 中的，旨在更
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  333
+                  18.9k
                 </span>
               
 
@@ -704,16 +700,14 @@ Java 新I/O 库是在 1.4 版本引入到 Java .nio.* package 中的，旨在更
         
           
           
-附录:补充
-本书有许多补充内容，包括MindView网站提供的项目和服务。
+第十二章 集合
+如果一个程序只包含固定数量的对象且对象的生命周期都是已知的，那么这是一个非常简单的程序。
 
-本附录介绍了这些补充内容，你可以自行决定它们是否对你有所帮助。
-
-可下载的补充可以从 https://github.com/BruceEckel/OnJava8-examples 免费下载本书的代码。这里包括Gradle
+通常，程序总是根据运行时才知道的某些条件去创建新的对象。在此之前，无法知道所需对象的数量甚至确切类型。为了解决这个普遍的编程问题，需要在任意时刻和任意位置创建任意数量的对象。因此，不能依靠创
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/Appendix-Supplements/#more" rel="contents">
+            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/12-Collections/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -764,7 +758,7 @@ Java 新I/O 库是在 1.4 版本引入到 Java .nio.* package 中的，旨在更
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/onjava8/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/16-Validating-Your-Code/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -783,7 +777,7 @@ Java 新I/O 库是在 1.4 版本引入到 Java .nio.* package 中的，旨在更
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/onjava8/" itemprop="url">Java 编程思想（第五版）</a></h1>
+                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/16-Validating-Your-Code/" itemprop="url">第十六章 代码校验</a></h1>
         
 
         <div class="post-meta">
@@ -827,7 +821,7 @@ Java 新I/O 库是在 1.4 版本引入到 Java .nio.* package 中的，旨在更
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  259
+                  21.9k
                 </span>
               
 
@@ -854,12 +848,14 @@ Java 新I/O 库是在 1.4 版本引入到 Java .nio.* package 中的，旨在更
       
         
           
-          &emsp;00-简介&emsp;00-前言
-&emsp;01-对象的概念&emsp;02-安装Java和本书用例&emsp;03-万物皆对象&emsp;04-运算符&emsp;05-控制流&emsp;06-初始化和清理&emsp;07-封装&emsp;08-复用&emsp;09-多态&emsp;1
+          
+第十六章 代码校验你永远不能保证你的代码是正确的，你只能证明它是错的。让我们先暂停编程语言特性的学习，看看一些代码基础知识。特别是能让你的代码更加健壮的知识。
+
+测试如果没有测试过，它就是不能工作的。Java是一个静态类型的语言，程序员经常对一种编程语言明显的安全性感到过于舒适，“能通过编译器，那
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/onjava8/#more" rel="contents">
+            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/16-Validating-Your-Code/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -910,7 +906,7 @@ Java 新I/O 库是在 1.4 版本引入到 Java .nio.* package 中的，旨在更
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/Appendix-Object-Serialization/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/18-Strings/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -929,7 +925,7 @@ Java 新I/O 库是在 1.4 版本引入到 Java .nio.* package 中的，旨在更
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/Appendix-Object-Serialization/" itemprop="url">附录:对象序列化</a></h1>
+                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/18-Strings/" itemprop="url">第十八章 字符串</a></h1>
         
 
         <div class="post-meta">
@@ -973,7 +969,7 @@ Java 新I/O 库是在 1.4 版本引入到 Java .nio.* package 中的，旨在更
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  9.3k
+                  16.3k
                 </span>
               
 
@@ -1001,11 +997,16 @@ Java 新I/O 库是在 1.4 版本引入到 Java .nio.* package 中的，旨在更
         
           
           
-附录:对象序列化当你创建对象时，只要你需要，它就会一直存在，但是在程序终止时，无论如何它都不会继续存在。尽管这么做肯定是有意义的，但是仍旧存在某些情况，如果对象能够在程序不运行的情况下仍能存在并保存其信息，那将非常有用。这样，在下次运行程序时，该对象将被重建并且拥有的信息与在程序上次运行时它所拥有
+第十八章 字符串
+字符串操作毫无疑问是计算机程序设计中最常见的行为之一。
+
+在 Java 大展拳脚的 Web 系统中更是如此。在本章中，我们将深入学习在 Java 语言中应用最广泛的 String 类，并研究与之相关的类及工具。
+
+字符串的不可变String 对象是不可变的。查看 JDK 文档你就
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/Appendix-Object-Serialization/#more" rel="contents">
+            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/18-Strings/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1047,7 +1048,7 @@ Java 新I/O 库是在 1.4 版本引入到 Java .nio.* package 中的，旨在更
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/30/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/">35</a><a class="extend next" rel="next" href="/page/32/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/30/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/32/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1091,7 +1092,7 @@ Java 新I/O 库是在 1.4 版本引入到 Java .nio.* package 中的，旨在更
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">173</span>
+                <span class="site-state-item-count">168</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
