@@ -315,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/Appendix-Low-Level-Concurrency/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/Appendix-Understanding-equals-and-hashCode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -334,7 +334,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/Appendix-Low-Level-Concurrency/" itemprop="url">附录:并发底层原理</a></h1>
+                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/Appendix-Understanding-equals-and-hashCode/" itemprop="url">附录:理解equals和hashCode方法</a></h1>
         
 
         <div class="post-meta">
@@ -378,7 +378,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  18.4k
+                  9.1k
                 </span>
               
 
@@ -406,14 +406,13 @@
         
           
           
-附录:并发底层原理
-尽管不建议你自己编写底层 Java 并发代码，但是这样通常有助于了解它是如何工作的。
+附录:理解equals和hashCode方法假设有一个容器使用hash函数，当你创建一个放到这个容器时，你必须定义 hashCode() 函数和 equals() 函数。这两个函数一起被用于hash容器中的查询操作。
 
-并发编程 章节中介绍了一些用于高级并发的概念，包括为 Java 并发编程而最新提出的，更安全的概念（ parallel Streams 和 CompletableFutures  ）。本附录
+equals规范当你创建一个类的时候，它自动继承自 Objcet 类。如果你不
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/Appendix-Low-Level-Concurrency/#more" rel="contents">
+            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/Appendix-Understanding-equals-and-hashCode/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -464,7 +463,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/23-Annotations/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/12-Collections/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -483,7 +482,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/23-Annotations/" itemprop="url">第二十三章 注解</a></h1>
+                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/12-Collections/" itemprop="url">第十二章 集合</a></h1>
         
 
         <div class="post-meta">
@@ -527,7 +526,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  14.4k
+                  18.9k
                 </span>
               
 
@@ -555,13 +554,14 @@
         
           
           
-第二十三章 注解注解（也被称为元数据）为我们在代码中添加信息提供了一种形式化的方式，使我们可以在稍后的某个时刻更容易的使用这些数据。
-注解在一定程度上是把元数据和源代码文件结合在一起的趋势所激发的，而不是保存在外部文档。这同样是对像 C# 语言对于 Java 语言特性压力的一种回应。
-注解是 Ja
+第十二章 集合
+如果一个程序只包含固定数量的对象且对象的生命周期都是已知的，那么这是一个非常简单的程序。
+
+通常，程序总是根据运行时才知道的某些条件去创建新的对象。在此之前，无法知道所需对象的数量甚至确切类型。为了解决这个普遍的编程问题，需要在任意时刻和任意位置创建任意数量的对象。因此，不能依靠创
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/23-Annotations/#more" rel="contents">
+            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/12-Collections/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -612,7 +612,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/24-Concurrent-Programming/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/15-Exceptions/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -631,7 +631,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/24-Concurrent-Programming/" itemprop="url">第二十四章 并发编程</a></h1>
+                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/15-Exceptions/" itemprop="url">第十五章 异常</a></h1>
         
 
         <div class="post-meta">
@@ -675,7 +675,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  33.4k
+                  25.3k
                 </span>
               
 
@@ -703,17 +703,15 @@
         
           
           
-第二十四章 并发编程
-爱丽丝：“但是我不想进入疯狂的人群中”
-猫咪：“oh，你无能为力，我们都疯了，我疯了，你也疯了”
-爱丽丝：“你怎么知道我疯了”。
-猫咪：“你一定疯了，否则你不会来到这里”——爱丽丝梦游仙境 第6章。
+第十五章 异常
+Java 的基本理念是“结构不佳的代码不能运行”。
 
-到目前为止，我们一直在编程，就像文学中的意识流叙事设备一样：首先发生一件事
+改进的错误恢复机制是提高代码健壮性的最强有力的方式。错误恢复在我们所编写的每一个程序中都是基本的要素，但是在 Java 中它显得格外重要，因为 Java 的主要目标之一就是创建供他人使用的程序构件。
+发现错误的理想时机是在编译阶
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/24-Concurrent-Programming/#more" rel="contents">
+            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/15-Exceptions/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -764,7 +762,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/Appendix-Collection-Topics/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/06-Housekeeping/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -783,7 +781,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/Appendix-Collection-Topics/" itemprop="url">附录:集合主题</a></h1>
+                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/06-Housekeeping/" itemprop="url">第六章 初始化和清理</a></h1>
         
 
         <div class="post-meta">
@@ -827,7 +825,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  24.3k
+                  18.3k
                 </span>
               
 
@@ -855,16 +853,11 @@
         
           
           
-附录:集合主题
-本附录是一些比第十二章 集合中介绍的更高级的内容。
-
-
-示例数据这里创建一些样本数据用于集合示例。 以下数据将颜色名称与HTML颜色的RGB值相关联。请注意，每个键和值都是唯一的：
-12345678910111213141516171819202122232425262728293
+第六章 初始化和清理“不安全”的编程是造成编程代价昂贵的罪魁祸首之一。有两个安全性问题：初始化和清理。C 语言中很多的 bug 都是因为程序员忘记初始化导致的。尤其是很多类库的使用者不知道如何初始化类库组件，甚至他们必须得去初始化。清理则是另一个特殊的问题，因为当你使用一个元素做完事后就不会去关心
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/Appendix-Collection-Topics/#more" rel="contents">
+            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/06-Housekeeping/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -915,7 +908,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/20-Generics/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/14-Streams/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -934,7 +927,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/20-Generics/" itemprop="url">第二十章 泛型</a></h1>
+                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/14-Streams/" itemprop="url">第十四章 流式编程</a></h1>
         
 
         <div class="post-meta">
@@ -978,7 +971,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  40.9k
+                  13.8k
                 </span>
               
 
@@ -1006,14 +999,16 @@
         
           
           
-第二十章 泛型
-普通的类和方法只能使用特定的类型：基本数据类型或类类型。如果编写的代码需要应用于多种类型，这种严苛的限制对代码的束缚就会很大。
+第十四章 流式编程
+集合优化了对象的存储，而流和对象的处理有关。
 
-多态是一种面向对象思想的泛化机制。你可以将方法的参数类型设为基类，这样的方法就可以接受任何派生类作为参数，包括暂时还不存在的类。这样的方法更通用，应用范
+流是一系列与特定存储机制无关的元素——实际上，流并没有“存储”之说。
+利用流，我们无需迭代集合中的元素，就可以提取和操作它们。这些管道通常被组合在一起，在流上形成一条操作管道。
+在大多数情况下，将对象存储在集合中是为了处理他们，因
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/20-Generics/#more" rel="contents">
+            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/14-Streams/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1055,7 +1050,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/32/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><span class="page-number current">33</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/34/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/32/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><span class="page-number current">33</span><a class="page-number" href="/page/34/">34</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/34/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1099,7 +1094,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">169</span>
+                <span class="site-state-item-count">179</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
