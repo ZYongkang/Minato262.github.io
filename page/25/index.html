@@ -315,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/1_technology/technology118/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/1_technology/technology115/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -334,7 +334,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/3/1_technology/technology118/" itemprop="url">Stream Performance</a></h1>
+                <a class="post-title-link" href="/2019/07/01/3/1_technology/technology115/" itemprop="url">Streams API(II)</a></h1>
         
 
         <div class="post-meta">
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1.6k
+                  3.4k
                 </span>
               
 
@@ -427,12 +427,12 @@
       
         
           
-          Stream Performance已经对Stream API的用法够多了，用起简洁直观，但性能到底怎么样呢？会不会有很高的性能损失？本节我们对Stream API的性能一探究竟。
-为保证测试结果真实可信，我们将JVM运行在-server模式下，测试数据在GB量级，测试机器采用常见的商用服务器，配置
+          Streams API(II)上一节介绍了部分Stream常见接口方法，理解起来并不困难，但Stream的用法不止于此，本节我们将仍然以Stream为例，介绍流的规约操作。
+规约操作（reduction operation）又被称作折叠操作（fold），是通过某个连接动作将所有元素汇总成一个汇总结果
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/3/1_technology/technology118/#more" rel="contents">
+            <a class="btn" href="/2019/07/01/3/1_technology/technology115/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -652,7 +652,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/1_technology/technology115/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/1_technology/technology117/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -671,7 +671,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/3/1_technology/technology115/" itemprop="url">Streams API(II)</a></h1>
+                <a class="post-title-link" href="/2019/07/01/3/1_technology/technology117/" itemprop="url">ParallelStream 介绍</a></h1>
         
 
         <div class="post-meta">
@@ -737,7 +737,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  3.4k
+                  3.2k
                 </span>
               
 
@@ -764,12 +764,11 @@
       
         
           
-          Streams API(II)上一节介绍了部分Stream常见接口方法，理解起来并不困难，但Stream的用法不止于此，本节我们将仍然以Stream为例，介绍流的规约操作。
-规约操作（reduction operation）又被称作折叠操作（fold），是通过某个连接动作将所有元素汇总成一个汇总结果
+          引言大家应该已经对Stream有过很多的了解，对其原理及常见使用方法已经也有了一定的认识。流在处理数据进行一些迭代操作的时候确认很方便，但是在执行一些耗时或是占用资源很高的任务时候，串行化的流无法带来速度/性能上的提升，并不能满足我们的需要，通常我们会使用多线程来并行或是分片分解执行任务，而在Str
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/3/1_technology/technology115/#more" rel="contents">
+            <a class="btn" href="/2019/07/01/3/1_technology/technology117/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -820,7 +819,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/1_technology/technology116/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/1_technology/technology118/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -839,7 +838,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/3/1_technology/technology116/" itemprop="url">Stream Pipelines</a></h1>
+                <a class="post-title-link" href="/2019/07/01/3/1_technology/technology118/" itemprop="url">Stream Performance</a></h1>
         
 
         <div class="post-meta">
@@ -905,7 +904,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  5.7k
+                  1.6k
                 </span>
               
 
@@ -932,11 +931,12 @@
       
         
           
-          引言前面我们已经学会如何使用Stream API，用起来真的很爽，但简洁的方法下面似乎隐藏着无尽的秘密，如此强大的API是如何实现的呢？比如Pipeline是怎么执行的，每次方法调用都会导致一次迭代吗？自动并行又是怎么做到的，线程个数是多少？本节我们学习Stream流水线的原理，这是Stream实现
+          Stream Performance已经对Stream API的用法够多了，用起简洁直观，但性能到底怎么样呢？会不会有很高的性能损失？本节我们对Stream API的性能一探究竟。
+为保证测试结果真实可信，我们将JVM运行在-server模式下，测试数据在GB量级，测试机器采用常见的商用服务器，配置
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/3/1_technology/technology116/#more" rel="contents">
+            <a class="btn" href="/2019/07/01/3/1_technology/technology118/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
