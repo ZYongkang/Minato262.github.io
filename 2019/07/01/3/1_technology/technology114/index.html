@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="java,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="Streams API(I)你可能没意识到Java对函数式编程的重视程度，看看Java 8加入函数式编程扩充多少功能就清楚了。Java 8之所以费这么大功夫引入函数式编程，原因有二：  代码简洁函数式编程写出的代码简洁且意图明确，使用stream接口让你从此告别for循环。 多核友好，Java函数式编程使得编写并行程序从未如此简单，你需要的全部就是调用一下parallel()方法。  这一节我们学">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Streams API(I)">
+<meta property="og:url" content="http://yoursite.com/2019/07/01/3/1_technology/technology114/index.html">
+<meta property="og:site_name" content="水门的博客">
+<meta property="og:description" content="Streams API(I)你可能没意识到Java对函数式编程的重视程度，看看Java 8加入函数式编程扩充多少功能就清楚了。Java 8之所以费这么大功夫引入函数式编程，原因有二：  代码简洁函数式编程写出的代码简洁且意图明确，使用stream接口让你从此告别for循环。 多核友好，Java函数式编程使得编写并行程序从未如此简单，你需要的全部就是调用一下parallel()方法。  这一节我们学">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/07/01/3/1_technology/technology114/Figures/Java_stream_Interfaces.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/01/3/1_technology/technology114/Figures/WRONG_Java_stream_Interfaces.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/01/3/1_technology/technology114/Figures/Stream.filter.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/01/3/1_technology/technology114/Figures/Stream.distinct.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/01/3/1_technology/technology114/Figures/Stream.map.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/01/3/1_technology/technology114/Figures/Stream.flatMap.png">
+<meta property="og:updated_time" content="2020-08-30T08:09:06.701Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Streams API(I)">
+<meta name="twitter:description" content="Streams API(I)你可能没意识到Java对函数式编程的重视程度，看看Java 8加入函数式编程扩充多少功能就清楚了。Java 8之所以费这么大功夫引入函数式编程，原因有二：  代码简洁函数式编程写出的代码简洁且意图明确，使用stream接口让你从此告别for循环。 多核友好，Java函数式编程使得编写并行程序从未如此简单，你需要的全部就是调用一下parallel()方法。  这一节我们学">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/01/3/1_technology/technology114/Figures/Java_stream_Interfaces.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/07/01/3/1_technology/technology114/">
+
+
+
+
+
+  <title>Streams API(I) | 水门的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">水门的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/1_technology/technology114/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kay wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水门的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Streams API(I)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T00:00:11+08:00">
+                2019-07-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术积累/" itemprop="url" rel="index">
+                    <span itemprop="name">技术积累</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1.8k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Streams-API-I"><a href="#Streams-API-I" class="headerlink" title="Streams API(I)"></a>Streams API(I)</h1><p>你可能没意识到Java对函数式编程的重视程度，看看Java 8加入函数式编程扩充多少功能就清楚了。Java 8之所以费这么大功夫引入函数式编程，原因有二：</p>
+<ol>
+<li><strong>代码简洁</strong>函数式编程写出的代码简洁且意图明确，使用<em>stream</em>接口让你从此告别<em>for</em>循环。</li>
+<li><strong>多核友好</strong>，Java函数式编程使得编写并行程序从未如此简单，你需要的全部就是调用一下<code>parallel()</code>方法。</li>
+</ol>
+<p>这一节我们学习<em>stream</em>，也就是Java函数式编程的主角。对于Java 7来说<em>stream</em>完全是个陌生东西，<em>stream</em>并不是某种数据结构，它只是数据源的一种视图。这里的数据源可以是一个数组，Java容器或I/O channel等。正因如此要得到一个<em>stream</em>通常不会手动创建，而是调用对应的工具方法，比如：</p>
+<ul>
+<li>调用<code>Collection.stream()</code>或者<code>Collection.parallelStream()</code>方法</li>
+<li>调用<code>Arrays.stream(T[] array)</code>方法</li>
+</ul>
+<p>常见的<em>stream</em>接口继承关系如图：</p>
+<p><img src="./Figures/Java_stream_Interfaces.png" width="500px" align="left" alt="Java_stream_Interfaces"></p>
+<p>图中4种<em>stream</em>接口继承自<code>BaseStream</code>，其中<code>IntStream, LongStream, DoubleStream</code>对应三种基本类型（<code>int, long, double</code>，注意不是包装类型），<code>Stream</code>对应所有剩余类型的<em>stream</em>视图。为不同数据类型设置不同<em>stream</em>接口，可以1.提高性能，2.增加特定接口函数。</p>
+<p><br></p>
+<p><img src="./Figures/WRONG_Java_stream_Interfaces.png" width="400px" align="right" alt="WRONG_Java_stream_Interfaces"></p>
+<p>你可能会奇怪为什么不把<code>IntStream</code>等设计成<code>Stream</code>的子接口？毕竟这接口中的方法名大部分是一样的。答案是这些方法的名字虽然相同，但是返回类型不同，如果设计成父子接口关系，这些方法将不能共存，因为Java不允许只有返回类型不同的方法重载。</p>
+<p>虽然大部分情况下<em>stream</em>是容器调用<code>Collection.stream()</code>方法得到的，但<em>stream</em>和<em>collections</em>有以下不同：</p>
+<ul>
+<li><strong>无存储</strong>。<em>stream</em>不是一种数据结构，它只是某种数据源的一个视图，数据源可以是一个数组，Java容器或I/O channel等。</li>
+<li><strong>为函数式编程而生</strong>。对<em>stream</em>的任何修改都不会修改背后的数据源，比如对<em>stream</em>执行过滤操作并不会删除被过滤的元素，而是会产生一个不包含被过滤元素的新<em>stream</em>。</li>
+<li><strong>惰式执行</strong>。<em>stream</em>上的操作并不会立即执行，只有等到用户真正需要结果的时候才会执行。</li>
+<li><strong>可消费性</strong>。<em>stream</em>只能被“消费”一次，一旦遍历过就会失效，就像容器的迭代器那样，想要再次遍历必须重新生成。</li>
+</ul>
+<p>对<em>stream</em>的操作分为为两类，<strong>中间操作(<em>intermediate operations</em>)和结束操作(<em>terminal operations</em>)</strong>，二者特点是：</p>
+<ol>
+<li><strong>中间操作总是会惰式执行</strong>，调用中间操作只会生成一个标记了该操作的新<em>stream</em>，仅此而已。</li>
+<li><strong>结束操作会触发实际计算</strong>，计算发生时会把所有中间操作积攒的操作以<em>pipeline</em>的方式执行，这样可以减少迭代次数。计算完成之后<em>stream</em>就会失效。</li>
+</ol>
+<p>如果你熟悉Apache Spark RDD，对<em>stream</em>的这个特点应该不陌生。</p>
+<p>下表汇总了<code>Stream</code>接口的部分常见方法：</p>
+<table>
+<thead>
+<tr>
+<th>操作类型</th>
+<th>接口方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>中间操作</td>
+<td>concat() distinct() filter() flatMap() limit() map() peek() <br> skip() sorted() parallel() sequential() unordered()</td>
+</tr>
+<tr>
+<td>结束操作</td>
+<td>allMatch() anyMatch() collect() count() findAny() findFirst() <br> forEach() forEachOrdered() max() min() noneMatch() reduce() toArray()</td>
+</tr>
+</tbody>
+</table>
+<p>区分中间操作和结束操作最简单的方法，就是看方法的返回值，返回值为<em>stream</em>的大都是中间操作，否则是结束操作。</p>
+<h2 id="stream方法使用"><a href="#stream方法使用" class="headerlink" title="stream方法使用"></a>stream方法使用</h2><p><em>stream</em>跟函数接口关系非常紧密，没有函数接口<em>stream</em>就无法工作。回顾一下：<strong>函数接口是指内部只有一个抽象方法的接口</strong>。通常函数接口出现的地方都可以使用Lambda表达式，所以不必记忆函数接口的名字。</p>
+<h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a>forEach()</h3><p>我们对<code>forEach()</code>方法并不陌生，在<code>Collection</code>中我们已经见过。方法签名为<code>void forEach(Consumer&lt;? super E&gt; action)</code>，作用是对容器中的每个元素执行<code>action</code>指定的动作，也就是对元素进行遍历。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用Stream.forEach()迭代</span></span><br><span class="line">Stream&lt;String&gt; stream = Stream.of(<span class="string">"I"</span>, <span class="string">"love"</span>, <span class="string">"you"</span>, <span class="string">"too"</span>);</span><br><span class="line">stream.forEach(str -&gt; System.out.println(str));</span><br></pre></td></tr></table></figure>
+<p>由于<code>forEach()</code>是结束方法，上述代码会立即执行，输出所有字符串。</p>
+<h3 id="filter"><a href="#filter" class="headerlink" title="filter()"></a>filter()</h3><p><img src="./Figures/Stream.filter.png" width="250px" align="right" hspace="10px" alt="Stream filter"></p>
+<p>函数原型为<code>Stream&lt;T&gt; filter(Predicate&lt;? super T&gt; predicate)</code>，作用是返回一个只包含满足<code>predicate</code>条件元素的<code>Stream</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 保留长度等于3的字符串</span></span><br><span class="line">Stream&lt;String&gt; stream= Stream.of(<span class="string">"I"</span>, <span class="string">"love"</span>, <span class="string">"you"</span>, <span class="string">"too"</span>);</span><br><span class="line">stream.filter(str -&gt; str.length()==<span class="number">3</span>)</span><br><span class="line">    .forEach(str -&gt; System.out.println(str));</span><br></pre></td></tr></table></figure>
+<p>上述代码将输出为长度等于3的字符串<code>you</code>和<code>too</code>。注意，由于<code>filter()</code>是个中间操作，如果只调用<code>filter()</code>不会有实际计算，因此也不会输出任何信息。</p>
+<h3 id="distinct"><a href="#distinct" class="headerlink" title="distinct()"></a>distinct()</h3><p><img src="./Figures/Stream.distinct.png" width="200px" align="left" hspace="10px" alt="Stream distinct"></p>
+<p>函数原型为<code>Stream&lt;T&gt; distinct()</code>，作用是返回一个去除重复元素之后的<code>Stream</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;String&gt; stream= Stream.of(<span class="string">"I"</span>, <span class="string">"love"</span>, <span class="string">"you"</span>, <span class="string">"too"</span>, <span class="string">"too"</span>);</span><br><span class="line">stream.distinct()</span><br><span class="line">    .forEach(str -&gt; System.out.println(str));</span><br></pre></td></tr></table></figure>
+<p>上述代码会输出去掉一个<code>too</code>之后的其余字符串。</p>
+<p><br><br></p>
+<h3 id="sorted"><a href="#sorted" class="headerlink" title="sorted()"></a>sorted()</h3><p>排序函数有两个，一个是用自然顺序排序，一个是使用自定义比较器排序，函数原型分别为<code>Stream&lt;T&gt;　sorted()</code>和<code>Stream&lt;T&gt;　sorted(Comparator&lt;? super T&gt; comparator)</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;String&gt; stream= Stream.of(<span class="string">"I"</span>, <span class="string">"love"</span>, <span class="string">"you"</span>, <span class="string">"too"</span>);</span><br><span class="line">stream.sorted((str1, str2) -&gt; str1.length()-str2.length())</span><br><span class="line">    .forEach(str -&gt; System.out.println(str));</span><br></pre></td></tr></table></figure>
+<p>上述代码将输出按照长度升序排序后的字符串，结果完全在预料之中。</p>
+<h3 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h3><p><img src="./Figures/Stream.map.png" width="250px" align="right" hspace="10px" alt="Stream map"></p>
+<p>函数原型为<code>&lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T,? extends R&gt; mapper)</code>，作用是返回一个对当前所有元素执行执行<code>mapper</code>之后的结果组成的<code>Stream</code>。直观的说，就是对每个元素按照某种操作进行转换，转换前后<code>Stream</code>中元素的个数不会改变，但元素的类型取决于转换之后的类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;String&gt; stream　= Stream.of(<span class="string">"I"</span>, <span class="string">"love"</span>, <span class="string">"you"</span>, <span class="string">"too"</span>);</span><br><span class="line">stream.map(str -&gt; str.toUpperCase())</span><br><span class="line">    .forEach(str -&gt; System.out.println(str));</span><br></pre></td></tr></table></figure>
+<p>上述代码将输出原字符串的大写形式。</p>
+<h3 id="flatMap"><a href="#flatMap" class="headerlink" title="flatMap()"></a>flatMap()</h3><p><img src="./Figures/Stream.flatMap.png" width="300px" align="left" hspace="10px" alt="Stream flatMap"></p>
+<p>函数原型为<code>&lt;R&gt; Stream&lt;R&gt; flatMap(Function&lt;? super T,? extends Stream&lt;? extends R&gt;&gt; mapper)</code>，作用是对每个元素执行<code>mapper</code>指定的操作，并用所有<code>mapper</code>返回的<code>Stream</code>中的元素组成一个新的<code>Stream</code>作为最终返回结果。说起来太拗口，通俗的讲<code>flatMap()</code>的作用就相当于把原<em>stream</em>中的所有元素都”摊平”之后组成的<code>Stream</code>，转换前后元素的个数和类型都可能会改变。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;List&lt;Integer&gt;&gt; stream = Stream.of(Arrays.asList(<span class="number">1</span>,<span class="number">2</span>), Arrays.asList(<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>));</span><br><span class="line">stream.flatMap(list -&gt; list.stream())</span><br><span class="line">    .forEach(i -&gt; System.out.println(i));</span><br></pre></td></tr></table></figure>
+<p>上述代码中，原来的<code>stream</code>中有两个元素，分别是两个<code>List&lt;Integer&gt;</code>，执行<code>flatMap()</code>之后，将每个<code>List</code>都“摊平”成了一个个的数字，所以会新产生一个由5个数字组成的<code>Stream</code>。所以最终将输出1~5这5个数字。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>截止到目前我们感觉良好，已介绍<code>Stream</code>接口函数理解起来并不费劲儿。如果你就此以为函数式编程不过如此，恐怕是高兴地太早了。下一节对<code>Stream</code>规约操作的介绍将刷新你现在的认识。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/01/3/1_technology/technology113/" rel="next" title="Lambda and Collections">
+                <i class="fa fa-chevron-left"></i> Lambda and Collections
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/01/3/1_technology/technology117/" rel="prev" title="parallelStream 介绍">
+                parallelStream 介绍 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="kay wu">
+          <p class="site-author-name" itemprop="name">kay wu</p>
+           
+              <p class="site-description motion-element" itemprop="description">给时间以生命，而不是给生命以时间</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">189</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Minato262" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      Github
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Streams-API-I"><span class="nav-text">Streams API(I)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#stream方法使用"><span class="nav-text">stream方法使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#forEach"><span class="nav-text">forEach()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter"><span class="nav-text">filter()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#distinct"><span class="nav-text">distinct()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sorted"><span class="nav-text">sorted()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map"><span class="nav-text">map()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flatMap"><span class="nav-text">flatMap()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-text">结语</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kay wu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
