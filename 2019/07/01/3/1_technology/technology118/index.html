@@ -94,13 +94,13 @@
 
 
 
-<meta name="description" content="Stream Performance已经对Stream API的用法说的够多了，用起简洁直观，但性能到底怎么样呢？会不会有很高的性能损失？本节我们对Stream API的性能一探究竟。 为保证测试结果真实可信，我们将JVM运行在-server模式下，测试数据在GB量级，测试机器采用常见的商用服务器，配置如下： OSCentOS 6.7 x86_64CPUIntel Xeon X5675, 12M">
+<meta name="description" content="Stream Performance已经对Stream API的用法够多了，用起简洁直观，但性能到底怎么样呢？会不会有很高的性能损失？本节我们对Stream API的性能一探究竟。 为保证测试结果真实可信，我们将JVM运行在-server模式下，测试数据在GB量级，测试机器采用常见的商用服务器，配置如下： OSCentOS 6.7 x86_64CPUIntel Xeon X5675, 12M Ca">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Stream Performance">
 <meta property="og:url" content="http://yoursite.com/2019/07/01/3/1_technology/technology118/index.html">
 <meta property="og:site_name" content="水门的博客">
-<meta property="og:description" content="Stream Performance已经对Stream API的用法说的够多了，用起简洁直观，但性能到底怎么样呢？会不会有很高的性能损失？本节我们对Stream API的性能一探究竟。 为保证测试结果真实可信，我们将JVM运行在-server模式下，测试数据在GB量级，测试机器采用常见的商用服务器，配置如下： OSCentOS 6.7 x86_64CPUIntel Xeon X5675, 12M">
+<meta property="og:description" content="Stream Performance已经对Stream API的用法够多了，用起简洁直观，但性能到底怎么样呢？会不会有很高的性能损失？本节我们对Stream API的性能一探究竟。 为保证测试结果真实可信，我们将JVM运行在-server模式下，测试数据在GB量级，测试机器采用常见的商用服务器，配置如下： OSCentOS 6.7 x86_64CPUIntel Xeon X5675, 12M Ca">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/07/01/3/1_technology/technology118/Figures/perf_Stream_min_int.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/01/3/1_technology/technology118/Figures/perf_Stream_min_int_par.png">
@@ -108,10 +108,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/01/3/1_technology/technology118/Figures/perf_Stream_min_String_par.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/01/3/1_technology/technology118/Figures/perf_Stream_reduction.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/01/3/1_technology/technology118/Figures/perf_Stream_reduction_par.png">
-<meta property="og:updated_time" content="2020-08-30T08:10:48.160Z">
+<meta property="og:updated_time" content="2020-08-30T08:14:54.848Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Stream Performance">
-<meta name="twitter:description" content="Stream Performance已经对Stream API的用法说的够多了，用起简洁直观，但性能到底怎么样呢？会不会有很高的性能损失？本节我们对Stream API的性能一探究竟。 为保证测试结果真实可信，我们将JVM运行在-server模式下，测试数据在GB量级，测试机器采用常见的商用服务器，配置如下： OSCentOS 6.7 x86_64CPUIntel Xeon X5675, 12M">
+<meta name="twitter:description" content="Stream Performance已经对Stream API的用法够多了，用起简洁直观，但性能到底怎么样呢？会不会有很高的性能损失？本节我们对Stream API的性能一探究竟。 为保证测试结果真实可信，我们将JVM运行在-server模式下，测试数据在GB量级，测试机器采用常见的商用服务器，配置如下： OSCentOS 6.7 x86_64CPUIntel Xeon X5675, 12M Ca">
 <meta name="twitter:image" content="http://yoursite.com/2019/07/01/3/1_technology/technology118/Figures/perf_Stream_min_int.png">
 
 
@@ -430,7 +430,7 @@
       
 
       
-        <h1 id="Stream-Performance"><a href="#Stream-Performance" class="headerlink" title="Stream Performance"></a>Stream Performance</h1><p>已经对Stream API的用法说的够多了，用起简洁直观，但性能到底怎么样呢？会不会有很高的性能损失？本节我们对Stream API的性能一探究竟。</p>
+        <h1 id="Stream-Performance"><a href="#Stream-Performance" class="headerlink" title="Stream Performance"></a>Stream Performance</h1><p>已经对Stream API的用法够多了，用起简洁直观，但性能到底怎么样呢？会不会有很高的性能损失？本节我们对Stream API的性能一探究竟。</p>
 <p>为保证测试结果真实可信，我们将JVM运行在<code>-server</code>模式下，测试数据在GB量级，测试机器采用常见的商用服务器，配置如下：</p>
 <table width="300px"><tr><td>OS</td><td>CentOS 6.7 x86_64</td></tr><tr><td>CPU</td><td>Intel Xeon X5675, 12M Cache 3.06 GHz, 6 Cores 12 Threads</td></tr><tr><td>内存</td><td>96GB</td></tr><tr><td>JDK</td><td>java version 1.8.0_91, Java HotSpot(TM) 64-Bit Server VM</td></tr></table>
 
@@ -528,8 +528,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/01/3/3_book/APhilosophyOfSoftwareDesign/ch10/" rel="next" title="软件设计的哲学">
-                <i class="fa fa-chevron-left"></i> 软件设计的哲学
+              <a href="/2019/07/01/3/1_technology/technology113/" rel="next" title="Lambda and Collections">
+                <i class="fa fa-chevron-left"></i> Lambda and Collections
               </a>
             
           </div>
@@ -538,8 +538,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/01/3/1_technology/technology117/" rel="prev" title="parallelStream 介绍">
-                parallelStream 介绍 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/01/3/1_technology/technology117/" rel="prev" title="ParallelStream 介绍">
+                ParallelStream 介绍 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -615,7 +615,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">189</span>
+                <span class="site-state-item-count">188</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
