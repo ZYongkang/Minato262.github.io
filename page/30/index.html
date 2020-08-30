@@ -315,154 +315,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/03-Objects-Everywhere/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kay wu">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="水门的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/03-Objects-Everywhere/" itemprop="url">第三章 万物皆对象</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T00:00:02+08:00">
-                2019-07-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  10.1k
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          第三章 万物皆对象
-如果我们说另外一种不同的语言，我们会发觉一个不同的世界！— Ludwig Wittgenstein (1889-1951)
-
-相比 C++ ，Java 是一种更纯粹的面向对象编程语言。虽然它们都是混合语言，但在 Java 中，设计者们认为混合的作用并非像在 C++ 中那般重要。混
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/03-Objects-Everywhere/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/04-Operators/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -761,6 +613,155 @@ Java 使用了 C 的所有执行控制语句，因此对于熟悉 C/C++ 编程�
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/07-Implementation-Hiding/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kay wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="水门的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/07-Implementation-Hiding/" itemprop="url">第七章 封装</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-01T00:00:02+08:00">
+                2019-07-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  10.2k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+第七章 封装
+访问控制（Access control）（或者隐藏实现（implementation hiding））与“最初的实现不恰当”有关。
+
+所有优秀的作者——包括那些编写软件的人——都知道一件好的作品都是经过反复打磨才变得优秀的。如果你把一段代码置于某个位置一段时间，过一会重新来看，你可能
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/07-Implementation-Hiding/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/08-Reuse/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -910,7 +911,7 @@ Java 使用了 C 的所有执行控制语句，因此对于熟悉 C/C++ 编程�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/07-Implementation-Hiding/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/3/3_book/OnJava8/10-Interfaces/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kay wu">
@@ -929,7 +930,7 @@ Java 使用了 C 的所有执行控制语句，因此对于熟悉 C/C++ 编程�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/07-Implementation-Hiding/" itemprop="url">第七章 封装</a></h1>
+                <a class="post-title-link" href="/2019/07/01/3/3_book/OnJava8/10-Interfaces/" itemprop="url">第十章 接口</a></h1>
         
 
         <div class="post-meta">
@@ -973,7 +974,7 @@ Java 使用了 C 的所有执行控制语句，因此对于熟悉 C/C++ 编程�
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  10.2k
+                  11k
                 </span>
               
 
@@ -1001,14 +1002,13 @@ Java 使用了 C 的所有执行控制语句，因此对于熟悉 C/C++ 编程�
         
           
           
-第七章 封装
-访问控制（Access control）（或者隐藏实现（implementation hiding））与“最初的实现不恰当”有关。
-
-所有优秀的作者——包括那些编写软件的人——都知道一件好的作品都是经过反复打磨才变得优秀的。如果你把一段代码置于某个位置一段时间，过一会重新来看，你可能
+第十章 接口接口和抽象类提供了一种将接口与实现分离的更加结构化的方法。
+这种机制在编程语言中不常见，例如 C++ 只对这种概念有间接的支持。而在 Java 中存在这些关键字，说明这些思想很重要，Java 为它们提供了直接支持。
+首先，我们将学习抽象类，一种介于普通类和接口之间的折中手段。尽管你的第
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/07-Implementation-Hiding/#more" rel="contents">
+            <a class="btn" href="/2019/07/01/3/3_book/OnJava8/10-Interfaces/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
